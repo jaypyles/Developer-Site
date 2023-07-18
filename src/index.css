@@ -10,6 +10,44 @@ code {
     monospace;
 }
 
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: beige;
+}
+
+.about.summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  gap: 0%;
+}
+
+.about.img {
+  width: 50%;
+  height: 100%;
+}
+
+.about img {
+  width: 50%;
+}
+
+.about.text {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about.text p {
+  width: 100%;
+  word-wrap: break-word; /* or use overflow-wrap: break-word; for better browser compatibility */
+}
+
 .title {
   display: flex;
   align-items: center;
@@ -19,6 +57,7 @@ code {
 
 .title h1 {
   font-weight: 700;
+  margin-bottom: 0px;
 }
 
 .work {
