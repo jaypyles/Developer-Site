@@ -14,24 +14,26 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: beige;
 }
 
 .about.summary {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 75%;
+  background: whitesmoke;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   gap: 0%;
 }
 
 .about.img {
   width: 50%;
-  height: 100%;
+  height: 40vw;
 }
 
 .about img {
-  width: 50%;
+  width: 75%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .about.text {
@@ -43,7 +45,12 @@ code {
   flex-direction: column;
 }
 
+.about.text h2 {
+  text-decoration: underline;
+}
+
 .about.text p {
+  font-size: 1.25vw;
   width: 100%;
   word-wrap: break-word; /* or use overflow-wrap: break-word; for better browser compatibility */
 }
@@ -53,6 +60,8 @@ code {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 2vw;
+  padding-top: 2vw;
 }
 
 .title h1 {
@@ -92,4 +101,10 @@ code {
   padding-left: 0px;
   margin-top: 0.1em;
   margin-left: 0%;
+}
+
+.italic.link {
+  text-decoration: none;
+  font-style: italic;
+  color: black;
 }
