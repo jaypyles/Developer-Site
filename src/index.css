@@ -1,5 +1,10 @@
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  height: 100%;
   font-family: "Helvetica" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,6 +15,42 @@ code {
     monospace;
 }
 
+@media (max-width: 548px) {
+  #root {
+    height: 95%;
+  }
+
+  .about {
+    height: 85% !important;
+    margin-bottom: 20% !important;
+  }
+
+  .about.summary {
+    flex-direction: column;
+    margin-bottom: 0 !important;
+    height: 100% !important;
+    width: 100%;
+  }
+
+  .about.text {
+    height: 100% !important;
+    width: 95% !important;
+    margin-bottom: 35% !important;
+  }
+
+  .about.img {
+    display: None;
+  }
+
+  .about h2 {
+    font-size: 150% !important;
+  }
+
+  .about p {
+    font-size: 120% !important;
+  }
+}
+
 .about {
   display: flex;
   align-items: center;
@@ -17,7 +58,7 @@ code {
 }
 
 .about.summary {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-evenly;
   width: 75%;
