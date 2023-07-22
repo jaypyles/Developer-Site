@@ -23,6 +23,7 @@ code {
   .about {
     height: 85% !important;
     margin-bottom: 20% !important;
+    overflow: auto;
   }
 
   .about.summary {
@@ -35,7 +36,7 @@ code {
   .about.text {
     height: 100% !important;
     width: 95% !important;
-    margin-bottom: 35% !important;
+    margin-bottom: 15% !important;
   }
 
   .about.img {
