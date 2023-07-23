@@ -22,6 +22,8 @@ code {
 
   .about {
     height: 85% !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
     margin-bottom: 20% !important;
     overflow: auto;
   }
@@ -29,11 +31,13 @@ code {
   .about.summary {
     flex-direction: column;
     margin-bottom: 0 !important;
-    height: 100% !important;
+    height: 80% !important;
     width: 100%;
   }
 
   .about.text {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
     height: 100% !important;
     width: 95% !important;
     margin-bottom: 15% !important;
@@ -44,6 +48,7 @@ code {
   }
 
   .about h2 {
+    padding-top: 5%;
     font-size: 150% !important;
   }
 
@@ -59,7 +64,7 @@ code {
 }
 
 .about.summary {
-  /* display: flex; */
+  display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 75%;
