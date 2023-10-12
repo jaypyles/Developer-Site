@@ -1,20 +1,26 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./Layout";
-import About from "./about/About";
-import Contact from "./contact/Contact";
+import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
-function App() {
+const PageComponent = () => {
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    fetch("WEBSITE.md")
+      .then((res) => res.text())
+      .then((text) => setContent(text));
+  }, []);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="post">
+      <ReactMarkdown children={content} />
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <div className="App">
+      <PageComponent />
+    </div>
   );
 }
-
-export default App;
