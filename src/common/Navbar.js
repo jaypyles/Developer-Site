@@ -17,7 +17,7 @@ export const Navbar = () => {
       <div className="nav-right">
         <Nav className="justify-content-end">
           <Nav.Item>
-            <Nav.Link>Setup</Nav.Link>
+            <Nav.Link href="/setup">Setup</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>Code Blog</Nav.Link>

@@ -42,7 +42,7 @@ const Homepage = () => {
             files. It allows the creation of multiple users and each user can
             have its own directory. It can be used as a standalone app.
           </small>
-          which is running on a Docker container and can be found at
+          which is running in a Docker container and can be found at
           <a href="https://files.jaydenpyles.dev">files.jaydenpyles.dev</a>.
         </p>
       </div>

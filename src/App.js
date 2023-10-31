@@ -10,8 +10,8 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          {/* <Route path="/code_blog" element={<CodeBlog />} /> */}
           <Route path="/setup" element={<Setup />} />
+          {/* <Route path="/code_blog" element={<CodeBlog />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
