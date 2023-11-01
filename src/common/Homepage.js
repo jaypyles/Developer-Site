@@ -43,7 +43,18 @@ const Homepage = () => {
             have its own directory. It can be used as a standalone app.
           </small>
           which is running in a Docker container and can be found at
-          <a href="https://files.jaydenpyles.dev">files.jaydenpyles.dev</a>.
+          <a href="https://files.jaydenpyles.dev">files.jaydenpyles.dev</a>. My
+          wiki hosted via Bookstack
+          <label for="wiki3">3</label>
+          <input type="checkbox" id="wiki3" />
+          <small>
+            <a href="https://github.com/BookStackApp/BookStack">Bookstack</a> is
+            a platform to create documentation/wiki content built with PHP &
+            Laravel.
+          </small>
+          can be found at
+          <a href="https://wiki.jaydenpyles.dev">wiki.jaydenpyles.dev</a>, which
+          includes documentation for various things, written by me.
         </p>
       </div>
     </div>
