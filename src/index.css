@@ -31,7 +31,7 @@ body {
   flex-direction: column;
   align-items: center; /* Center horizontally */
   justify-content: flex-start; /* Align to the bottom vertically */
-  height: 100vh; /* Make the div occupy the full viewport height */
+  height: 95vh; /* Make the div occupy the full viewport height */
   margin: 0; /* Reset default margin */
 }
 
@@ -40,6 +40,18 @@ body {
   justify-content: space-between;
   width: 80%;
   margin-bottom: 1em !important;
+
+  opacity: 0; /* Hidden by default */
+  animation: fade-in 0.5s ease-in-out forwards; /* Animation properties */
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* left bit of navbar */
@@ -69,7 +81,19 @@ body {
 
 .about {
   width: 100%;
+  opacity: 0; /* Hidden by default */
+  animation: fade-in 0.5s ease-in-out forwards; /* Animation properties */
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* basic tag styling */
 p {
   color: white;
@@ -122,4 +146,37 @@ label + input + small {
 input:checked + small {
   display: block;
   padding: 0.8em 0 1em 2.5vw;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  height: 5vh;
+  width: 100%;
+  background-color: #222;
+  /* border-top: 0.125vh solid #113fee; */
+}
+
+.footer a {
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .nav-item {
+  height: 3vh;
+
+  margin: 1vh 1vh 1vh 1vh;
+}
+
+.footer img {
+  display: inline-block;
+  height: 3vh;
+  width: 3vh;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import github from "../images/github.png";
 
 const Homepage = () => {
   return (
