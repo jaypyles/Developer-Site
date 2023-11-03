@@ -9,7 +9,7 @@ export const current_projects = [
     description:
       "Reworking a lot of services on my network. On my main server Optimus, Dockerize and finalize the main page of my site, and Dockerize and reconfigure my reverse proxy NGINX.",
 
-    link: "https://wiki.jaydenpyles.dev/rework",
+    link: "https://wiki.jaydenpyles.dev/books/my-homelab/page/thoughts-and-plans-about-reworking",
   },
   {
     image: rust,
@@ -30,6 +30,6 @@ export const future_projects = [
     image: media,
     description:
       "Self-host and research a system to watch stored media. Current possible candidates are Jellyfin and Plex. Will also need to research an open-source downloading software, and purchase a new server dedicated to storing media.",
-    link: "https://wiki.jaydenpyles.dev/stored_media",
+    link: "https://wiki.jaydenpyles.dev/books/my-homelab/page/research-for-open-source-media-software",
   },
 ];
