@@ -13,11 +13,19 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-}
-
-#root {
   background-color: #121212; /* Replace with your desired background color */
-  font-family: system-ui, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   line-height: 1.4;
   font-size: 18px;
   margin: 0; /* Optionally, remove default margin */
@@ -38,7 +46,7 @@ body {
 .nav {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
   margin-bottom: 1em !important;
 
   opacity: 0; /* Hidden by default */
@@ -73,10 +81,79 @@ body {
 
 .homepage {
   display: flex;
-  width: 80%;
+  flex-direction: column;
+  width: 100%;
   justify-content: flex-start; /* Align to the bottom vertically */
   height: 100vh; /* Make the div occupy the full viewport height */
   margin: 0; /* Reset default margin */
+}
+
+.future {
+  width: 50%;
+  margin-right: 2vh;
+  margin-left: 2vh;
+}
+
+.current {
+  width: 50%;
+  margin-right: 2vh;
+  margin-left: 2vh;
+}
+
+.working-on {
+  display: flex;
+  justify-content: space-evenly;
+  /* position: absolute; */
+  padding-top: 5vh;
+}
+
+.working-on h2 {
+  color: white;
+  text-decoration: underline;
+  text-align: center;
+  margin-bottom: 1vh;
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 5%;
+  background-color: purple;
+  /* width: 50%; */
+  aspect-ratio: 7.8/1;
+  font-size: 0.8vw;
+}
+
+.project .image {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  margin-right: 1vh;
+}
+
+.project img {
+  max-width: 10vh;
+  max-height: 10vh;
+}
+
+.project .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project .text .description p {
+  margin-bottom: 0;
+}
+
+.project .text .link {
+  width: max-content;
+}
+
+.project .text .link a {
+  color: rgb(13, 110, 253);
+  font-size: 75%;
+  margin-bottom: 0;
 }
 
 .about {

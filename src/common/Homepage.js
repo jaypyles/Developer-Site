@@ -1,5 +1,5 @@
 import React from "react";
-import github from "../images/github.png";
+import WorkingOn from "./WorkingOn";
 
 const Homepage = () => {
   return (
@@ -58,6 +58,7 @@ const Homepage = () => {
           includes documentation for various things, written by me.
         </p>
       </div>
+      <WorkingOn />
     </div>
   );
 };
