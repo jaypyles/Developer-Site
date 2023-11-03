@@ -1,43 +1,35 @@
-import myself from "../images/myself.png";
+import network from "../images/computer.png";
+import rust from "../images/crab.png";
+import server from "../images/server.png";
+import media from "../images/smart-tv.png";
+
 export const current_projects = [
   {
-    image: myself,
+    image: network,
     description:
-      "Reworking a lot of services on my network. On my main server `Optimus`, Dockerize and finalize the main page of my site, and Dockerize and reconfigure my reverse proxy NGINX.",
+      "Reworking a lot of services on my network. On my main server Optimus, Dockerize and finalize the main page of my site, and Dockerize and reconfigure my reverse proxy NGINX.",
 
     link: "https://wiki.jaydenpyles.dev/rework",
   },
   {
-    image: myself,
+    image: rust,
     description:
       "Research and build a small project in Rust, to familiarize myself with the language. I currently know the basics and that's about it. I'd like to develop a simple CLI tool to do some simple tasks.",
-    link: "https://github.com",
+    link: "https://github.com/jaypyles/RustLearningProject",
   },
   {
-    image: myself,
+    image: server,
     description:
-      "This is a test description so I can see if it loads a few dynamic project options.",
-    link: "https://github.com",
+      "Develop an API to deliver images from Optimus, to dynamically load images based on the data stored for sites on the server. Will be written in Python using the FastAPI library.",
+    link: "https://github.com/jaypyles/OptimusMediaServer",
   },
 ];
 
 export const future_projects = [
   {
-    image: myself,
+    image: media,
     description:
-      "Self-host and research a media system to watch stored movies and tv shows. Current possible candidates are Jellyfin and Plex.",
-    link: "https://github.com",
-  },
-  {
-    image: myself,
-    description:
-      "This is a test description so I can see if it loads a few dynamic project options.",
-    link: "https://github.com",
-  },
-  {
-    image: myself,
-    description:
-      "This is a test description so I can see if it loads a few dynamic project options.",
-    link: "https://github.com",
+      "Self-host and research a system to watch stored media. Current possible candidates are Jellyfin and Plex. Will also need to research an open-source downloading software, and purchase a new server dedicated to storing media.",
+    link: "https://wiki.jaydenpyles.dev/stored_media",
   },
 ];
