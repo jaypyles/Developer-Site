@@ -95,6 +95,17 @@ body {
   justify-content: space-evenly;
   /* position: absolute; */
   padding-top: 5vh;
+
+  animation: fade-in 0.5s ease-in-out forwards; /* Animation properties */
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .working-on h2 {
