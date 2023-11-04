@@ -3,5 +3,13 @@ services:
   frontend:
     build:
       context: ./
+    container_name: portfolio
     ports:
       - "3000:3000"
+    networks:
+      - webservice-network
+
+networks:
+  webservice-network:
+    external:
+      name: webservice-network
