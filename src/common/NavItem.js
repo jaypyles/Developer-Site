@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Nav from "react-bootstrap/Nav";
 
-const Project = ({ data }) => {
+const NavItem = ({ data }) => {
   const [image, setImage] = useState([]);
   const filename = data.image;
   const domain = process.env.REACT_APP_DOMAIN;
@@ -20,20 +21,12 @@ const Project = ({ data }) => {
   }, []);
 
   return (
-    <div className="project">
-      <div className="image">
-        <img src={image} />
-      </div>
-      <div className="text">
-        <div className="description">
-          <p>{data.description}</p>
-        </div>
-        <div className="link">
-          <a>{data.link}</a>
-        </div>
-      </div>
-    </div>
+    <Nav.Item>
+      <a href={data.link}>
+        <img src={image} alt={data.alt} title={data.title} />
+      </a>
+    </Nav.Item>
   );
 };
 
-export default Project;
+export default NavItem;

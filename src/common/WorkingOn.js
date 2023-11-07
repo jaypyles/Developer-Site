@@ -1,9 +1,8 @@
 import React from "react";
 import Project from "../components/Project";
-import { current_projects, future_projects } from "../components/Projects";
+import { current_projects, future_projects } from "../data/Projects";
 
 const WorkingOn = () => {
-  console.log(future_projects);
   return (
     <div className="working-on">
       <div className="current">
