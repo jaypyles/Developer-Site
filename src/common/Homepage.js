@@ -31,9 +31,10 @@ const Homepage = () => {
             balancer, mail proxy and HTTP cache.
           </small>
           on my own Debian 12 server. The server also hosts a few other things,
-          but those will get explained in the <a href="/setup">setup</a> page.
-          In terms of webserver applications, it also hosts my own cloud storage
-          with filebrowser
+          but those will get explained in the
+          <a href="https://wiki.jaydenpyles.dev/books/network-setup">setup</a>
+          page. In terms of webserver applications, it also hosts my own cloud
+          storage with filebrowser
           <label for="wiki2">2</label>
           <input type="checkbox" id="wiki2" />
           <small>
