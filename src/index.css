@@ -290,3 +290,141 @@ input:checked + small {
   height: 3vh;
   width: 3vh;
 }
+
+/* Social Modal */
+.modal-dialog.social {
+  color: white !important;
+}
+
+.modal-dialog.social .modal-header {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+.modal-dialog.social .modal-content {
+  background-color: #121212 !important;
+}
+
+.modal-dialog.social .modal-body {
+  justify-content: space-between !important;
+}
+
+.modal-dialog.social .modal-footer {
+  justify-content: flex-end !important;
+}
+
+.linkblock {
+  display: flex;
+  flex-direction: row;
+  border: solid rgb(13, 110, 253);
+  margin-bottom: 1vh;
+  padding: 0.25vw;
+}
+
+.linkblock .image {
+  padding: 0.25vw;
+  width: 4vh;
+  height: 4vh;
+}
+
+.linkblock .text {
+  flex: 1;
+}
+
+.linkblock .description {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.linkblock .description a {
+  margin-bottom: 0;
+  text-decoration: none;
+  color: white;
+}
+
+.modal-body .status {
+  display: flex;
+  flex-direction: row;
+  background: #212121;
+  padding: 0.5vw;
+  border-radius: 10px;
+}
+
+.spotify-container {
+  width: 50%;
+}
+
+.spotify-container p {
+  margin: 0;
+}
+
+.spotify-container .listening p {
+  text-align: center;
+  font-style: italic;
+}
+
+.spotify {
+  display: flex;
+  flex-direction: row;
+}
+
+.spotify .image {
+  display: flex;
+  width: 8vh;
+  height: 8vh;
+  aspect-ratio: 1/1;
+  justify-content: center;
+}
+
+.spotify .text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5vw;
+  justify-content: center;
+}
+
+.spotify p {
+  margin: 0;
+}
+
+.spotify .name {
+  font-size: 100%;
+}
+
+.spotify .artist {
+  color: #8b8686;
+  font-size: 80%;
+}
+
+.spotify .name {
+  font-weight: bold;
+}
+
+.discord {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+.discord .status {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0px !important;
+}
+
+.discord .title {
+  font-style: italic;
+}
+
+.discord .content {
+  display: flex;
+  flex-direction: row;
+}
+
+.discord .content .user {
+  margin-left: 0.5vw;
+}

@@ -1,7 +1,14 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
+import Social from "./Social";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="nav">
       <div className="nav-left">
@@ -19,8 +26,12 @@ export const Navbar = () => {
           <Nav.Item>
             <Nav.Link href="https://wiki.jaydenpyles.dev">Wiki</Nav.Link>
           </Nav.Item>
+          <Nav.Item>
+            <Nav.Link onClick={handleShow}>Other Links</Nav.Link>
+          </Nav.Item>
         </Nav>
       </div>
+      <Social show={show} handleClose={handleClose} />
     </div>
   );
 };
