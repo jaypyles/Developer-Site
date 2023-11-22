@@ -350,10 +350,15 @@ input:checked + small {
   background: #212121;
   padding: 0.5vw;
   border-radius: 10px;
+  height: 10vh;
 }
 
 .spotify-container {
+  display: flex;
+  flex-direction: column;
   width: 50%;
+  height: 100%;
+  justify-content: center;
 }
 
 .spotify-container p {
@@ -361,19 +366,18 @@ input:checked + small {
 }
 
 .spotify-container .listening p {
-  text-align: center;
   font-style: italic;
+  margin-bottom: 3%;
 }
 
 .spotify {
   display: flex;
   flex-direction: row;
+  height: 50%;
 }
 
 .spotify .image {
   display: flex;
-  width: 8vh;
-  height: 8vh;
   aspect-ratio: 1/1;
   justify-content: center;
 }
@@ -383,14 +387,12 @@ input:checked + small {
   flex-direction: column;
   margin-left: 0.5vw;
   justify-content: center;
+  overflow: clip;
+  white-space: nowrap;
 }
 
 .spotify p {
   margin: 0;
-}
-
-.spotify .name {
-  font-size: 100%;
 }
 
 .spotify .artist {
@@ -400,24 +402,28 @@ input:checked + small {
 
 .spotify .name {
   font-weight: bold;
+  text-overflow: ellipsis;
 }
 
 .discord {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 50%;
 }
 
-.discord .status {
+.discord-status {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   width: 100%;
   padding: 0px !important;
 }
 
-.discord .title {
+.discord .title p {
   font-style: italic;
+  margin-bottom: 5%;
 }
 
 .discord .content {
@@ -427,4 +433,7 @@ input:checked + small {
 
 .discord .content .user {
   margin-left: 0.5vw;
+}
+.discord .avatar {
+  height: 100%;
 }

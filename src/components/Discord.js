@@ -21,7 +21,7 @@ const Discord = () => {
   return (
     <div className="discord">
       {!loading && data && (
-        <div className="status">
+        <div className="discord-status">
           <div className="title">
             <p>Discord Status</p>
           </div>

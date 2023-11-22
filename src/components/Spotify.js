@@ -62,12 +62,15 @@ const Spotify = () => {
     <div className="spotify-container">
       {!isListening ? (
         <>
+          <div className="listening">
+            <p>Now Listening To On Spotify:</p>
+          </div>
           <div className="spotify">
             <div className="image">
               <img src={spotify} alt="Album cover" />
             </div>
             <div className="text">
-              <p className="name">Not Listening Currently</p>
+              <p className="name">Not Listening</p>
             </div>
           </div>
         </>
