@@ -6,13 +6,16 @@
   .about {
     font-size: 1.75vw !important;
   }
+
   .working-on {
     flex-direction: column;
     align-items: center;
   }
+
   .project {
     font-size: 1.75vw !important;
   }
+
   .current {
     width: 100% !important;
   }
@@ -34,7 +37,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #121212; /* Replace with your desired background color */
+  background-color: #121212;
+  /* Replace with your desired background color */
   font-family:
     system-ui,
     -apple-system,
@@ -49,8 +53,10 @@ body {
     sans-serif;
   line-height: 1.4;
   font-size: 18px;
-  margin: 0; /* Optionally, remove default margin */
-  padding: 0; /* Optionally, remove default padding */
+  margin: 0;
+  /* Optionally, remove default margin */
+  padding: 0;
+  /* Optionally, remove default padding */
   overflow: auto;
 }
 
@@ -58,10 +64,14 @@ body {
   padding: calc(2em + 5vw) 10vw 8vw 10vw;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: flex-start; /* Align to the bottom vertically */
-  height: 95vh; /* Make the div occupy the full viewport height */
-  margin: 0; /* Reset default margin */
+  align-items: center;
+  /* Center horizontally */
+  justify-content: flex-start;
+  /* Align to the bottom vertically */
+  height: 95vh;
+  /* Make the div occupy the full viewport height */
+  margin: 0;
+  /* Reset default margin */
   overflow: auto;
 }
 
@@ -71,14 +81,17 @@ body {
   width: 100%;
   margin-bottom: 1em !important;
 
-  opacity: 0; /* Hidden by default */
-  animation: fade-in 0.5s ease-in-out forwards; /* Animation properties */
+  opacity: 0;
+  /* Hidden by default */
+  animation: fade-in 0.5s ease-in-out forwards;
+  /* Animation properties */
 }
 
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -88,10 +101,12 @@ body {
 .nav-left {
   width: 60%;
 }
+
 .name {
   padding-left: 0 !important;
   font-weight: bold !important;
 }
+
 /* end left bit of navbar */
 
 /* right bit of navbar */
@@ -105,9 +120,12 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: flex-start; /* Align to the bottom vertically */
-  height: 100vh; /* Make the div occupy the full viewport height */
-  margin: 0; /* Reset default margin */
+  justify-content: flex-start;
+  /* Align to the bottom vertically */
+  height: 100vh;
+  /* Make the div occupy the full viewport height */
+  margin: 0;
+  /* Reset default margin */
 }
 
 .future {
@@ -127,7 +145,8 @@ body {
   justify-content: space-evenly;
   /* position: absolute; */
   padding-top: 5vh;
-  animation: fade-in 0.5s ease-in-out forwards; /* Animation properties */
+  animation: fade-in 0.5s ease-in-out forwards;
+  /* Animation properties */
   margin-bottom: 5vh;
 }
 
@@ -135,6 +154,7 @@ body {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -191,14 +211,17 @@ body {
 
 .about {
   width: 100%;
-  opacity: 0; /* Hidden by default */
-  animation: fade-in 0.5s ease-in-out forwards; /* Animation properties */
+  opacity: 0;
+  /* Hidden by default */
+  animation: fade-in 0.5s ease-in-out forwards;
+  /* Animation properties */
 }
 
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -220,7 +243,8 @@ h1 {
 }
 
 .homepage a:after {
-  content: "\2197"; /* top right arrow: ↗ */
+  content: "\2197";
+  /* top right arrow: ↗ */
 }
 
 .head {
@@ -244,6 +268,7 @@ label:hover {
 label:before {
   content: "[";
 }
+
 label:after {
   content: "]";
 }
@@ -338,6 +363,7 @@ input:checked + small {
   justify-content: center;
   text-align: center;
 }
+
 .linkblock .description a {
   margin-bottom: 0;
   text-decoration: none;
@@ -351,6 +377,7 @@ input:checked + small {
   padding: 0.5vw;
   border-radius: 10px;
   height: 10vh;
+  font-size: 1.3vh;
 }
 
 .spotify-container {
@@ -359,10 +386,16 @@ input:checked + small {
   width: 50%;
   height: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 .spotify-container p {
   margin: 0;
+}
+
+.spotify-container .listening {
+  display: flex;
+  align-items: center;
 }
 
 .spotify-container .listening p {
@@ -373,11 +406,15 @@ input:checked + small {
 .spotify {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   height: 50%;
+  width: 100%;
 }
 
 .spotify .image {
   display: flex;
+  height: 100%;
   aspect-ratio: 1/1;
   justify-content: center;
 }
@@ -385,7 +422,7 @@ input:checked + small {
 .spotify .text {
   display: flex;
   flex-direction: column;
-  margin-left: 0.5vw;
+  margin-left: 0.75vh;
   justify-content: center;
   overflow: clip;
   white-space: nowrap;
@@ -429,11 +466,14 @@ input:checked + small {
 .discord .content {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  height: 50%;
 }
 
 .discord .content .user {
-  margin-left: 0.5vw;
+  margin-left: 1vh;
 }
-.discord .avatar {
-  height: 100%;
+
+.discord .content .user h6 {
+  font-size: 2vh;
 }
