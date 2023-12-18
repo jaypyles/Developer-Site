@@ -1,5 +1,5 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { textDecoration } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
 import spotify from "../images/spotify.png";
 
 const Spotify = () => {
@@ -86,7 +86,14 @@ const Spotify = () => {
               <img src={spotifyData.albumCover} alt="Album cover" />
             </div>
             <div className="text">
-              <p className="name">{spotifyData.songName}</p>
+              <a
+                style={{ textDecoration: "none" }}
+                href={spotifyData.songURL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="name songName">{spotifyData.songName}</p>
+              </a>
               <p className="artist">{spotifyData.artistName}</p>
             </div>
           </div>
