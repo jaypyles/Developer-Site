@@ -1,5 +1,6 @@
 import React from "react";
 import WorkingOn from "./WorkingOn";
+import Github from "../components/Github";
 
 const Homepage = () => {
   return (
@@ -56,10 +57,10 @@ const Homepage = () => {
           </small>
           can be found at
           <a href="https://wiki.jaydenpyles.dev">wiki.jaydenpyles.dev</a>, which
-          includes documentation for various things, written by me. 
-          <br/>
-          <br/>
-          Most recent project: <a href="https://github.com/jaypyles/axdd">https://github.com/jaypyles/axdd</a>
+          includes documentation for various things, written by me.
+          {/* <br /> */}
+          {/* <br /> */}
+          {/* <Github /> */}
         </p>
       </div>
       <WorkingOn />
