@@ -12,6 +12,10 @@
     align-items: center;
   }
 
+  .github {
+    font-size: 1.75vw !important;
+  }
+
   .project {
     font-size: 1.75vw !important;
   }
