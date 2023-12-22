@@ -6,4 +6,11 @@ export const routes = [
     to: "https://open.spotify.com/user/zg87g0budllwbavqot3coorvj?si=544a9709e5b34a0d",
   },
   { path: "/discord", to: "https://discordapp.com/users/414866895943237652" },
+  { path: "/github", to: "https://github.com/jaypyles" },
+  {
+    path: "/linkedin",
+    to: "https://www.linkedin.com/in/jayden-pyles-2a5358253",
+  },
+  { path: "/telegram", to: "https://t.me/jpyles524" },
+  { path: "/email", to: "mailto:jaydenpyles0524@gmail.com" },
 ];

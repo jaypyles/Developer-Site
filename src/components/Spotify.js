@@ -63,7 +63,7 @@ const Spotify = () => {
         <>
           <div className="listening">
             <div className="text">
-              <p>Now Listening To On Spotify:</p>
+              <p>Listening On Spotify:</p>
             </div>
           </div>
           <div className="spotify">
@@ -78,7 +78,7 @@ const Spotify = () => {
       ) : (
         <>
           <div className="listening">
-            <p>Now Listening To On Spotify:</p>
+            <p>Listening On Spotify:</p>
           </div>
           <div className="spotify">
             <div className="image">

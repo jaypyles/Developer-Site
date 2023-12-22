@@ -4,6 +4,8 @@ services:
     build:
       context: ./
     container_name: portfolio
+    environment:
+      - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     ports:
       - "3000:3000"
     networks:

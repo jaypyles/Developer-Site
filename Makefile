@@ -1,11 +1,15 @@
+export DOPPLER_TOKEN=$(shell doppler configs tokens create dev --plain --max-age=900s)
+
+reup: destroy build up
+
+build:
+	doppler run -- docker-compose build --no-cache
+
 up:
-	docker-compose build
-	docker-compose up -d
+	doppler run -- docker-compose up -d
 
-reup:
-	docker stop portfolio
-	docker rm portfolio
-	docker-compose build
-	docker-compose up -d
+destroy:
+	doppler run -- docker stop portfolio
+	doppler run -- docker rm portfolio
 
-.PHONY: reup, up
+.PHONY: reup build up destroy
