@@ -9,7 +9,9 @@ const Homepage = () => {
         <h1>Software Developer, IT Hobbyist, Student</h1>
         <p>
           Hello! My name is Jayden Pyles and I am currently a Software Developer
-          and student at the University of Alabama at Birmingham. I work in the
+          and student at the University of Alabama at Birmingham. I primarily
+          work in Backend and DevOps, but am trying to gain some more Frontend
+          skills. I work in the
           <a href="https://www.uab.edu/reporter/know-more/teaching-learning/item/8933-students-are-shutting-down-the-worst-of-the-web-in-this-uab-lab">
             UAB Computer Forensics Research Lab (CFRL)
           </a>
