@@ -13,7 +13,9 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY public /app/public
+COPY src /app/src
+COPY tailwind.config.js /app/tailwind.config.js
 
 RUN npm run build
 
