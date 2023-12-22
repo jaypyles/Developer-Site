@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import { Grid, Avatar, Badge, Typography } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
 import StyledBadge from "./StyledBadge";
 
 const Discord = () => {
@@ -38,10 +37,10 @@ const Discord = () => {
                   data.discord_status === "online"
                     ? "success"
                     : data.discord_status === "dnd"
-                    ? "error"
-                    : data.discord_status === "idle"
-                    ? "warning"
-                    : "default"
+                      ? "error"
+                      : data.discord_status === "idle"
+                        ? "warning"
+                        : "default"
                 }
               >
                 <Avatar
