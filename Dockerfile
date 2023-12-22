@@ -19,4 +19,4 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD ["doppler", "run", "--" "npm", "run", "start"]
+CMD ["doppler", "run", "--", "npm", "run", "start"]
