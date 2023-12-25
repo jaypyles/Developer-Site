@@ -27,7 +27,7 @@ export const Navbar = () => {
             <Nav.Link href="https://wiki.jaydenpyles.dev">Wiki</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link onClick={handleShow}>Other Links</Nav.Link>
+            <Nav.Link onClick={handleShow}>Socials</Nav.Link>
           </Nav.Item>
         </Nav>
       </div>

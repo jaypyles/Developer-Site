@@ -37,14 +37,14 @@ const Discord = () => {
                   data.discord_status === "online"
                     ? "success"
                     : data.discord_status === "dnd"
-                      ? "error"
-                      : data.discord_status === "idle"
-                        ? "warning"
-                        : "default"
+                    ? "error"
+                    : data.discord_status === "idle"
+                    ? "warning"
+                    : "default"
                 }
               >
                 <Avatar
-                  sx={{ height: "4.5vh", width: "4.5vh" }}
+                  sx={{ height: "100%", width: "100%" }}
                   src={`https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png`}
                 />
               </StyledBadge>

@@ -101,6 +101,10 @@ body {
   }
 }
 
+.nav a {
+  color: rgb(35, 20, 253) !important;
+}
+
 /* left bit of navbar */
 .nav-left {
   width: 60%;
@@ -130,6 +134,10 @@ body {
   /* Make the div occupy the full viewport height */
   margin: 0;
   /* Reset default margin */
+}
+
+.homepage a {
+  color: rgb(35, 20, 253) !important;
 }
 
 .future {
@@ -348,6 +356,8 @@ input:checked+small {
   border: solid rgb(13, 110, 253);
   margin-bottom: 1vh;
   padding: 0.25vw;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .linkblock .image {
@@ -467,6 +477,7 @@ input:checked+small {
 
 .discord-status .avatar {
   height: 100%;
+  aspect-ratio: 1/1;
 }
 
 .discord .title p {
@@ -478,13 +489,21 @@ input:checked+small {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   height: 50%;
 }
 
 .discord .content .user {
   margin-left: 1vh;
+  text-align: center;
 }
 
 .discord .content .user h6 {
   font-size: 2vh;
+}
+
+.MuiBadge-root {
+  /* discord avatar */
+  height: 100% !important;
+  aspect-ratio: 1/1 !important;
 }
