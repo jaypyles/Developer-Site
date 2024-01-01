@@ -102,6 +102,7 @@ body {
 }
 
 .nav a {
+  font-size: 1.75vh;
   color: rgb(35, 20, 253) !important;
 }
 
@@ -184,26 +185,52 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   margin-bottom: 5%;
-  aspect-ratio: 7.8/1;
   font-size: 0.85vw;
+  background: rgb(54, 59, 61);
+  padding: 1vh;
+  border-radius: 2vh;
+}
+
+.project p {
+  margin-bottom: 0;
+}
+
+.project .info {
+  display: flex;
+  padding-top: 1vh;
+  justify-content: space-between;
+}
+
+.project .category {
+  font-style: italic;
+  background: rgb(40, 113, 250, 0.4);
+  border-radius: 1vh;
+  padding: 0.5vh;
 }
 
 .project .image {
   display: flex;
-  width: 6em;
+  width: 3em;
   aspect-ratio: 1 / 1;
   margin-right: 0.5em;
+  align-items: center;
 }
 
 .project img {
-  max-width: 6em;
-  max-height: 6em;
+  max-width: 3em;
+  max-height: 3em;
 }
 
 .project .text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+}
+
+.project .text .title p {
+  font-size: 2.3vh;
+  font-family: monospace;
 }
 
 .project .text .description p {
@@ -212,6 +239,8 @@ body {
 
 .project .text .link {
   width: max-content;
+
+  padding: 0.3vh;
 }
 
 .project .text .link a {
@@ -223,6 +252,7 @@ body {
 
 .about {
   width: 100%;
+  font-size: 1.75vh;
   opacity: 0;
   /* Hidden by default */
   animation: fade-in 0.5s ease-in-out forwards;
@@ -254,7 +284,7 @@ h1 {
   margin-right: 2.5px;
 }
 
-.homepage a:after {
+.homepage a:not(:empty):after {
   content: "\2197";
   /* top right arrow: ↗ */
 }
@@ -285,12 +315,12 @@ label:after {
   content: "]";
 }
 
-label+input,
-label+input+small {
+label + input,
+label + input + small {
   display: none;
 }
 
-input:checked+small {
+input:checked + small {
   display: block;
   padding: 0.8em 0 1em 2.5vw;
 }

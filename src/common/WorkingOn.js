@@ -1,26 +1,25 @@
 import React from "react";
 import Project from "../components/Project";
-import { current_projects, future_projects } from "../data/Projects";
 import Github from "../components/Github";
+
+const ProjectTypes = {
+  BACKLOG: "backlog",
+  DEV: "dev",
+};
 
 const WorkingOn = () => {
   return (
     <div className="working-on">
       <div className="current">
-        <h2>Current Projects</h2>
+        <h2>Ready for Development</h2>
         <div className="github">
           <Github />
         </div>
-        {/* <br /> */}
-        {current_projects.map((data, index) => (
-          <Project key={index} data={data} />
-        ))}
+        <Project projectType={ProjectTypes.BACKLOG} />
       </div>
       <div className="future">
-        <h2>Future Projects</h2>
-        {future_projects.map((data, index) => (
-          <Project key={index} data={data} />
-        ))}
+        <h2>In Development</h2>
+        <Project projectType={ProjectTypes.DEV} />
       </div>
     </div>
   );
