@@ -1,6 +1,5 @@
 import React from "react";
 import WorkingOn from "./WorkingOn";
-import BookstackRecent from "../components/BookstackRecent";
 
 const Homepage = () => {
   return (
@@ -61,9 +60,6 @@ const Homepage = () => {
           can be found at
           <a href="https://wiki.jaydenpyles.dev">wiki.jaydenpyles.dev</a>, which
           includes documentation for various things, written by me.
-          <br />
-          <br />
-          <BookstackRecent />
         </p>
       </div>
       <WorkingOn />

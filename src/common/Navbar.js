@@ -1,13 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "react-bootstrap/Nav";
 import Social from "./Social";
-import { useState } from "react";
+import Tooltip from "@mui/material/Tooltip";
+import Constants from "../constants";
 
 export const Navbar = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [pageURL, setPageURL] = useState("");
+  const url = `${Constants.DOMAIN}/api/bookstack/recent-page`;
+  const [githubURL, setGithubURL] = useState("");
+  const domain = process.env.REACT_APP_DOMAIN;
+  const ghURL = `${domain}/api/github/recent`;
+
+  const fetchBookstack = async () => {
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        setPageURL(JSON.parse(data));
+      } else {
+        console.error("Failed to fetch from API: ", res.status);
+      }
+    } catch (error) {
+      console.error("Failed to fetch from API: ", error);
+    }
+  };
+
+  const fetchGithub = async () => {
+    try {
+      const res = await fetch(ghURL);
+      if (res.ok) {
+        const data = await res.json();
+        setGithubURL(JSON.parse(data));
+      } else {
+        console.error("Failed to fetch Github data:", res.status);
+      }
+    } catch (error) {
+      console.error("Failed to fetch Github data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchGithub();
+  }, []);
+
+  useEffect(() => {
+    fetchBookstack();
+  }, []);
 
   return (
     <div className="nav">
@@ -23,12 +66,21 @@ export const Navbar = () => {
 
       <div className="nav-right">
         <Nav className="justify-content-end">
-          <Nav.Item>
-            <Nav.Link href="https://wiki.jaydenpyles.dev">Wiki</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link onClick={handleShow}>Socials</Nav.Link>
-          </Nav.Item>
+          <Tooltip title="Visit my most recent note!" placement="top" arrow>
+            <Nav.Item>
+              <Nav.Link href={pageURL.url}>Wiki</Nav.Link>
+            </Nav.Item>
+          </Tooltip>
+          <Tooltip title="Visit my most recent project!" placement="top" arrow>
+            <Nav.Item>
+              <Nav.Link href={githubURL.url}>Github</Nav.Link>
+            </Nav.Item>
+          </Tooltip>
+          <Tooltip title="See my socials!" placement="top" arrow>
+            <Nav.Item>
+              <Nav.Link onClick={handleShow}>Socials</Nav.Link>
+            </Nav.Item>
+          </Tooltip>
         </Nav>
       </div>
       <Social show={show} handleClose={handleClose} />

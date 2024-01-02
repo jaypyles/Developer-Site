@@ -5,7 +5,7 @@ import { footer_links } from "../data/Footer";
 
 const Footer = () => {
   return (
-    <div className="footer shadow-2xl shadow-blue-500">
+    <div className="footer shadow-2xl shadow-accent">
       <Nav className="footer">
         {footer_links.map((data, index) => (
           <NavItem key={index} data={data} />

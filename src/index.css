@@ -62,6 +62,8 @@ body {
   padding: 0;
   /* Optionally, remove default padding */
   overflow: auto;
+  --accent: #034efc;
+  --accent-rgb: rgb(3, 78, 252);
 }
 
 .main {
@@ -103,7 +105,7 @@ body {
 
 .nav a {
   font-size: 1.75vh;
-  color: rgb(35, 20, 253) !important;
+  color: var(--accent) !important;
 }
 
 /* left bit of navbar */
@@ -138,7 +140,7 @@ body {
 }
 
 .homepage a {
-  color: rgb(35, 20, 253) !important;
+  color: var(--accent) !important;
 }
 
 .future {
@@ -244,10 +246,14 @@ body {
 }
 
 .project .text .link a {
-  color: rgb(13, 110, 253);
+  color: white !important;
   font-size: 75%;
   margin-bottom: 0;
   margin-left: 0;
+}
+
+.project .text .link a:hover {
+  color: var(--accent) !important;
 }
 
 .about {
@@ -315,12 +321,12 @@ label:after {
   content: "]";
 }
 
-label + input,
-label + input + small {
+label+input,
+label+input+small {
   display: none;
 }
 
-input:checked + small {
+input:checked+small {
   display: block;
   padding: 0.8em 0 1em 2.5vw;
 }
