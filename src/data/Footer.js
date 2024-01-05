@@ -23,4 +23,10 @@ export const footer_links = [
     alt: "Email",
     title: "Email",
   },
+  {
+    image: "code.png",
+    link: "/source-code",
+    alt: "Source Code",
+    title: "Source Code",
+  },
 ];

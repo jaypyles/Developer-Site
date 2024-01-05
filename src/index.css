@@ -321,12 +321,12 @@ label:after {
   content: "]";
 }
 
-label+input,
-label+input+small {
+label + input,
+label + input + small {
   display: none;
 }
 
-input:checked+small {
+input:checked + small {
   display: block;
   padding: 0.8em 0 1em 2.5vw;
 }
@@ -339,7 +339,6 @@ input:checked+small {
   height: 5vh;
   width: 100%;
   background-color: #222;
-  /* border-top: 0.125vh solid #113fee; */
 }
 
 .footer a {
@@ -354,7 +353,6 @@ input:checked+small {
 
 .footer .nav-item {
   height: 3vh;
-
   margin: 1vh 1vh 1vh 1vh;
 }
 
