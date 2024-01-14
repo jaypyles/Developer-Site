@@ -321,12 +321,12 @@ label:after {
   content: "]";
 }
 
-label + input,
-label + input + small {
+label+input,
+label+input+small {
   display: none;
 }
 
-input:checked + small {
+input:checked+small {
   display: block;
   padding: 0.8em 0 1em 2.5vw;
 }
@@ -402,6 +402,7 @@ input:checked + small {
 
 .linkblock .text {
   flex: 1;
+  margin-right: 4vh;
 }
 
 .linkblock .description {
