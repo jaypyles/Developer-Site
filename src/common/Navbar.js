@@ -71,11 +71,19 @@ export const Navbar = () => {
               <Nav.Link href={pageURL.url}>Wiki</Nav.Link>
             </Nav.Item>
           </Tooltip>
-          <Tooltip title="Visit my most recent project!" placement="top" arrow>
-            <Nav.Item>
-              <Nav.Link href={githubURL.url}>Github</Nav.Link>
-            </Nav.Item>
-          </Tooltip>
+          {githubURL ? (
+            <Tooltip
+              title="Visit my most recent project!"
+              placement="top"
+              arrow
+            >
+              <Nav.Item>
+                <Nav.Link href={githubURL.url}>Github</Nav.Link>
+              </Nav.Item>
+            </Tooltip>
+          ) : (
+            <></>
+          )}
           <Tooltip title="See my socials!" placement="top" arrow>
             <Nav.Item>
               <Nav.Link onClick={handleShow}>Socials</Nav.Link>
