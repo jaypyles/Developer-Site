@@ -26,7 +26,7 @@ const Project = ({ projectType }) => {
 
   const ProjectComp = ({ data }) => {
     return (
-      <div className="project">
+      <div className="project bg-testAccent">
         <div className="text">
           <div className="title">
             <p>{data.title}</p>

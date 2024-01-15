@@ -26,7 +26,7 @@ export const Navbar = () => {
         console.error("Failed to fetch from API: ", res.status);
       }
     } catch (error) {
-      console.error("Failed to fetch from API: ", error);
+      console.error("Failed to fetch from API  : ", error);
     }
   };
 
@@ -53,7 +53,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="nav">
+    <div className="nav bg-backgroundAccent  p-3 mb-2">
       <div className="nav-left">
         <Nav className="justify-content-start">
           <Nav.Item>

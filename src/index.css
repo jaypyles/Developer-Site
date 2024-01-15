@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .heading {
+    @apply text-2xl text-white pl-3;
+  }
+}
+
 @media screen and (max-width: 1350px) {
   .about {
     font-size: 1.75vw !important;
@@ -83,10 +89,9 @@ body {
 
 .nav {
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  margin-bottom: 1em !important;
-
+  justify-content: space-between;
+  /* margin-bottom: 1em !important; */
   opacity: 0;
   /* Hidden by default */
   animation: fade-in 0.5s ease-in-out forwards;
@@ -114,7 +119,6 @@ body {
 }
 
 .name {
-  padding-left: 0 !important;
   font-weight: bold !important;
 }
 
@@ -133,7 +137,6 @@ body {
   width: 100%;
   justify-content: flex-start;
   /* Align to the bottom vertically */
-  height: 100vh;
   /* Make the div occupy the full viewport height */
   margin: 0;
   /* Reset default margin */
@@ -159,10 +162,10 @@ body {
   display: flex;
   justify-content: space-evenly;
   /* position: absolute; */
-  padding-top: 5vh;
+  padding-top: 2.5vh;
   animation: fade-in 0.5s ease-in-out forwards;
   /* Animation properties */
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
 }
 
 @keyframes fade-in {
@@ -188,7 +191,6 @@ body {
   justify-content: flex-start;
   margin-bottom: 5%;
   font-size: 0.85vw;
-  background: rgb(54, 59, 61);
   padding: 1vh;
   border-radius: 2vh;
 }

@@ -37,10 +37,10 @@ const Discord = () => {
                   data.discord_status === "online"
                     ? "success"
                     : data.discord_status === "dnd"
-                    ? "error"
-                    : data.discord_status === "idle"
-                    ? "warning"
-                    : "default"
+                      ? "error"
+                      : data.discord_status === "idle"
+                        ? "warning"
+                        : "default"
                 }
               >
                 <Avatar
