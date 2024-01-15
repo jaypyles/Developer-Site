@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  a {
+    @apply text-accent;
+  }
+
   .heading {
     @apply text-2xl text-white pl-3;
   }
@@ -143,7 +147,7 @@ body {
 }
 
 .homepage a {
-  color: var(--accent) !important;
+  /* color: var(--accent) !important; */
 }
 
 .future {

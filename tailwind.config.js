@@ -16,7 +16,7 @@ module.exports = {
         "3xl": "0 35px 35px rgba(0, 0, 0, 0.25)",
       },
       colors: {
-        accent: "#034efc",
+        accent: "#3559E0",
         backgroundAccent: "#222222",
         testAccent: "#3D3B40",
       },

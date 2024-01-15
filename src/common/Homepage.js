@@ -79,19 +79,21 @@ const Homepage = () => {
         </div>
       </div>
       <div className="dropdown flex flex-row bg-testAccent rounded-md">
-        <h2 className="heading">Kanban Board</h2>
-        <Button
-          className="!p-0"
-          variant="link"
-          onClick={() => setOpen(!open)}
-          aria-controls="working-on"
-          aria-expanded={open}
-        >
-          <ArrowDropDown
-            className="text-accent hover:text-blue-700"
-            sx={{ fontSize: "3.5vh" }}
-          ></ArrowDropDown>
-        </Button>
+        <div className="flex flex-row items-center">
+          <h2 className="heading">Kanban Board</h2>
+          <Button
+            className="!p-0"
+            variant="link"
+            onClick={() => setOpen(!open)}
+            aria-controls="working-on"
+            aria-expanded={open}
+          >
+            <ArrowDropDown
+              className="text-accent hover:text-blue-700"
+              sx={{ fontSize: "3.5vh" }}
+            ></ArrowDropDown>
+          </Button>
+        </div>
       </div>
       <Collapse in={open}>
         <div id="working-on">
