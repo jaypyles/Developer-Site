@@ -2,8 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Avatar, Typography } from "@mui/material";
 import StyledBadge from "./StyledBadge";
 
-const Discord = () => {
-  const [data, setData] = useState(null);
+interface Data {
+  discord_status: string;
+  discord_user: {
+    id: string;
+    avatar: string;
+    username: string;
+  };
+}
+
+const Discord: React.FC = () => {
+  const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
   const domain = process.env.REACT_APP_DOMAIN;
   const url = `${domain}/api/discord/status`;

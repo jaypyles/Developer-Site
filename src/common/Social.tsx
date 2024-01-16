@@ -6,7 +6,12 @@ import Spotify from "../components/Spotify";
 import { socials } from "../data/Socials";
 import Discord from "../components/Discord";
 
-const Social = ({ show, handleClose }) => {
+interface SocialProps {
+  show: boolean;
+  handleClose: () => void;
+}
+
+const Social: React.FC<SocialProps> = ({ show, handleClose }) => {
   return (
     <div className="social">
       <Modal dialogClassName="social" show={show} onHide={handleClose}>

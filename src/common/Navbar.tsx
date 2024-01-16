@@ -4,15 +4,19 @@ import Social from "./Social";
 import Tooltip from "@mui/material/Tooltip";
 import Constants from "../constants";
 
+interface URL {
+  url: string;
+}
+
 export const Navbar = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [pageURL, setPageURL] = useState("");
+  const [pageURL, setPageURL] = useState<URL | null>(null);
   const url = `${Constants.DOMAIN}/api/bookstack/recent-page`;
-  const [githubURL, setGithubURL] = useState("");
+  const [githubURL, setGithubURL] = useState<URL | null>(null);
   const domain = process.env.REACT_APP_DOMAIN;
   const ghURL = `${domain}/api/github/recent`;
 
@@ -68,7 +72,7 @@ export const Navbar = () => {
         <Nav className="justify-content-end">
           <Tooltip title="Visit my most recent note!" placement="top" arrow>
             <Nav.Item>
-              <Nav.Link href={pageURL.url}>Wiki</Nav.Link>
+              <Nav.Link href={pageURL?.url}>Wiki</Nav.Link>
             </Nav.Item>
           </Tooltip>
           {githubURL ? (

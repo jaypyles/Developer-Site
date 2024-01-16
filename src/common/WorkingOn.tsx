@@ -1,10 +1,6 @@
 import React from "react";
 import Project from "../components/Project";
-
-const ProjectTypes = {
-  BACKLOG: "backlog",
-  DEV: "dev",
-};
+import ProjectTypes from "./ProjectTypes";
 
 const WorkingOn = () => {
   return (
@@ -31,4 +27,5 @@ const WorkingOn = () => {
   );
 };
 
+export { ProjectTypes };
 export default WorkingOn;

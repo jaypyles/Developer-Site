@@ -3,8 +3,13 @@ import Homepage from "./common/Homepage";
 import { Navbar } from "./common/Navbar";
 import Footer from "./common/Footer";
 import { routes } from "./data/Routes";
+import React from "react";
 
-const RedirectToExternal = ({ location }) => {
+interface RedirectProps {
+  location: string;
+}
+
+const RedirectToExternal: React.FC<RedirectProps> = ({ location }) => {
   window.location.href = location;
   return null;
 };

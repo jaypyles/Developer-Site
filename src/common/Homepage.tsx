@@ -36,7 +36,7 @@ const Homepage = () => {
             This site is built using React.js, TailwindCSS, Python (backend
             API), and is currently being hosted using a Docker container with
             NGINX as the reverse proxy
-            <label for="wiki1">1</label>
+            <label htmlFor="wiki1">1</label>
             <input type="checkbox" id="wiki1" />
             <small>
               <a href="https://www.nginx.com/resources/glossary/nginx/">
@@ -50,7 +50,7 @@ const Homepage = () => {
             <a href="https://wiki.jaydenpyles.dev/books/network-setup">setup</a>
             page. In terms of webserver applications, it also hosts my own cloud
             storage with nextcloud
-            <label for="wiki2">2</label>
+            <label htmlFor="wiki2">2</label>
             <input type="checkbox" id="wiki2" />
             <small>
               <a href="https://github.com/nextcloud">nextcloud</a>
@@ -65,7 +65,7 @@ const Homepage = () => {
             </a>{" "}
             (but not publicly accessbile, only through tailscale can it be
             accessed). My wiki hosted via Bookstack
-            <label for="wiki3">3</label>
+            <label htmlFor="wiki3">3</label>
             <input type="checkbox" id="wiki3" />
             <small>
               <a href="https://github.com/BookStackApp/BookStack">Bookstack</a>{" "}

@@ -1,11 +1,26 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Project = ({ projectType }) => {
+interface Data {
+  title: string;
+  description: string;
+  project: string;
+  link: string;
+}
+
+interface CompProps {
+  data: Data;
+}
+
+interface ProjectProps {
+  projectType: string;
+}
+
+const Project: React.FC<ProjectProps> = ({ projectType }) => {
   const [projects, setProjects] = useState([]);
   const domain = process.env.REACT_APP_DOMAIN;
 
-  const projectMap = {
+  const projectMap: { [key: string]: string } = {
     backlog: `${domain}/api/notion/ready`,
     dev: `${domain}/api/notion/dev`,
   };
@@ -24,7 +39,7 @@ const Project = ({ projectType }) => {
     fetchProject();
   }, [projectURL]);
 
-  const ProjectComp = ({ data }) => {
+  const ProjectComp: React.FC<CompProps> = ({ data }) => {
     return (
       <div className="project bg-testAccent">
         <div className="text">

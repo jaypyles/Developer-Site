@@ -1,4 +1,10 @@
-export const footer_links = [
+interface FooterLink {
+  image: string;
+  link: string;
+  alt: string;
+  title: string;
+}
+export const footer_links: FooterLink[] = [
   {
     image: "github.png",
     link: "/github",

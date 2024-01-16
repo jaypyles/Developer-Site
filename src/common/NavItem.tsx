@@ -1,8 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Nav from "react-bootstrap/Nav";
 
-const LinkBlock = ({ data }) => {
-  const [image, setImage] = useState([]);
+interface Data {
+  image: string;
+  link: string;
+  alt: string;
+  title: string;
+}
+
+interface NavItemProps {
+  data: Data;
+}
+
+const NavItem: React.FC<NavItemProps> = ({ data }) => {
+  const [image, setImage] = useState("");
   const filename = data.image;
   const domain = process.env.REACT_APP_DOMAIN;
   const url = `${domain}/api/images/${filename}`;
@@ -18,18 +30,14 @@ const LinkBlock = ({ data }) => {
   useEffect(() => {
     fetchImage();
   }, []);
+
   return (
-    <div className="linkblock">
-      <div className="image">
-        <img src={image} />
-      </div>
-      <div className="text">
-        <div className="description">
-          <a href={data.link}>{data.description}</a>
-        </div>
-      </div>
-    </div>
+    <Nav.Item>
+      <a href={data.link}>
+        <img src={image} alt={data.alt} title={data.title} />
+      </a>
+    </Nav.Item>
   );
 };
 
-export default LinkBlock;
+export default NavItem;

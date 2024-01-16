@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import spotify from "../images/spotify.png";
 
+interface SpotifyData {
+  albumCover: string;
+  songURL: string;
+  songName: string;
+  artistName: string;
+}
+
 const Spotify = () => {
-  const [spotifyData, setSpotifyData] = useState([]);
+  const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
   const [isListening, setListening] = useState(false);
   const [albumCover, setAlbumCover] = useState(spotify);
   const domain = process.env.REACT_APP_DOMAIN;
@@ -24,19 +31,21 @@ const Spotify = () => {
 
   const fetchAlbumCover = async () => {
     try {
-      const albumLink = spotifyData.albumCover;
-      if (albumLink) {
-        const res = await fetch(albumLink);
-        if (res.ok) {
-          const albumBlob = await res.blob();
-          const albumObjectUrl = URL.createObjectURL(albumBlob);
-          setAlbumCover(albumObjectUrl);
-          setListening(true);
+      if (spotifyData) {
+        const albumLink = spotifyData.albumCover;
+        if (albumLink) {
+          const res = await fetch(albumLink);
+          if (res.ok) {
+            const albumBlob = await res.blob();
+            const albumObjectUrl = URL.createObjectURL(albumBlob);
+            setAlbumCover(albumObjectUrl);
+            setListening(true);
+          } else {
+            console.error("Failed to fetch album cover:", res.status);
+          }
         } else {
-          console.error("Failed to fetch album cover:", res.status);
+          console.error("Album link not found in spotifyData");
         }
-      } else {
-        console.error("Album link not found in spotifyData");
       }
     } catch (error) {
       console.error("Error fetching album cover:", error);
@@ -82,18 +91,18 @@ const Spotify = () => {
           </div>
           <div className="spotify">
             <div className="image">
-              <img src={spotifyData.albumCover} alt="Album cover" />
+              <img src={spotifyData?.albumCover} alt="Album cover" />
             </div>
             <div className="text">
               <a
                 style={{ textDecoration: "none" }}
-                href={spotifyData.songURL}
+                href={spotifyData?.songURL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <p className="name songName">{spotifyData.songName}</p>
+                <p className="name songName">{spotifyData?.songName}</p>
               </a>
-              <p className="artist">{spotifyData.artistName}</p>
+              <p className="artist">{spotifyData?.artistName}</p>
             </div>
           </div>
         </>
