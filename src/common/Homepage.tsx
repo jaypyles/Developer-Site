@@ -20,15 +20,16 @@ const Homepage = () => {
             Hello! My name is Jayden Pyles and I am currently a Software
             Developer and student at the University of Alabama at Birmingham. I
             primarily work in Backend and DevOps, but am trying to gain some
-            more Frontend skills. I work in the
+            more Frontend skills. I work at
+            <a href="https://getdarktower.com/">DarkTower</a>, developing tools
+            to help analysts collect data on social media platforms, to help
+            prevent cybercrime. I also currently work as the IT for the
             <a href="https://www.uab.edu/reporter/know-more/teaching-learning/item/8933-students-are-shutting-down-the-worst-of-the-web-in-this-uab-lab">
               UAB Computer Forensics Research Lab (CFRL)
             </a>
-            developing tools to help analysts collect data on social media
-            platforms, to help prevent cybercrime. I also currently work as the
-            IT for CFRL, handling the analysts hardware/software issues and all
-            things related to its network. I consider myself a hobbyist when it
-            comes to IT though, as I am primarily focused on being a software
+            , handling the analysts hardware/software issues and all things
+            related to its network. I consider myself a hobbyist when it comes
+            to IT though, as I am primarily focused on being a software
             developer (of course the programming knowledge does help with it
             though).
           </p>
