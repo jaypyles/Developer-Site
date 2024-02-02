@@ -19,7 +19,8 @@ COPY tsconfig.json /app/tsconfig.json
 COPY tailwind.config.js /app/tailwind.config.js
 
 RUN npm run build
+RUN npm install --global serve
 
 EXPOSE 3000
 
-CMD ["doppler", "run", "--", "npm", "run", "start"]
+CMD ["doppler", "run", "--", "npm", "run", "serve"]
