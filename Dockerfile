@@ -18,9 +18,11 @@ COPY src /app/src
 COPY tsconfig.json /app/tsconfig.json
 COPY tailwind.config.js /app/tailwind.config.js
 
-RUN npm run build
+ARG DOPPLER_TOKEN
+
+RUN doppler run --token=$DOPPLER_TOKEN -- npm run build
 RUN npm install --global serve
 
 EXPOSE 3000
 
-CMD ["doppler", "run", "--", "npm", "run", "serve"]
+CMD ["doppler", "run", "--", "serve", "-s", "build"]
