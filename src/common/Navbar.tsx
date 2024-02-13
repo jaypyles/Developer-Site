@@ -62,17 +62,13 @@ export const Navbar = () => {
         <Nav className="justify-content-start">
           <Nav.Item>
             <Nav.Link className="name" href="/">
-              Jayden Pyles
+              home
             </Nav.Link>
           </Nav.Item>
-        </Nav>
-      </div>
 
-      <div className="nav-right flex justify-end">
-        <Nav className="justify-content-end">
           <Tooltip title="Visit my most recent note!" placement="top" arrow>
             <Nav.Item>
-              <Nav.Link href={pageURL?.url}>Wiki</Nav.Link>
+              <Nav.Link href={pageURL?.url}>wiki</Nav.Link>
             </Nav.Item>
           </Tooltip>
           {githubURL ? (
@@ -82,7 +78,7 @@ export const Navbar = () => {
               arrow
             >
               <Nav.Item>
-                <Nav.Link href={githubURL.url}>Github</Nav.Link>
+                <Nav.Link href={githubURL.url}>github</Nav.Link>
               </Nav.Item>
             </Tooltip>
           ) : (
@@ -90,12 +86,12 @@ export const Navbar = () => {
           )}
           <Tooltip title="See my socials!" placement="top" arrow>
             <Nav.Item>
-              <Nav.Link onClick={handleShow}>Socials</Nav.Link>
+              <Nav.Link onClick={handleShow}>socials</Nav.Link>
             </Nav.Item>
           </Tooltip>
         </Nav>
+        <Social show={show} handleClose={handleClose} />
       </div>
-      <Social show={show} handleClose={handleClose} />
     </div>
   );
 };

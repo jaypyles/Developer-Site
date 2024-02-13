@@ -8,6 +8,7 @@ module.exports = {
       },
       fontSize: {
         about: "1.75vh",
+        nav: "100%",
       },
       backgroundColor: {
         blackShadow: "rgb(0, 0, 0)",

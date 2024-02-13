@@ -4,13 +4,16 @@ import { Navbar } from "./common/Navbar";
 import Footer from "./common/Footer";
 import { routes } from "./data/Routes";
 import React from "react";
+import { useEffect } from "react";
 
 interface RedirectProps {
   location: string;
 }
 
 const RedirectToExternal: React.FC<RedirectProps> = ({ location }) => {
-  window.location.href = location;
+  useEffect(() => {
+    window.location.href = location;
+  }, [location]);
   return null;
 };
 

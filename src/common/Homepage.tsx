@@ -11,7 +11,7 @@ const Homepage = () => {
     <div className="homepage p-3 bg-backgroundAccent drop-shadow-3xl">
       <div className="about">
         <div className="text-center">
-          <h1 className="p-1 font-serif underline">
+          <h1 className="p-1 font-serif">
             Software Developer, IT Hobbyist, Student
           </h1>
         </div>
