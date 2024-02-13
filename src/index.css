@@ -93,7 +93,7 @@ body {
 
 .nav {
   display: flex;
-  width: 100%;
+  width: 75%;
   justify-content: space-between;
   /* margin-bottom: 1em !important; */
   opacity: 0;
@@ -138,7 +138,7 @@ body {
 .homepage {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 75%;
   justify-content: flex-start;
   /* Align to the bottom vertically */
   /* Make the div occupy the full viewport height */

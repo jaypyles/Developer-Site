@@ -68,7 +68,7 @@ export const Navbar = () => {
         </Nav>
       </div>
 
-      <div className="nav-right">
+      <div className="nav-right flex justify-end">
         <Nav className="justify-content-end">
           <Tooltip title="Visit my most recent note!" placement="top" arrow>
             <Nav.Item>
