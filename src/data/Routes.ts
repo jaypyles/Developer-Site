@@ -14,4 +14,8 @@ export const routes = [
   { path: "/telegram", to: "https://t.me/jpyles524" },
   { path: "/email", to: "mailto:jaydenpyles0524@gmail.com" },
   { path: "/source-code", to: "https://github.com/jaypyles/portfolio_site" },
+  {
+    path: "/resume",
+    to: "https://drive.google.com/file/d/1hOu51LQc63LlrFWnSMxv8-VYvfbmeoUs/view?usp=sharing",
+  },
 ];

@@ -20,19 +20,21 @@ const RedirectToExternal: React.FC<RedirectProps> = ({ location }) => {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="main">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          {routes.map((data, index) => (
-            <Route
-              key={index}
-              path={data.path}
-              element={<RedirectToExternal location={data.to} />}
-            />
-          ))}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+      <div className="main-wrapper flex justify-center">
+        <div className="main">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            {routes.map((data, index) => (
+              <Route
+                key={index}
+                path={data.path}
+                element={<RedirectToExternal location={data.to} />}
+              />
+            ))}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
       </div>
       <Footer />
     </BrowserRouter>

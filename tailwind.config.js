@@ -8,7 +8,7 @@ module.exports = {
       },
       fontSize: {
         about: "1.75vh",
-        nav: "100%",
+        nav: "20%",
       },
       backgroundColor: {
         blackShadow: "rgb(0, 0, 0)",
@@ -20,6 +20,9 @@ module.exports = {
         accent: "#3559E0",
         backgroundAccent: "#222222",
         testAccent: "#3D3B40",
+      },
+      fontFamily: {
+        prompt: ['"Prompt"', "sans"],
       },
     },
     backgroundOpacity: {

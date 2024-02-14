@@ -57,7 +57,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="nav bg-backgroundAccent  p-3 mb-2">
+    <div className="nav  p-3 mb-2">
       <div className="nav-left">
         <Nav className="justify-content-start">
           <Nav.Item>

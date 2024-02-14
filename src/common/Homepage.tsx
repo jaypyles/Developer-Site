@@ -4,103 +4,79 @@ import WorkingOn from "./WorkingOn";
 import { Collapse } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { ArrowDropDown } from "@mui/icons-material";
+import { work } from "../data/WorkBlock";
+import WorkBlock from "../components/WorkBlock";
+import Block from "../components/Block";
 
 const Homepage = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="homepage p-3 bg-backgroundAccent drop-shadow-3xl">
       <div className="about">
-        <div className="text-center">
-          <h1 className="p-1 font-serif">
-            Software Developer, IT Hobbyist, Student
-          </h1>
-        </div>
+        <h1 className="text-[100%] font-prompt">hey, I'm Jayden 👨‍💻</h1>
         <div className="">
-          <p>
-            Hello! My name is Jayden Pyles and I am currently a Software
-            Developer and student at the University of Alabama at Birmingham. I
-            primarily work in Backend and DevOps, but am trying to gain some
-            more Frontend skills. I work at
-            <a href="https://getdarktower.com/">DarkTower</a>, developing tools
-            to help analysts collect data on social media platforms, to help
-            prevent cybercrime. I also currently work as the IT for the
-            <a href="https://www.uab.edu/reporter/know-more/teaching-learning/item/8933-students-are-shutting-down-the-worst-of-the-web-in-this-uab-lab">
-              UAB Computer Forensics Research Lab (CFRL)
-            </a>
-            , handling the analysts hardware/software issues and all things
-            related to its network. I consider myself a hobbyist when it comes
-            to IT though, as I am primarily focused on being a software
-            developer (of course the programming knowledge does help with it
-            though).
+          <p className="text-[85%]">
+            I am a Software Developer at these places currently, building data
+            analysis tools and webapps.
           </p>
-          <p>
-            This site is built using React.js, TailwindCSS, Python (backend
-            API), and is currently being hosted using a Docker container with
-            NGINX as the reverse proxy
-            <label htmlFor="wiki1">1</label>
-            <input type="checkbox" id="wiki1" />
-            <small>
-              <a href="https://www.nginx.com/resources/glossary/nginx/">
-                Nginx
-              </a>{" "}
-              is a web server that can also be used as a reverse proxy, load
-              balancer, mail proxy and HTTP cache.
-            </small>
-            on my own Debian 12 server. The server also hosts a few other
-            things, but those will get explained in the
-            <a href="https://wiki.jaydenpyles.dev/books/network-setup">setup</a>
-            page. In terms of webserver applications, it also hosts my own cloud
-            storage with nextcloud
-            <label htmlFor="wiki2">2</label>
-            <input type="checkbox" id="wiki2" />
-            <small>
-              <a href="https://github.com/nextcloud">nextcloud</a>
-              Nextcloud Office is a powerful LibreOffice-based online office
-              suite with collaborative editing, which supports all major
-              document, spreadsheet and presentation file formats and works in
-              all modern browsers.
-            </small>
-            which is running in a Docker container and can be found at
-            <a href="https://files.jaydenpyles.dev">
-              files.jaydenpyles.dev
-            </a>{" "}
-            (but not publicly accessbile, only through tailscale can it be
-            accessed). My wiki hosted via Bookstack
-            <label htmlFor="wiki3">3</label>
-            <input type="checkbox" id="wiki3" />
-            <small>
-              <a href="https://github.com/BookStackApp/BookStack">Bookstack</a>{" "}
-              is a platform to create documentation/wiki content built with PHP
-              & Laravel.
-            </small>
-            can be found at
-            <a href="https://wiki.jaydenpyles.dev">wiki.jaydenpyles.dev</a>,
-            which includes documentation for various things, written by me.
+          <div className="workblocks flex flex-row mb-[1em]">
+            {work.map((data, index) => (
+              <WorkBlock key={index} data={data} />
+            ))}
+          </div>
+          <p className="text-[85%]">
+            As a hobby, I like to run my own homelab, which can self-host
+            several apps that I use reguarly. This website is being hosted in
+            Docker on my server, which you accessed through Cloudflare
+            proxy-dns. The API that controls the backend integrations is also
+            being hosted on the same server. Down below are some links to other
+            services that are publicly available:
           </p>
+          <div className="blocks">
+            <Block
+              link="https://spaceify.jaydenpyles.dev"
+              small_description="A hackathon project I and 3 others built in 24 hours."
+            />
+            <Block
+              link="https://wiki.jaydenpyles.dev"
+              small_description="A bookstack instance for technical notes and blogs."
+            />
+          </div>
+          <p className="text-[85%]">
+            I have experience with developing RESTful API's, Relational/Graph
+            database schemas, designing frontends for webapps, orchestrating
+            Docker containers, and developing CI/CD pipelines. I consider myself
+            to be most proficient in Python, but also have experience with C,
+            Java, Java/Typescript, SQL, EdgeQL, and Rust. I am most interested
+            in Software Engineering, Data Analysis Automation, and DevOps.
+          </p>
+
+          <p className="text-[85%]">You can view my resume down below:</p>
+          <Block link="https://jaydenpyles.dev/resume" small_description="" />
         </div>
       </div>
-      <div className="dropdown flex flex-row bg-testAccent rounded-md">
-        <div className="flex flex-row items-center">
-          <h2 className="heading">Kanban Board</h2>
-          <Button
-            className="!p-0"
-            variant="link"
-            onClick={() => setOpen(!open)}
-            aria-controls="working-on"
-            aria-expanded={open}
-          >
-            <ArrowDropDown
-              className="text-accent hover:text-blue-700"
-              sx={{ fontSize: "3.5vh" }}
-            ></ArrowDropDown>
-          </Button>
-        </div>
-      </div>
-      <Collapse in={open}>
-        <div id="working-on">
-          <WorkingOn />
-        </div>
-      </Collapse>
+      {/* <div className="dropdown flex flex-row bg-testAccent rounded-md"> */}
+      {/*   <div className="flex flex-row items-center"> */}
+      {/*     <h2 className="heading">Kanban Board</h2> */}
+      {/*     <Button */}
+      {/*       className="!p-0" */}
+      {/*       variant="link" */}
+      {/*       onClick={() => setOpen(!open)} */}
+      {/*       aria-controls="working-on" */}
+      {/*       aria-expanded={open} */}
+      {/*     > */}
+      {/*       <ArrowDropDown */}
+      {/*         className="text-accent hover:text-blue-700" */}
+      {/*         sx={{ fontSize: "3.5vh" }} */}
+      {/*       ></ArrowDropDown> */}
+      {/*     </Button> */}
+      {/*   </div> */}
+      {/* </div> */}
+      {/* <Collapse in={open}> */}
+      {/*   <div id="working-on"> */}
+      {/*     <WorkingOn /> */}
+      {/*   </div> */}
+      {/* </Collapse> */}
     </div>
   );
 };
