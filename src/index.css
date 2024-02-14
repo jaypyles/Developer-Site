@@ -363,6 +363,7 @@ input:checked+small {
   justify-content: center;
   position: fixed;
   height: 5vh;
+  top: 95%;
   width: 100%;
   background-color: #222;
 }

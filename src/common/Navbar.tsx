@@ -8,7 +8,7 @@ interface URL {
   url: string;
 }
 
-export const Navbar = () => {
+const Navbar = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -95,3 +95,4 @@ export const Navbar = () => {
     </div>
   );
 };
+export default Navbar;
