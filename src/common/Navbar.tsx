@@ -59,7 +59,7 @@ export const Navbar = () => {
   return (
     <div className="nav  p-3 mb-2">
       <div className="nav-left">
-        <Nav className="justify-content-start">
+        <Nav className="nav-content !flex !justify-start">
           <Nav.Item>
             <Nav.Link className="name" href="/">
               home

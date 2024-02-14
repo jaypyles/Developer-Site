@@ -13,8 +13,10 @@ const Homepage = () => {
   return (
     <div className="homepage p-3 bg-backgroundAccent drop-shadow-3xl">
       <div className="about">
-        <h1 className="text-[100%] font-prompt">Hey, I'm Jayden 👨‍💻</h1>
-        <div className="">
+        <h1 className="page-title text-[100%] font-prompt">
+          Hey, I'm Jayden 👨‍💻
+        </h1>
+        <div className="text-content">
           <p className="text-[85%]">
             I am a Software Developer at these places currently, building data
             analysis tools and webapps.
