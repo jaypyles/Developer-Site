@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+    env:
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,10 +26,10 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v5
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:latest
+          build-args: |
+            DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }}
