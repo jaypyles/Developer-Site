@@ -6,6 +6,7 @@ services:
       args:
         - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     container_name: portfolio
+    command: ["doppler", "run", "--", "serve", "-s", "build"]
     environment:
       - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     ports:

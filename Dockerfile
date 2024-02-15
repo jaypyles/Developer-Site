@@ -24,5 +24,3 @@ RUN doppler run --token=$DOPPLER_TOKEN -- npm run build
 RUN npm install --global serve
 
 EXPOSE 3000
-
-CMD ["doppler", "run", "--", "serve", "-s", "build"]
