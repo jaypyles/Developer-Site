@@ -1,6 +1,7 @@
 version: "3"
 services:
   frontend:
+    image: jpyles0524/dev_site
     build:
       context: ./
       args:
