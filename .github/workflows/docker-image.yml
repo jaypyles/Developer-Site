@@ -33,3 +33,5 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:latest
           build-args: |
             DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }}
+            DOPPLER_CONFIG=${{ secrets.DOPPLER_CONFIG}}
+            DOPPLER_PROJECT=${{ secrets.DOPPLER_PROJECT}}
