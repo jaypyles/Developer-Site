@@ -5,6 +5,7 @@ import { routes } from "./data/Routes";
 import React from "react";
 import { useEffect } from "react";
 import Layout from "./Layout";
+import Posts from "./common/Posts";
 
 interface RedirectProps {
   location: string;
@@ -28,6 +29,14 @@ export default function App() {
               element={
                 <Layout>
                   <Homepage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/posts"
+              element={
+                <Layout>
+                  <Posts />
                 </Layout>
               }
             />

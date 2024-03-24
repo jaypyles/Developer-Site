@@ -108,7 +108,6 @@ body {
 
 .nav {
   display: flex;
-  width: 75%;
   justify-content: space-between;
   /* margin-bottom: 1em !important; */
   opacity: 0;
@@ -128,7 +127,7 @@ body {
 }
 
 .nav a {
-  font-size: 85%;
+  font-size: 95%;
   padding: 0;
   color: var(--accent) !important;
 }
@@ -158,7 +157,6 @@ body {
 .homepage {
   display: flex;
   flex-direction: column;
-  width: 75%;
   justify-content: flex-start;
   /* Align to the bottom vertically */
   /* Make the div occupy the full viewport height */
@@ -347,12 +345,12 @@ label:after {
   content: "]";
 }
 
-label+input,
-label+input+small {
+label + input,
+label + input + small {
   display: none;
 }
 
-input:checked+small {
+input:checked + small {
   display: block;
   padding: 0.8em 0 1em 2.5vw;
 }
@@ -568,4 +566,14 @@ input:checked+small {
   /* discord avatar */
   height: 100% !important;
   aspect-ratio: 1/1 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: 0; /* Firefox */
+}
+.no-scrollbad::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+.css-hk6gwf-MuiImageListItemBar-subtitle {
+  color: rgb(228 228 231) !important;
 }

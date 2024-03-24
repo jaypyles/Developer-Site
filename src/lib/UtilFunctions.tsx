@@ -8,3 +8,10 @@ export const fetchImage = async (identifier: string) => {
   const imageObjectUrl = URL.createObjectURL(imageBlob);
   return imageObjectUrl;
 };
+
+export const getPosts = async () => {
+  const url = `${domain}/api/posts`;
+  const res = await fetch(url);
+  const json = res.json();
+  return json;
+};

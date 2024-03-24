@@ -57,9 +57,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="nav  p-3 mb-2">
+    <div className="nav p-3 mb-2 w-[100%]">
       <div className="nav-left">
-        <Nav className="nav-content !flex !justify-start">
+        <Nav className="nav-content !flex !justify-start w-auto">
           <Nav.Item>
             <Nav.Link className="name" href="/">
               home
@@ -87,6 +87,11 @@ const Navbar = () => {
           <Tooltip title="See my socials!" placement="top" arrow>
             <Nav.Item>
               <Nav.Link onClick={handleShow}>socials</Nav.Link>
+            </Nav.Item>
+          </Tooltip>
+          <Tooltip title="Photo Board" placement="top" arrow>
+            <Nav.Item className="ml-auto">
+              <Nav.Link href="/posts">posts</Nav.Link>
             </Nav.Item>
           </Tooltip>
         </Nav>
