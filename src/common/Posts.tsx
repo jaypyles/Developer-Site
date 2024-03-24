@@ -45,7 +45,7 @@ const Posts = () => {
   return (
     <>
       {posts && posts.length > 0 ? (
-        <div>
+        <div id="posts">
           <Paper
             elevation={3}
             className="p-2 mb-4 no-scrollbar"
@@ -58,6 +58,7 @@ const Posts = () => {
                     src={`${domain}/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={item.description}
                     loading="lazy"
+                    id="post-img"
                     className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:scale-105 duration-100"
                     onClick={() => {
                       setPhoto(item);

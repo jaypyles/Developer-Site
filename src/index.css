@@ -9,6 +9,14 @@
 }
 
 @media screen and (max-width: 750px) {
+  #posts {
+    width: 100% !important;
+  }
+
+  #post-img {
+    max-width: none !important;
+  }
+
   .about {
     font-size: 1.75vw !important;
   }
