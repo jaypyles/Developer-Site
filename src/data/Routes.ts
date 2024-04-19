@@ -16,6 +16,6 @@ export const routes = [
   { path: "/source-code", to: "https://github.com/jaypyles/portfolio_site" },
   {
     path: "/resume",
-    to: "https://drive.google.com/file/d/1DbNSOdp7XhLiBxGcpRcc-mCv0raoP8xI/view?usp=sharing",
+    to: "https://docs.google.com/document/d/12de-GDrOmM0OfXRsjAQiANTvPYR0uDx9aGdOUtYwUvQ/edit?usp=drive_link",
   },
 ];
