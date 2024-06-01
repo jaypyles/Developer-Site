@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "react-bootstrap/Nav";
 
 interface Data {
@@ -11,9 +10,10 @@ interface Data {
 
 interface NavItemProps {
   data: Data;
+  onImageLoaded: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ data }) => {
+const NavItem: React.FC<NavItemProps> = ({ data, onImageLoaded }) => {
   const [image, setImage] = useState("");
   const filename = data.image;
   const domain = process.env.REACT_APP_DOMAIN;
@@ -31,10 +31,19 @@ const NavItem: React.FC<NavItemProps> = ({ data }) => {
     fetchImage();
   }, []);
 
+  const handleImageLoad = () => {
+    onImageLoaded();
+  };
+
   return (
     <Nav.Item>
       <a href={data.link}>
-        <img src={image} alt={data.alt} title={data.title} />
+        <img
+          src={image}
+          alt={data.alt}
+          title={data.title}
+          onLoad={handleImageLoad}
+        />
       </a>
     </Nav.Item>
   );
