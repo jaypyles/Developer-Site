@@ -1,17 +1,31 @@
 import React from "react";
-import { useState } from "react";
-import WorkingOn from "./WorkingOn";
-import { Collapse } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { ArrowDropDown } from "@mui/icons-material";
+import { useState, useCallback, useEffect } from "react";
 import { work } from "../data/WorkBlock";
 import WorkBlock from "../components/WorkBlock";
 import Block from "../components/Block";
 
-const Homepage = () => {
-  const [open, setOpen] = useState(false);
+interface HomepageProps {
+  hidden?: boolean;
+}
+
+const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
+  const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
+  const [loadedCount, setLoadedCount] = useState<number>(0);
+
+  const handleImageLoaded = useCallback(() => {
+    setLoadedCount((prevCount: number) => prevCount + 1);
+  }, []);
+
+  useEffect(() => {
+    if (loadedCount === work.length) {
+      setImagesLoaded(true);
+    }
+  }, [loadedCount]);
+
   return (
-    <div className="homepage p-3 bg-backgroundAccent drop-shadow-3xl">
+    <div
+      className={`homepage p-3 bg-backgroundAccent drop-shadow-3xl ${hidden ? "!hidden" : ""}`}
+    >
       <div className="about">
         <h1 className="page-title text-[100%] font-prompt">
           Hey, I'm Jayden 👨‍💻
@@ -23,7 +37,11 @@ const Homepage = () => {
           </p>
           <div className="workblocks flex flex-row mb-[1em]">
             {work.map((data, index) => (
-              <WorkBlock key={index} data={data} />
+              <WorkBlock
+                key={index}
+                data={data}
+                onImageLoaded={handleImageLoaded}
+              />
             ))}
           </div>
           <p className="text-[85%]">
@@ -57,28 +75,6 @@ const Homepage = () => {
           <Block link="https://jaydenpyles.dev/resume" small_description="" />
         </div>
       </div>
-      {/* <div className="dropdown flex flex-row bg-testAccent rounded-md"> */}
-      {/*   <div className="flex flex-row items-center"> */}
-      {/*     <h2 className="heading">Kanban Board</h2> */}
-      {/*     <Button */}
-      {/*       className="!p-0" */}
-      {/*       variant="link" */}
-      {/*       onClick={() => setOpen(!open)} */}
-      {/*       aria-controls="working-on" */}
-      {/*       aria-expanded={open} */}
-      {/*     > */}
-      {/*       <ArrowDropDown */}
-      {/*         className="text-accent hover:text-blue-700" */}
-      {/*         sx={{ fontSize: "3.5vh" }} */}
-      {/*       ></ArrowDropDown> */}
-      {/*     </Button> */}
-      {/*   </div> */}
-      {/* </div> */}
-      {/* <Collapse in={open}> */}
-      {/*   <div id="working-on"> */}
-      {/*     <WorkingOn /> */}
-      {/*   </div> */}
-      {/* </Collapse> */}
     </div>
   );
 };

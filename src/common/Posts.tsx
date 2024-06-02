@@ -5,21 +5,31 @@ import {
   ImageListItemBar,
   Box,
   Modal,
-  Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { getPosts } from "../lib/UtilFunctions";
 import CardPost from "./CardPost";
 
-const Posts = () => {
+interface PostsProps {
+  setImagesLoaded: Function;
+  imagesLoaded: boolean;
+}
+
+const Posts: React.FC<PostsProps> = ({
+  setImagesLoaded,
+  imagesLoaded = false,
+}) => {
   const domain = process.env.REACT_APP_DOMAIN;
   const [posts, setPosts] = useState<any[]>([]);
-  const [open, setOpen] = React.useState(false);
-  const [photo, setPhoto] = React.useState({
+  const [open, setOpen] = useState(false);
+  const [photo, setPhoto] = useState({
     image_id: "",
     description: "",
     time_posted: "",
   });
+
+  const [loadedCount, setLoadedCount] = useState<number>(0);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -29,10 +39,21 @@ const Posts = () => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: " #121212",
+    bgcolor: "#121212",
     boxShadow: 24,
     p: 4,
   };
+
+  const handleImageLoaded = useCallback(() => {
+    setLoadedCount((prevCount) => prevCount + 1);
+  }, []);
+
+  useEffect(() => {
+    if (loadedCount === posts.length && posts.length > 0) {
+      setImagesLoaded(true);
+    }
+  }, [loadedCount]);
+
   useEffect(() => {
     const fetchPosts = async () => {
       const fetchedPosts = await getPosts();
@@ -45,7 +66,7 @@ const Posts = () => {
   return (
     <>
       {posts && posts.length > 0 ? (
-        <div id="posts">
+        <div id="posts" className={`${!imagesLoaded ? "hidden" : ""}`}>
           <Paper
             elevation={3}
             className="p-2 mb-4 no-scrollbar"
@@ -57,8 +78,9 @@ const Posts = () => {
                   <img
                     src={`${domain}/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={item.description}
-                    loading="lazy"
                     id="post-img"
+                    onLoad={handleImageLoaded}
+                    loading="lazy"
                     className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:scale-105 duration-100"
                     onClick={() => {
                       setPhoto(item);

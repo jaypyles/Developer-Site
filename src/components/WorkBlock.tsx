@@ -9,9 +9,10 @@ interface Data {
 
 interface WorkBlockProps {
   data: Data;
+  onImageLoaded: () => void;
 }
 
-const WorkBlock: React.FC<WorkBlockProps> = ({ data }) => {
+const WorkBlock: React.FC<WorkBlockProps> = ({ data, onImageLoaded }) => {
   const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
@@ -23,6 +24,10 @@ const WorkBlock: React.FC<WorkBlockProps> = ({ data }) => {
     fetchAndSetImage();
   }, [data.image]);
 
+  const handleImageLoaded = () => {
+    onImageLoaded();
+  };
+
   return (
     <div className="workblock flex flex-row mr-[0.5em] p-1 rounded bg-testAccent border-1 border-black">
       {imageUrl && (
@@ -30,6 +35,7 @@ const WorkBlock: React.FC<WorkBlockProps> = ({ data }) => {
           className="image w-[4em] h-[4em] mr-[0.5em]"
           src={imageUrl}
           alt={data.title}
+          onLoad={handleImageLoaded}
         />
       )}
       <div className="content mt-[0.25]">

@@ -6,6 +6,7 @@ import React from "react";
 import { useEffect } from "react";
 import Layout from "./Layout";
 import Posts from "./common/Posts";
+import { HomepagePage, PostsPage } from "./Pages";
 
 interface RedirectProps {
   location: string;
@@ -15,6 +16,7 @@ const RedirectToExternal: React.FC<RedirectProps> = ({ location }) => {
   useEffect(() => {
     window.location.replace(location);
   }, [location]);
+
   return null;
 };
 
@@ -24,22 +26,8 @@ export default function App() {
       <div className="main-wrapper flex justify-center">
         <div className="main">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Layout>
-                  <Homepage />
-                </Layout>
-              }
-            />
-            <Route
-              path="/posts"
-              element={
-                <Layout>
-                  <Posts />
-                </Layout>
-              }
-            />
+            <Route path="/" element={<HomepagePage />} />
+            <Route path="/posts" element={<PostsPage />} />
             {routes.map((data, index) => (
               <Route
                 key={index}

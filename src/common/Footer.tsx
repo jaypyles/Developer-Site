@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Nav } from "react-bootstrap";
 import NavItem from "./NavItem";
 import { footer_links } from "../data/Footer";
 
-const Footer = () => {
+interface FooterProps {
+  className?: string;
+  setImagesLoaded: Function;
+}
+
+const Footer: React.FC<FooterProps> = ({ className, setImagesLoaded }) => {
+  const [loadedCount, setLoadedCount] = useState<number>(0);
+
+  const handleImageLoaded = useCallback(() => {
+    setLoadedCount((prevCount: number) => prevCount + 1);
+  }, []);
+
+  useEffect(() => {
+    if (loadedCount === footer_links.length && footer_links.length > 0) {
+      setImagesLoaded(true);
+    }
+  }, [loadedCount]);
+
   return (
-    <div className="footer shadow-2xl shadow-accent">
+    <div className={className}>
       <Nav className="footer">
         {footer_links.map((data, index) => (
-          <NavItem key={index} data={data} />
+          <NavItem key={index} data={data} onImageLoaded={handleImageLoaded} />
         ))}
       </Nav>
     </div>
