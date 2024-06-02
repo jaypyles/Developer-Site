@@ -6,7 +6,7 @@ import React from "react";
 import { useEffect } from "react";
 import Layout from "./Layout";
 import Posts from "./common/Posts";
-import { HomepagePage } from "./Pages";
+import { HomepagePage, PostsPage } from "./Pages";
 
 interface RedirectProps {
   location: string;
@@ -27,14 +27,7 @@ export default function App() {
         <div className="main">
           <Routes>
             <Route path="/" element={<HomepagePage />} />
-            <Route
-              path="/posts"
-              element={
-                <Layout>
-                  <Posts />
-                </Layout>
-              }
-            />
+            <Route path="/posts" element={<PostsPage />} />
             {routes.map((data, index) => (
               <Route
                 key={index}

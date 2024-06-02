@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ className, setImagesLoaded }) => {
   }, []);
 
   useEffect(() => {
-    if (loadedCount === footer_links.length) {
+    if (loadedCount === footer_links.length && footer_links.length > 0) {
       setImagesLoaded(true);
     }
   }, [loadedCount]);
