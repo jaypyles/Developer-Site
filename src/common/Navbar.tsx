@@ -8,7 +8,11 @@ interface URL {
   url: string;
 }
 
-const Navbar = () => {
+interface NavbarProps {
+  hidden?: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -57,7 +61,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="nav p-3 mb-2 w-[100%]">
+    <div className={`nav p-3 mb-2 w-[100%] ${hidden ? "hidden" : ""}`}>
       <div className="nav-left">
         <Nav className="nav-content !flex !justify-start w-auto">
           <Nav.Item>

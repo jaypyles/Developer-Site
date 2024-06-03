@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import Homepage from "./common/Homepage";
 import Posts from "./common/Posts";
-import { ButtonSpinner, Spinner } from "@chakra-ui/react";
-
-interface LayoutProps {
-  children: ReactJSXElement;
-}
+import loadingBonfire from "./images/loading.gif";
 
 const Loading: React.FC = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#121212] text-white z-50">
-      <div className="loader">Loading...</div>
+      <img src={loadingBonfire} alt="Loading..."></img>
     </div>
   );
 };
@@ -22,14 +17,9 @@ export const HomepagePage: React.FC = () => {
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
   return (
     <>
-      {imagesLoaded && <Navbar />}
+      <Navbar hidden={!imagesLoaded} />
       <Homepage hidden={!imagesLoaded} />
-      {!imagesLoaded && (
-        <ButtonSpinner
-          color="white"
-          className="fixed inset-0 flex items-center justify-center bg-[#121212] text-white z-50"
-        />
-      )}
+      {!imagesLoaded && <Loading />}
       <Footer
         className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
         setImagesLoaded={setImagesLoaded}
@@ -44,17 +34,12 @@ export const PostsPage: React.FC = () => {
 
   return (
     <>
-      {postImagesLoaded && <Navbar />}
+      <Navbar hidden={!imagesLoaded} />
       <Posts
         setImagesLoaded={setPostImagesLoaded}
         imagesLoaded={postImagesLoaded}
       />
-      {!postImagesLoaded && (
-        <ButtonSpinner
-          color="white"
-          className="fixed inset-0 flex items-center justify-center bg-[#121212] text-white z-50"
-        />
-      )}
+      {!postImagesLoaded && <Loading />}
       <Footer
         className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
         setImagesLoaded={setImagesLoaded}
