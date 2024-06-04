@@ -8,9 +8,21 @@ interface SpotifyData {
   artistName: string;
 }
 
-const Spotify = () => {
+interface SpotifyProps {
+  loadedState: {
+    loaded?: boolean;
+    setLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+}
+
+const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
   const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
-  const [isListening, setListening] = useState(false);
+  const [spotifyAlbumLoaded, setSpotifyAlbumLoaded] = useState<boolean | null>(
+    null,
+  );
+
+  const { setLoaded } = loadedState;
+
   const domain = process.env.REACT_APP_DOMAIN;
   const url = `${domain}/api/spotify/now-playing`;
 
@@ -32,10 +44,12 @@ const Spotify = () => {
     try {
       if (spotifyData) {
         const albumLink = spotifyData.albumCover;
+
         if (albumLink) {
           const res = await fetch(albumLink);
           if (res.ok) {
-            setListening(true);
+            setLoaded(true);
+            setSpotifyAlbumLoaded(true);
           } else {
             console.error("Failed to fetch album cover:", res.status);
           }
@@ -56,6 +70,7 @@ const Spotify = () => {
 
   useEffect(() => {
     if (!spotifyData) {
+      setLoaded(true);
       return;
     }
 
@@ -66,7 +81,7 @@ const Spotify = () => {
 
   return (
     <div className="spotify-container">
-      {!isListening ? (
+      {!spotifyAlbumLoaded ? (
         <>
           <div className="listening">
             <div className="text">
