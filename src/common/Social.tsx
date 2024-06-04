@@ -51,7 +51,7 @@ const Social: React.FC<SocialProps> = ({ show, handleClose }) => {
             <div>
               <Skeleton
                 variant="rounded"
-                sx={{ bgcolor: "gray" }}
+                sx={{ bgcolor: "#212121" }}
                 height={75}
               />
             </div>
