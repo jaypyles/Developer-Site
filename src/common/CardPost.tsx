@@ -1,7 +1,6 @@
 import React from "react";
 import { Paper, Typography, Card, CardContent, CardMedia } from "@mui/material";
 
-// Define an interface for the component props
 interface CardPostProps {
   img: string;
   description: string;

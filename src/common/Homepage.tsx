@@ -9,7 +9,7 @@ interface HomepageProps {
 }
 
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
-  const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
+  const [_, setImagesLoaded] = useState<boolean>(false);
   const [loadedCount, setLoadedCount] = useState<number>(0);
 
   const handleImageLoaded = useCallback(() => {

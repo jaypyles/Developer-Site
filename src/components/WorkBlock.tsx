@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { fetchImage } from "../lib/UtilFunctions";
+import React from "react";
 
 interface Data {
   image: string;
@@ -13,20 +12,7 @@ interface WorkBlockProps {
 }
 
 const WorkBlock: React.FC<WorkBlockProps> = ({ data, onImageLoaded }) => {
-  const [imageUrl, setImageUrl] = useState("");
-
-  useEffect(() => {
-    const fetchAndSetImage = async () => {
-      const url = await fetchImage(data.image);
-      setImageUrl(url);
-    };
-
-    fetchAndSetImage();
-  }, [data.image]);
-
-  const handleImageLoaded = () => {
-    onImageLoaded();
-  };
+  const imageUrl = require(`../images/${data.image}`);
 
   return (
     <div className="workblock flex flex-row mr-[0.5em] p-1 rounded bg-testAccent border-1 border-black">
@@ -35,7 +21,7 @@ const WorkBlock: React.FC<WorkBlockProps> = ({ data, onImageLoaded }) => {
           className="image w-[4em] h-[4em] mr-[0.5em]"
           src={imageUrl}
           alt={data.title}
-          onLoad={handleImageLoaded}
+          onLoad={onImageLoaded}
         />
       )}
       <div className="content mt-[0.25]">

@@ -11,7 +11,6 @@ interface SpotifyData {
 const Spotify = () => {
   const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
   const [isListening, setListening] = useState(false);
-  const [albumCover, setAlbumCover] = useState(spotify);
   const domain = process.env.REACT_APP_DOMAIN;
   const url = `${domain}/api/spotify/now-playing`;
 
@@ -20,7 +19,7 @@ const Spotify = () => {
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
-        setSpotifyData(JSON.parse(data));
+        setSpotifyData(data);
       } else {
         console.error("Failed to fetch Spotify data:", res.status);
       }
@@ -36,9 +35,6 @@ const Spotify = () => {
         if (albumLink) {
           const res = await fetch(albumLink);
           if (res.ok) {
-            const albumBlob = await res.blob();
-            const albumObjectUrl = URL.createObjectURL(albumBlob);
-            setAlbumCover(albumObjectUrl);
             setListening(true);
           } else {
             console.error("Failed to fetch album cover:", res.status);
@@ -59,11 +55,13 @@ const Spotify = () => {
   }, []);
 
   useEffect(() => {
-    if (spotifyData) {
-      fetchAlbumCover();
-      const albumInterval = setInterval(fetchAlbumCover, 60000);
-      return () => clearInterval(albumInterval);
+    if (!spotifyData) {
+      return;
     }
+
+    fetchAlbumCover();
+    const albumInterval = setInterval(fetchAlbumCover, 60000);
+    return () => clearInterval(albumInterval);
   }, [spotifyData]);
 
   return (

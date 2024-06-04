@@ -28,11 +28,13 @@ const Project: React.FC<ProjectProps> = ({ projectType }) => {
   const projectURL = projectMap[projectType];
 
   const fetchProject = async () => {
-    await fetch(projectURL)
-      .then((res) => res.json())
-      .then((res) => {
-        setProjects(JSON.parse(res).data);
-      });
+    if (projectURL) {
+      await fetch(projectURL)
+        .then((res) => res.json())
+        .then((res) => {
+          setProjects(JSON.parse(res).data);
+        });
+    }
   };
 
   useEffect(() => {
