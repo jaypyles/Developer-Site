@@ -17,14 +17,14 @@ const Social: React.FC<SocialProps> = ({ show, handleClose }) => {
   const [spotifyLoaded, setSpotifyLoaded] = useState<boolean>(false);
 
   const close = () => {
-    handleClose();
     setDiscordLoaded(false);
     setSpotifyLoaded(false);
+    handleClose();
   };
 
   return (
     <div className="social">
-      <Modal dialogClassName="social" show={show} onHide={close}>
+      <Modal dialogClassName="social" show={show} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>More of my links!</Modal.Title>
         </Modal.Header>
