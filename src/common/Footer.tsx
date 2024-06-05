@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({
 
   return (
     <div
-      className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
+      className={`footer emboss bg-imageAccent ${!imagesLoaded ? "!hidden" : ""}`}
     >
       <Nav className="footer">
         {footer_links.map((data, index) => (

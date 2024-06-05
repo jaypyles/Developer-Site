@@ -61,18 +61,22 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
   }, []);
 
   return (
-    <div className={`nav p-3 mb-2 w-[100%] ${hidden ? "hidden" : ""}`}>
+    <div
+      className={`nav p-3 mb-2 w-[100%] !text-black ${hidden ? "hidden" : ""}`}
+    >
       <div className="nav-left">
         <Nav className="nav-content !flex !justify-start w-auto">
           <Nav.Item>
             <Nav.Link className="name" href="/">
-              home
+              <p className="mb-0">Home</p>
             </Nav.Link>
           </Nav.Item>
 
           <Tooltip title="Visit my most recent note!" placement="top" arrow>
             <Nav.Item>
-              <Nav.Link href={`${pageURL ? pageURL.url : ""}`}>wiki</Nav.Link>
+              <Nav.Link href={`${pageURL ? pageURL.url : ""}`}>
+                <p className="mb-0">Wiki</p>
+              </Nav.Link>
             </Nav.Item>
           </Tooltip>
           {githubURL ? (
@@ -82,7 +86,9 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
               arrow
             >
               <Nav.Item>
-                <Nav.Link href={githubURL.url}>github</Nav.Link>
+                <Nav.Link href={githubURL.url}>
+                  <p className="mb-0">Github</p>
+                </Nav.Link>
               </Nav.Item>
             </Tooltip>
           ) : (
@@ -90,12 +96,16 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
           )}
           <Tooltip title="See my socials!" placement="top" arrow>
             <Nav.Item>
-              <Nav.Link onClick={handleShow}>socials</Nav.Link>
+              <Nav.Link onClick={handleShow}>
+                <p className="mb-0">Socials</p>
+              </Nav.Link>
             </Nav.Item>
           </Tooltip>
           <Tooltip title="Photo Board" placement="top" arrow>
             <Nav.Item className="ml-auto">
-              <Nav.Link href="/posts">posts</Nav.Link>
+              <Nav.Link href="/posts">
+                <p className="mb-0">Posts</p>
+              </Nav.Link>
             </Nav.Item>
           </Tooltip>
         </Nav>

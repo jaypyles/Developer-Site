@@ -18,11 +18,11 @@ module.exports = {
       },
       colors: {
         accent: "#1132f0",
-        backgroundAccent: "#222222",
-        imageAccent: "#3D3B40",
+        backgroundAccent: "#c3c6cb",
+        imageAccent: "#e7e7e7",
       },
       fontFamily: {
-        prompt: ['"Prompt"', "sans"],
+        prompt: ['"VT323"', "monospace"],
       },
     },
     backgroundOpacity: {

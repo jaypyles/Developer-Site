@@ -9,6 +9,14 @@
 }
 
 @media screen and (max-width: 750px) {
+  .main {
+    padding-top: 0 !important;
+  }
+
+  #buttons {
+    height: 2vh !important;
+  }
+
   #posts {
     width: 100% !important;
   }
@@ -25,12 +33,12 @@
     font-size: 210% !important;
   }
 
-  .footer {
-    background-color: #121212 !important;
-  }
-
   .nav {
     width: 100% !important;
+  }
+
+  .nav a {
+    font-size: 80% !important;
   }
 
   .nav-content {
@@ -88,9 +96,10 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #121212;
+  background-color: #c3c6cb;
   /* Replace with your desired background color */
-  font-family: prompt, sans;
+
+  font-family: incosolata, monospace;
   line-height: 1.4;
   font-size: 18px;
   margin: 0;
@@ -104,6 +113,7 @@ body {
 
 .main {
   padding-top: calc(1em + 1vw);
+  background-color: #c3c6cb;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,7 +147,6 @@ body {
 .nav a {
   font-size: 95%;
   padding: 0;
-  color: var(--accent) !important;
 }
 
 .nav-item {
@@ -309,11 +318,19 @@ body {
 
 /* basic tag styling */
 p {
-  color: white;
+  color: black;
 }
 
 h1 {
-  color: white !important;
+  color: black !important;
+}
+
+.emboss {
+  border-style: groove;
+  border-top: white 1px solid;
+  border-left: white 1px solid;
+  border-right: black 1px solid;
+  border-bottom: black 1px solid;
 }
 
 .homepage a {
@@ -371,7 +388,6 @@ input:checked + small {
   height: 5vh;
   top: 95%;
   width: 100%;
-  background-color: #222;
 }
 
 .footer a {
@@ -397,7 +413,8 @@ input:checked + small {
 
 /* Social Modal */
 .modal-dialog.social {
-  color: white !important;
+  color: black !important;
+  font-family: incosolata, monospace;
 }
 
 .modal-dialog.social .modal-header {
@@ -406,7 +423,7 @@ input:checked + small {
 }
 
 .modal-dialog.social .modal-content {
-  background-color: #121212 !important;
+  background-color: #c3c6cb !important;
 }
 
 .modal-dialog.social .modal-body {
@@ -420,7 +437,6 @@ input:checked + small {
 .linkblock {
   display: flex;
   flex-direction: row;
-  border: solid rgb(13, 110, 253);
   margin-bottom: 1vh;
   padding: 0.25vw;
   justify-content: space-between;
@@ -449,14 +465,12 @@ input:checked + small {
 .linkblock .description a {
   margin-bottom: 0;
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .modal-body .status {
   display: flex;
   flex-direction: row;
-  background: #212121;
-  border-radius: 10px;
   height: 12vh;
   font-size: 1.5vh;
 }
@@ -582,4 +596,8 @@ input:checked + small {
 }
 .css-hk6gwf-MuiImageListItemBar-subtitle {
   color: rgb(228 228 231) !important;
+}
+
+#buttons {
+  height: 2.5vh;
 }

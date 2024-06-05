@@ -14,11 +14,11 @@ const LinkBlock: React.FC<LinkBlockProps> = ({ data }) => {
   const imageUrl = require(`../images/${data.image}`);
 
   return (
-    <div className="linkblock">
+    <div className="linkblock emboss">
       <div className="image">
         <img src={imageUrl} alt={data.description} />
       </div>
-      <div className="text">
+      <div className="text !text-black">
         <div className="description">
           <a href={data.link}>{data.description}</a>
         </div>

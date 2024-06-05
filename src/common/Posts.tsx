@@ -39,7 +39,7 @@ const Posts: React.FC<PostsProps> = ({
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: "#121212",
+    bgcolor: "#c3c6cb",
     boxShadow: 24,
     p: 4,
   };
@@ -66,11 +66,14 @@ const Posts: React.FC<PostsProps> = ({
   return (
     <>
       {posts && posts.length > 0 ? (
-        <div id="posts" className={`${!imagesLoaded ? "hidden" : ""}`}>
+        <div
+          id="posts"
+          className={`emboss !font-prompt ${!imagesLoaded ? "hidden" : ""}`}
+        >
           <Paper
-            elevation={3}
+            elevation={0}
             className="p-2 mb-4 no-scrollbar"
-            sx={{ bgcolor: "rgba(0,0,0,0.5)" }}
+            sx={{ bgcolor: "#c3c6cb" }}
           >
             <ImageList variant="masonry" cols={3} gap={8}>
               {posts.map((item, index) => (

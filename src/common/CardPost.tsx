@@ -13,9 +13,9 @@ const CardPost: React.FC<CardPostProps> = ({ img, description, date }) => {
       <Card className="p-2">
         <CardMedia component="img" image={img} alt={description} />
         <CardContent>
-          {description}
+          <p className="!font-prompt">{description}</p>
           <Typography variant="body2" color="text.secondary">
-            {date}
+            <p className="!font-prompt">{date}</p>
           </Typography>
         </CardContent>
       </Card>

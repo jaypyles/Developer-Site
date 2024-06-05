@@ -16,7 +16,7 @@ const CurrentlyWorkingInformation: React.FC<
   const imageUrl = require(`../images/${data.image}`);
 
   return (
-    <div className="workblock flex flex-row mr-[0.5em] p-1 rounded bg-imageAccent border-1 border-black">
+    <div className="workblock flex flex-row mr-[0.5em] p-1 bg-imageAccent emboss">
       {imageUrl && (
         <img
           className="image w-[4em] h-[4em] mr-[0.5em]"
@@ -26,9 +26,7 @@ const CurrentlyWorkingInformation: React.FC<
       )}
       <div className="content mt-[0.25]">
         <p className="title text-[75%] mb-0">{data.title}</p>
-        <p className="description text-[65%] mb-0 text-stone-300">
-          {data.description}
-        </p>
+        <p className="description text-[65%] mb-0">{data.description}</p>
       </div>
     </div>
   );

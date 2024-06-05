@@ -9,9 +9,7 @@ interface HomepageProps {
 
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
   return (
-    <div
-      className={`homepage p-3 bg-backgroundAccent drop-shadow-3xl ${hidden ? "!hidden" : ""}`}
-    >
+    <div className={`homepage p-3 emboss bg-white ${hidden ? "!hidden" : ""}`}>
       <div className="about">
         <h1 className="page-title text-[100%] font-prompt">
           Hey, I'm Jayden 👨‍💻
@@ -58,6 +56,17 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             link="https://jaydenpyles.dev/resume"
             small_description=""
           />
+          <div id="buttons" className="flex justify-center space-x-2">
+            <img src="https://anlucas.neocities.org/linux_powered.gif" />
+            <img
+              src="https://ayoreis.com/static/Arch.png"
+              alt="Arch Linux 88x31 button"
+            />
+            <img src="https://devurandom.xyz/banners/vim.gif" />
+            <img src="https://anlucas.neocities.org/button.gif" />
+            <img src="https://anlucas.neocities.org/get.gif" />
+            <img src="https://anlucas.neocities.org/html.gif" />
+          </div>
         </div>
       </div>
     </div>

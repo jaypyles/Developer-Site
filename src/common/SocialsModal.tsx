@@ -33,7 +33,7 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
             <LinkBlock key={index} data={data} />
           ))}
           <div
-            className={`status ${spotifyLoaded && discordLoaded ? "" : "!hidden"}`}
+            className={`status emboss ${spotifyLoaded && discordLoaded ? "" : "!hidden"}`}
           >
             <Discord
               loadedState={{
@@ -51,7 +51,7 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
             <div>
               <Skeleton
                 variant="rounded"
-                sx={{ bgcolor: "#212121" }}
+                sx={{ bgcolor: "#c3c6cb" }}
                 height={75}
               />
             </div>
