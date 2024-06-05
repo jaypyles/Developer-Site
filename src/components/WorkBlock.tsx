@@ -8,10 +8,9 @@ interface Data {
 
 interface WorkBlockProps {
   data: Data;
-  onImageLoaded: () => void;
 }
 
-const WorkBlock: React.FC<WorkBlockProps> = ({ data, onImageLoaded }) => {
+const WorkBlock: React.FC<WorkBlockProps> = ({ data }) => {
   const imageUrl = require(`../images/${data.image}`);
 
   return (
@@ -21,7 +20,6 @@ const WorkBlock: React.FC<WorkBlockProps> = ({ data, onImageLoaded }) => {
           className="image w-[4em] h-[4em] mr-[0.5em]"
           src={imageUrl}
           alt={data.title}
-          onLoad={onImageLoaded}
         />
       )}
       <div className="content mt-[0.25]">

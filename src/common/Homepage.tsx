@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useCallback, useEffect } from "react";
 import { work } from "../data/WorkBlock";
 import WorkBlock from "../components/WorkBlock";
 import Block from "../components/Block";
@@ -9,19 +8,6 @@ interface HomepageProps {
 }
 
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
-  const [_, setImagesLoaded] = useState<boolean>(false);
-  const [loadedCount, setLoadedCount] = useState<number>(0);
-
-  const handleImageLoaded = useCallback(() => {
-    setLoadedCount((prevCount: number) => prevCount + 1);
-  }, []);
-
-  useEffect(() => {
-    if (loadedCount === work.length) {
-      setImagesLoaded(true);
-    }
-  }, [loadedCount]);
-
   return (
     <div
       className={`homepage p-3 bg-backgroundAccent drop-shadow-3xl ${hidden ? "!hidden" : ""}`}
@@ -37,11 +23,7 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
           </p>
           <div className="workblocks flex flex-row mb-[1em]">
             {work.map((data, index) => (
-              <WorkBlock
-                key={index}
-                data={data}
-                onImageLoaded={handleImageLoaded}
-              />
+              <WorkBlock key={index} data={data} />
             ))}
           </div>
           <p className="text-[85%]">

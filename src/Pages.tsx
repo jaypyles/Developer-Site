@@ -15,6 +15,7 @@ const Loading: React.FC = () => {
 
 export const HomepagePage: React.FC = () => {
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
+
   return (
     <>
       <Navbar hidden={!imagesLoaded} />
