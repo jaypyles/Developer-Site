@@ -88,7 +88,7 @@ const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
               <img src={spotify} alt="Album cover" />
             </div>
             <div className="text">
-              <p className="name">Not Listening</p>
+              <p className="name !mr-4">Not Listening</p>
             </div>
           </div>
         </>
