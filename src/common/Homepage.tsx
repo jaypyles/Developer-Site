@@ -58,13 +58,10 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
           />
           <div id="buttons" className="flex justify-center space-x-2">
             <img src="https://anlucas.neocities.org/linux_powered.gif" />
-            <img
-              src="https://ayoreis.com/static/Arch.png"
-              alt="Arch Linux 88x31 button"
-            />
+            <img src="https://capstasher.neocities.org/88x31Buttons/archlinux.gif" />
             <img src="https://devurandom.xyz/banners/vim.gif" />
             <img src="https://anlucas.neocities.org/button.gif" />
-            <img src="https://anlucas.neocities.org/get.gif" />
+            <img src="https://capstasher.neocities.org/88x31Buttons/firefoxget.gif" />
             <img src="https://anlucas.neocities.org/html.gif" />
           </div>
         </div>
