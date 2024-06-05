@@ -7,12 +7,12 @@ import { socials } from "../data/Socials";
 import Discord from "../components/Discord";
 import { Skeleton } from "@mui/material";
 
-interface SocialProps {
+interface SocialsModalProps {
   show: boolean;
   handleClose: () => void;
 }
 
-const Social: React.FC<SocialProps> = ({ show, handleClose }) => {
+const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
   const [discordLoaded, setDiscordLoaded] = useState<boolean>(false);
   const [spotifyLoaded, setSpotifyLoaded] = useState<boolean>(false);
 
@@ -67,4 +67,4 @@ const Social: React.FC<SocialProps> = ({ show, handleClose }) => {
   );
 };
 
-export default Social;
+export default SocialsModal;

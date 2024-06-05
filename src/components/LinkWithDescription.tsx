@@ -1,11 +1,14 @@
 import React from "react";
 
-type BlockProps = {
+type LinkWithDescriptionProps = {
   link: string;
   small_description: string;
 };
 
-const Block: React.FC<BlockProps> = ({ link, small_description }) => {
+const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
+  link,
+  small_description,
+}) => {
   return (
     <div className="flex flex-col bg-imageAccent rounded mb-[1em]">
       <a href={link} className="link text-[75%] !ml-[0.5em]">
@@ -18,4 +21,4 @@ const Block: React.FC<BlockProps> = ({ link, small_description }) => {
   );
 };
 
-export default Block;
+export default LinkWithDescription;

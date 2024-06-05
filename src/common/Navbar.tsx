@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "react-bootstrap/Nav";
-import Social from "./Social";
+import SocialsModal from "./SocialsModal";
 import Tooltip from "@mui/material/Tooltip";
 import Constants from "../constants";
 
@@ -99,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
             </Nav.Item>
           </Tooltip>
         </Nav>
-        <Social show={show} handleClose={handleClose} />
+        <SocialsModal show={show} handleClose={handleClose} />
       </div>
     </div>
   );

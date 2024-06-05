@@ -3,12 +3,12 @@ import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 import Homepage from "./common/Homepage";
 import Posts from "./common/Posts";
-import loadingBonfire from "./images/loading.gif";
+import loading from "./images/loading.gif";
 
 const Loading: React.FC = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#121212] text-white z-50">
-      <img src={loadingBonfire} alt="Loading..."></img>
+      <img src={loading} alt="Loading..."></img>
     </div>
   );
 };

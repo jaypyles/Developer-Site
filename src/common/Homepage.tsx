@@ -1,7 +1,7 @@
 import React from "react";
-import { work } from "../data/WorkBlock";
+import { work } from "../data/CurrentlyWorkingInformation";
 import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
-import Block from "../components/Block";
+import LinkWithDescription from "../components/LinkWithDescription";
 
 interface HomepageProps {
   hidden?: boolean;
@@ -35,11 +35,11 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             services that are publicly available:
           </p>
           <div className="blocks">
-            <Block
+            <LinkWithDescription
               link="https://spaceify.jaydenpyles.dev"
               small_description="A hackathon project I and 3 others built in 24 hours."
             />
-            <Block
+            <LinkWithDescription
               link="https://wiki.jaydenpyles.dev"
               small_description="A bookstack instance for technical notes and blogs."
             />
@@ -54,7 +54,10 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
           </p>
 
           <p className="text-[85%]">You can view my resume down below:</p>
-          <Block link="https://jaydenpyles.dev/resume" small_description="" />
+          <LinkWithDescription
+            link="https://jaydenpyles.dev/resume"
+            small_description=""
+          />
         </div>
       </div>
     </div>
