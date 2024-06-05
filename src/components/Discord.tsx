@@ -38,9 +38,6 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
     <div className="discord">
       {loaded && data && (
         <div className="discord-status">
-          <div className="title">
-            <p>Discord Status</p>
-          </div>
           <div className="content">
             <div className="avatar">
               <StyledBadge
@@ -66,16 +63,16 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
                 />
               </StyledBadge>
             </div>
-            <div className="user">
-              <Typography variant="h6">
+            <div className="user flex items-center">
+              <Typography variant="h6" style={{ marginRight: 8 }}>
                 {data.discord_user.username}
-                <Typography
-                  variant="subtitle1"
-                  component="span"
-                  sx={{ color: "gray" }}
-                >
-                  #1337
-                </Typography>
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                component="span"
+                sx={{ color: "gray" }}
+              >
+                #1337
               </Typography>
             </div>
           </div>

@@ -35,15 +35,15 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
           <div
             className={`status ${spotifyLoaded && discordLoaded ? "" : "!hidden"}`}
           >
-            <Spotify
-              loadedState={{
-                setLoaded: setSpotifyLoaded,
-              }}
-            />
             <Discord
               loadedState={{
                 loaded: discordLoaded,
                 setLoaded: setDiscordLoaded,
+              }}
+            />
+            <Spotify
+              loadedState={{
+                setLoaded: setSpotifyLoaded,
               }}
             />
           </div>
