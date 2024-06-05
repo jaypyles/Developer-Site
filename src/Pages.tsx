@@ -21,10 +21,7 @@ export const HomepagePage: React.FC = () => {
       <Navbar hidden={!imagesLoaded} />
       <Homepage hidden={!imagesLoaded} />
       {!imagesLoaded && <Loading />}
-      <Footer
-        className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
-        setImagesLoaded={setImagesLoaded}
-      />
+      <Footer imagesLoaded={imagesLoaded} setImagesLoaded={setImagesLoaded} />
     </>
   );
 };
@@ -41,10 +38,7 @@ export const PostsPage: React.FC = () => {
         imagesLoaded={postImagesLoaded}
       />
       {!postImagesLoaded && <Loading />}
-      <Footer
-        className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
-        setImagesLoaded={setImagesLoaded}
-      />
+      <Footer imagesLoaded={imagesLoaded} setImagesLoaded={setImagesLoaded} />
     </>
   );
 };

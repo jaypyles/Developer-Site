@@ -1,6 +1,6 @@
 import React from "react";
 import { work } from "../data/WorkBlock";
-import WorkBlock from "../components/WorkBlock";
+import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
 import Block from "../components/Block";
 
 interface HomepageProps {
@@ -23,7 +23,7 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
           </p>
           <div className="workblocks flex flex-row mb-[1em]">
             {work.map((data, index) => (
-              <WorkBlock key={index} data={data} />
+              <CurrentlyWorkingInformation key={index} data={data} />
             ))}
           </div>
           <p className="text-[85%]">

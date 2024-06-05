@@ -7,7 +7,7 @@ type BlockProps = {
 
 const Block: React.FC<BlockProps> = ({ link, small_description }) => {
   return (
-    <div className="block flex flex-col bg-testAccent rounded mb-[1em]">
+    <div className="flex flex-col bg-imageAccent rounded mb-[1em]">
       <a href={link} className="link text-[75%] !ml-[0.5em]">
         {link}
       </a>

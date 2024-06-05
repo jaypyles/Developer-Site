@@ -4,11 +4,14 @@ import NavItem from "./NavItem";
 import { footer_links } from "../data/Footer";
 
 interface FooterProps {
-  className?: string;
+  imagesLoaded: boolean;
   setImagesLoaded: Function;
 }
 
-const Footer: React.FC<FooterProps> = ({ className, setImagesLoaded }) => {
+const Footer: React.FC<FooterProps> = ({
+  imagesLoaded = false,
+  setImagesLoaded,
+}) => {
   const [loadedCount, setLoadedCount] = useState<number>(0);
 
   const handleImageLoaded = useCallback(() => {
@@ -22,7 +25,9 @@ const Footer: React.FC<FooterProps> = ({ className, setImagesLoaded }) => {
   }, [loadedCount]);
 
   return (
-    <div className={className}>
+    <div
+      className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
+    >
       <Nav className="footer">
         {footer_links.map((data, index) => (
           <NavItem key={index} data={data} onImageLoaded={handleImageLoaded} />

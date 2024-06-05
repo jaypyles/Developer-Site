@@ -19,7 +19,7 @@ module.exports = {
       colors: {
         accent: "#1132f0",
         backgroundAccent: "#222222",
-        testAccent: "#3D3B40",
+        imageAccent: "#3D3B40",
       },
       fontFamily: {
         prompt: ['"Prompt"', "sans"],
