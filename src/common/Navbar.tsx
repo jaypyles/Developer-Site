@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "react-bootstrap/Nav";
-import Social from "./Social";
+import SocialsModal from "./SocialsModal";
 import Tooltip from "@mui/material/Tooltip";
 import Constants from "../constants";
 
@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
-        setPageURL(JSON.parse(data));
+        setPageURL(data);
       } else {
         console.error("Failed to fetch from API: ", res.status);
       }
@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
       const res = await fetch(ghURL);
       if (res.ok) {
         const data = await res.json();
-        setGithubURL(JSON.parse(data));
+        setGithubURL(data);
       } else {
         console.error("Failed to fetch Github data:", res.status);
       }
@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
 
           <Tooltip title="Visit my most recent note!" placement="top" arrow>
             <Nav.Item>
-              <Nav.Link href={pageURL?.url}>wiki</Nav.Link>
+              <Nav.Link href={`${pageURL ? pageURL.url : ""}`}>wiki</Nav.Link>
             </Nav.Item>
           </Tooltip>
           {githubURL ? (
@@ -99,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
             </Nav.Item>
           </Tooltip>
         </Nav>
-        <Social show={show} handleClose={handleClose} />
+        <SocialsModal show={show} handleClose={handleClose} />
       </div>
     </div>
   );

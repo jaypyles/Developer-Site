@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 import Homepage from "./common/Homepage";
 import Posts from "./common/Posts";
-import loadingBonfire from "./images/loading.gif";
+import loading from "./images/loading.gif";
 
 const Loading: React.FC = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#121212] text-white z-50">
-      <img src={loadingBonfire} alt="Loading..."></img>
+      <img src={loading} alt="Loading..."></img>
     </div>
   );
 };
 
 export const HomepagePage: React.FC = () => {
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
+
   return (
     <>
       <Navbar hidden={!imagesLoaded} />
       <Homepage hidden={!imagesLoaded} />
       {!imagesLoaded && <Loading />}
-      <Footer
-        className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
-        setImagesLoaded={setImagesLoaded}
-      />
+      <Footer imagesLoaded={imagesLoaded} setImagesLoaded={setImagesLoaded} />
     </>
   );
 };
@@ -40,10 +38,7 @@ export const PostsPage: React.FC = () => {
         imagesLoaded={postImagesLoaded}
       />
       {!postImagesLoaded && <Loading />}
-      <Footer
-        className={`footer shadow-2xl shadow-accent ${!imagesLoaded ? "!hidden" : ""}`}
-        setImagesLoaded={setImagesLoaded}
-      />
+      <Footer imagesLoaded={imagesLoaded} setImagesLoaded={setImagesLoaded} />
     </>
   );
 };

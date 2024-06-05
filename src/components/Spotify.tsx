@@ -8,10 +8,21 @@ interface SpotifyData {
   artistName: string;
 }
 
-const Spotify = () => {
+interface SpotifyProps {
+  loadedState: {
+    loaded?: boolean;
+    setLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+}
+
+const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
   const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
-  const [isListening, setListening] = useState(false);
-  const [albumCover, setAlbumCover] = useState(spotify);
+  const [spotifyAlbumLoaded, setSpotifyAlbumLoaded] = useState<boolean | null>(
+    null,
+  );
+
+  const { setLoaded } = loadedState;
+
   const domain = process.env.REACT_APP_DOMAIN;
   const url = `${domain}/api/spotify/now-playing`;
 
@@ -20,7 +31,7 @@ const Spotify = () => {
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
-        setSpotifyData(JSON.parse(data));
+        setSpotifyData(data);
       } else {
         console.error("Failed to fetch Spotify data:", res.status);
       }
@@ -33,13 +44,12 @@ const Spotify = () => {
     try {
       if (spotifyData) {
         const albumLink = spotifyData.albumCover;
+
         if (albumLink) {
           const res = await fetch(albumLink);
           if (res.ok) {
-            const albumBlob = await res.blob();
-            const albumObjectUrl = URL.createObjectURL(albumBlob);
-            setAlbumCover(albumObjectUrl);
-            setListening(true);
+            setLoaded(true);
+            setSpotifyAlbumLoaded(true);
           } else {
             console.error("Failed to fetch album cover:", res.status);
           }
@@ -59,36 +69,31 @@ const Spotify = () => {
   }, []);
 
   useEffect(() => {
-    if (spotifyData) {
-      fetchAlbumCover();
-      const albumInterval = setInterval(fetchAlbumCover, 60000);
-      return () => clearInterval(albumInterval);
+    if (!spotifyData) {
+      setLoaded(true);
+      return;
     }
+
+    fetchAlbumCover();
+    const albumInterval = setInterval(fetchAlbumCover, 60000);
+    return () => clearInterval(albumInterval);
   }, [spotifyData]);
 
   return (
     <div className="spotify-container">
-      {!isListening ? (
+      {!spotifyAlbumLoaded ? (
         <>
-          <div className="listening">
-            <div className="text">
-              <p>Listening On Spotify:</p>
-            </div>
-          </div>
           <div className="spotify">
             <div className="image">
               <img src={spotify} alt="Album cover" />
             </div>
             <div className="text">
-              <p className="name">Not Listening</p>
+              <p className="name !mr-4">Not Listening</p>
             </div>
           </div>
         </>
       ) : (
         <>
-          <div className="listening">
-            <p>Listening On Spotify:</p>
-          </div>
           <div className="spotify">
             <div className="image">
               <img src={spotifyData?.albumCover} alt="Album cover" />

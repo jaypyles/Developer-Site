@@ -456,7 +456,6 @@ input:checked + small {
   display: flex;
   flex-direction: row;
   background: #212121;
-  padding: 0.5vw;
   border-radius: 10px;
   height: 12vh;
   font-size: 1.5vh;
@@ -511,7 +510,6 @@ input:checked + small {
 }
 
 .spotify .text p {
-  margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

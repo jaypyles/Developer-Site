@@ -11,28 +11,33 @@ interface Data {
   };
 }
 
-const Discord: React.FC = () => {
+interface DiscordProps {
+  loadedState: {
+    loaded: boolean;
+    setLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+}
+
+const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
   const [data, setData] = useState<Data | null>(null);
-  const [loading, setLoading] = useState(true);
   const domain = process.env.REACT_APP_DOMAIN;
   const url = `${domain}/api/discord/status`;
+
+  const { loaded, setLoaded } = loadedState;
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
         setData(res.data);
-        setLoading(false);
+        setLoaded(true);
       });
   }, []);
 
   return (
     <div className="discord">
-      {!loading && data && (
+      {loaded && data && (
         <div className="discord-status">
-          <div className="title">
-            <p>Discord Status</p>
-          </div>
           <div className="content">
             <div className="avatar">
               <StyledBadge
@@ -58,16 +63,16 @@ const Discord: React.FC = () => {
                 />
               </StyledBadge>
             </div>
-            <div className="user">
-              <Typography variant="h6">
+            <div className="user flex items-center">
+              <Typography variant="h6" style={{ marginRight: 8 }}>
                 {data.discord_user.username}
-                <Typography
-                  variant="subtitle1"
-                  component="span"
-                  sx={{ color: "gray" }}
-                >
-                  #1337
-                </Typography>
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                component="span"
+                sx={{ color: "gray" }}
+              >
+                #1337
               </Typography>
             </div>
           </div>

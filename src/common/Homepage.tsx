@@ -1,27 +1,13 @@
 import React from "react";
-import { useState, useCallback, useEffect } from "react";
-import { work } from "../data/WorkBlock";
-import WorkBlock from "../components/WorkBlock";
-import Block from "../components/Block";
+import { work } from "../data/CurrentlyWorkingInformation";
+import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
+import LinkWithDescription from "../components/LinkWithDescription";
 
 interface HomepageProps {
   hidden?: boolean;
 }
 
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
-  const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
-  const [loadedCount, setLoadedCount] = useState<number>(0);
-
-  const handleImageLoaded = useCallback(() => {
-    setLoadedCount((prevCount: number) => prevCount + 1);
-  }, []);
-
-  useEffect(() => {
-    if (loadedCount === work.length) {
-      setImagesLoaded(true);
-    }
-  }, [loadedCount]);
-
   return (
     <div
       className={`homepage p-3 bg-backgroundAccent drop-shadow-3xl ${hidden ? "!hidden" : ""}`}
@@ -37,11 +23,7 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
           </p>
           <div className="workblocks flex flex-row mb-[1em]">
             {work.map((data, index) => (
-              <WorkBlock
-                key={index}
-                data={data}
-                onImageLoaded={handleImageLoaded}
-              />
+              <CurrentlyWorkingInformation key={index} data={data} />
             ))}
           </div>
           <p className="text-[85%]">
@@ -53,11 +35,11 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             services that are publicly available:
           </p>
           <div className="blocks">
-            <Block
+            <LinkWithDescription
               link="https://spaceify.jaydenpyles.dev"
               small_description="A hackathon project I and 3 others built in 24 hours."
             />
-            <Block
+            <LinkWithDescription
               link="https://wiki.jaydenpyles.dev"
               small_description="A bookstack instance for technical notes and blogs."
             />
@@ -72,7 +54,10 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
           </p>
 
           <p className="text-[85%]">You can view my resume down below:</p>
-          <Block link="https://jaydenpyles.dev/resume" small_description="" />
+          <LinkWithDescription
+            link="https://jaydenpyles.dev/resume"
+            small_description=""
+          />
         </div>
       </div>
     </div>
