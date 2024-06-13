@@ -61,9 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
   }, []);
 
   return (
-    <div
-      className={`nav p-3 mb-2 w-[100%] !text-black ${hidden ? "hidden" : ""}`}
-    >
+    <div className={`nav p-3 w-[100%] !text-black ${hidden ? "hidden" : ""}`}>
       <div className="nav-left">
         <Nav className="nav-content !flex !justify-start w-auto">
           <Nav.Item>

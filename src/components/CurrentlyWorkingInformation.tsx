@@ -26,7 +26,9 @@ const CurrentlyWorkingInformation: React.FC<
       )}
       <div className="content mt-[0.25]">
         <p className="title text-[75%] mb-0">{data.title}</p>
-        <p className="description text-[65%] mb-0">{data.description}</p>
+        <p className="description text-[65%] mb-0 text-gray-800">
+          {data.description}
+        </p>
       </div>
     </div>
   );
