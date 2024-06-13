@@ -71,6 +71,7 @@ const Posts: React.FC<PostsProps> = ({
           className={`emboss !font-prompt ${!imagesLoaded ? "hidden" : ""}`}
         >
           <Paper
+            id="post-array"
             elevation={0}
             className="p-2 mb-4 no-scrollbar"
             sx={{ bgcolor: "#c3c6cb" }}

@@ -18,7 +18,8 @@
   }
 
   #posts {
-    width: 100% !important;
+    width: 95% !important;
+    height: 90% !important;
   }
 
   #post-img {

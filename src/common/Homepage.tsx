@@ -9,7 +9,9 @@ interface HomepageProps {
 
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
   return (
-    <div className={`homepage p-3 emboss bg-white ${hidden ? "!hidden" : ""}`}>
+    <div
+      className={`homepage p-3 emboss bg-white overflow-scroll ${hidden ? "!hidden" : ""}`}
+    >
       <div className="about">
         <h1 className="page-title text-[100%] font-prompt">
           Hey, I'm Jayden 👨‍💻
