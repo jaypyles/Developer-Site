@@ -58,7 +58,12 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={close} className="emboss">
+          <Button
+            variant="secondary"
+            onClick={close}
+            className="
+            emboss"
+          >
             Close
           </Button>
         </Modal.Footer>

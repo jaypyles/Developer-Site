@@ -327,11 +327,11 @@ h1 {
 }
 
 .emboss {
-  border-style: groove;
-  border-top: white 1px solid;
-  border-left: white 1px solid;
-  border-right: black 1px solid;
-  border-bottom: black 1px solid;
+  border-style: groove !important;
+  border-top: white 1px solid !important;
+  border-left: white 1px solid !important;
+  border-right: black 1px solid !important;
+  border-bottom: black 1px solid !important;
 }
 
 .homepage a {

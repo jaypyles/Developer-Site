@@ -94,7 +94,7 @@ const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
         </>
       ) : (
         <>
-          <div className="spotify">
+          <div className="spotify mr-4">
             <div className="image">
               <img
                 src={spotifyData?.albumCover}
