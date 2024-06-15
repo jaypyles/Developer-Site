@@ -69,29 +69,6 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
               <p className="mb-0">Home</p>
             </Nav.Link>
           </Nav.Item>
-
-          <Tooltip title="Visit my most recent note!" placement="top" arrow>
-            <Nav.Item>
-              <Nav.Link href={`${pageURL ? pageURL.url : ""}`}>
-                <p className="mb-0">Wiki</p>
-              </Nav.Link>
-            </Nav.Item>
-          </Tooltip>
-          {githubURL ? (
-            <Tooltip
-              title="Visit my most recent project!"
-              placement="top"
-              arrow
-            >
-              <Nav.Item>
-                <Nav.Link href={githubURL.url}>
-                  <p className="mb-0">Github</p>
-                </Nav.Link>
-              </Nav.Item>
-            </Tooltip>
-          ) : (
-            <></>
-          )}
           <Tooltip title="See my socials!" placement="top" arrow>
             <Nav.Item>
               <Nav.Link onClick={handleShow}>
