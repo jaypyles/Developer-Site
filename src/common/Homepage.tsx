@@ -40,8 +40,8 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
               small_description="A hackathon project I and 3 others built in 24 hours."
             />
             <LinkWithDescription
-              link="https://wiki.jaydenpyles.dev"
-              small_description="A bookstack instance for technical notes and blogs."
+              link="https://notes.jaydenpyles.dev"
+              small_description="Custom built note rendering webapp."
             />
           </div>
           <p className="text-[85%]">
