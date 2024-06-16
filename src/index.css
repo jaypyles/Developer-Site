@@ -11,6 +11,7 @@
 @media screen and (max-width: 750px) {
   .main {
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   #buttons {
@@ -114,6 +115,7 @@ body {
 
 .main {
   padding-top: calc(1em + 1vw);
+  padding-bottom: calc(1em + 1vw);
   background-color: #c3c6cb;
   display: flex;
   flex-direction: column;
