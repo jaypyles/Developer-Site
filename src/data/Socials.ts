@@ -14,4 +14,9 @@ export const socials = [
     description: "discord",
     link: "/discord",
   },
+  {
+    image: "last_fm.png",
+    description: "last fm",
+    link: "/lastfm",
+  },
 ];

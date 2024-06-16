@@ -18,4 +18,8 @@ export const routes = [
     path: "/resume",
     to: "https://docs.google.com/document/d/12de-GDrOmM0OfXRsjAQiANTvPYR0uDx9aGdOUtYwUvQ/edit?usp=drive_link",
   },
+  {
+    path: "/lastfm",
+    to: "https://www.last.fm/user/jpyles0524",
+  },
 ];
