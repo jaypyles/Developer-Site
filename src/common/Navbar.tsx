@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import SocialsModal from "./SocialsModal";
 import Tooltip from "@mui/material/Tooltip";
-import Constants from "../constants";
-
-interface URL {
-  url: string;
-}
 
 interface NavbarProps {
   hidden?: boolean;
@@ -14,51 +9,8 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const [pageURL, setPageURL] = useState<URL | null>(null);
-  const url = `${Constants.DOMAIN}/api/bookstack/recent-page`;
-  const [githubURL, setGithubURL] = useState<URL | null>(null);
-  const domain = process.env.REACT_APP_DOMAIN;
-  const ghURL = `${domain}/api/github/recent`;
-
-  const fetchBookstack = async () => {
-    try {
-      const res = await fetch(url);
-      if (res.ok) {
-        const data = await res.json();
-        setPageURL(data);
-      } else {
-        console.error("Failed to fetch from API: ", res.status);
-      }
-    } catch (error) {
-      console.error("Failed to fetch from API  : ", error);
-    }
-  };
-
-  const fetchGithub = async () => {
-    try {
-      const res = await fetch(ghURL);
-      if (res.ok) {
-        const data = await res.json();
-        setGithubURL(data);
-      } else {
-        console.error("Failed to fetch Github data:", res.status);
-      }
-    } catch (error) {
-      console.error("Failed to fetch Github data:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchGithub();
-  }, []);
-
-  useEffect(() => {
-    fetchBookstack();
-  }, []);
 
   return (
     <div className={`nav p-3 w-[100%] !text-black ${hidden ? "hidden" : ""}`}>
