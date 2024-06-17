@@ -9,10 +9,12 @@
     "@mui/icons-material": "^5.15.3",
     "@mui/material": "^5.15.3",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^15",
     "@testing-library/user-event": "^13.5.0",
+    "ajv": "^7",
     "bootstrap": "^5.3.0",
     "framer-motion": "^4.1.17",
+    "jest-environment-jsdom": "27.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
@@ -22,12 +24,14 @@
     "react-router-dom": "^6.14.1",
     "react-scripts": "^5.0.1",
     "react-spinners": "^0.13.8",
-    "web-vitals": "^2.1.4"
+    "ts-jest": "^29.1.5",
+    "web-vitals": "^2.1.4",
+    "whatwg-fetch": "^3.6.20"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "serve": "serve -s build"
   },
@@ -50,8 +54,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "@eslint/js": "^9.4.0",
     "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.12",
+    "babel-jest": "27.0.1",
     "eslint": "^8.57.0",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.4.5",
