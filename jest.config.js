@@ -1,8 +1,8 @@
 const jestConfig = {
   verbose: true,
-  testMatch: ["**/tests/*.test.js"],
+  testMatch: ["**/__tests__/*.test.js"],
   moduleDirectories: ["node_modules", "<rootDir>"],
-  setupFiles: ["<rootDir>/mocks/global-mocks.js"],
+  setupFiles: ["<rootDir>/__mocks__/global-mocks.js"],
   transform: {
     "^.+\\.(ts|tsx|js|jsx)$": "babel-jest",
   },
