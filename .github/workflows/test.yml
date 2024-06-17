@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
-          node-version: latest
+          node-version: ""
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       - name: Test with Jest
