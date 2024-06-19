@@ -13,7 +13,7 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
       className={`homepage p-3 emboss bg-white overflow-scroll ${hidden ? "!hidden" : ""}`}
     >
       <div className="about">
-        <h1 className="page-title text-[100%] font-prompt">
+        <h1 id="intro-heading" className="page-title text-[100%] font-prompt">
           Hey, I'm Jayden 👨‍💻
         </h1>
         <div className="text-content">

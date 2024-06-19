@@ -64,7 +64,7 @@ const Posts: React.FC<PostsProps> = ({
   }, []);
 
   return (
-    <>
+    <div id="post-wrapper">
       {posts && posts.length > 0 ? (
         <div
           id="posts"
@@ -117,7 +117,7 @@ const Posts: React.FC<PostsProps> = ({
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 };
 
