@@ -27,5 +27,6 @@ ARG DOPPLER_TOKEN
 ENV DOPPLER_TOKEN=${DOPPLER_TOKEN}
 
 RUN doppler run --token=$DOPPLER_TOKEN  -- npm run build
+RUN npm install -g serve
 
 EXPOSE 3000
