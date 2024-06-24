@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Avatar, Typography } from "@mui/material";
 import StyledBadge from "./StyledBadge";
+import Constants from "src/constants";
 
 interface Data {
   discord_status: string;
@@ -20,8 +21,7 @@ interface DiscordProps {
 
 const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
   const [data, setData] = useState<Data | null>(null);
-  const domain = process.env.REACT_APP_DOMAIN;
-  const url = `${domain}/api/discord/status`;
+  const url = `${Constants.DOMAIN}/api/discord/status`;
 
   const { loaded, setLoaded } = loadedState;
 

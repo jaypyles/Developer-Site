@@ -13,7 +13,7 @@ interface CurrentlyWorkingInformationProps {
 const CurrentlyWorkingInformation: React.FC<
   CurrentlyWorkingInformationProps
 > = ({ data }) => {
-  const imageUrl = require(`../images/${data.image}`);
+  const imageUrl = `/images/${data.image}`;
 
   return (
     <div className="workblock flex flex-row mr-[0.5em] p-1 bg-imageAccent emboss">
