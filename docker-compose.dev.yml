@@ -1,7 +1,7 @@
 version: "3"
 services:
   frontend:
-    command: ["doppler", "run", "--", "npm", "run", "start"]
+    command: ["doppler", "run", "--", "npm", "run", "dev"]
     volumes:
       - ./public:/app/public
       - ./src:/app/src
