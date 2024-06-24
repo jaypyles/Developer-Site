@@ -5,7 +5,7 @@ import LinkBlock from "../components/LinkBlock";
 import Spotify from "../components/Spotify";
 import { socials } from "../data/Socials";
 import Discord from "../components/Discord";
-import { Skeleton } from "@mui/material";
+import PulseLoader from "react-spinners/PulseLoader";
 
 interface SocialsModalProps {
   show: boolean;
@@ -48,12 +48,8 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
             />
           </div>
           {(!spotifyLoaded || !discordLoaded) && (
-            <div>
-              <Skeleton
-                variant="rounded"
-                sx={{ bgcolor: "#c3c6cb" }}
-                height={75}
-              />
+            <div className="flex justify-center status emboss">
+              <PulseLoader color="white" className="items-center" />
             </div>
           )}
         </Modal.Body>

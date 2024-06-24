@@ -1,3 +1,5 @@
+import Constants from "src/constants";
+
 const domain = process.env.REACT_APP_DOMAIN;
 const IMAGE_ENDPOINT = `${domain}/api/images`;
 export const fetchImage = async (identifier: string) => {
@@ -9,7 +11,7 @@ export const fetchImage = async (identifier: string) => {
 };
 
 export const getPosts = async () => {
-  const url = `${domain}/api/posts`;
+  const url = `${Constants.DOMAIN}/api/posts`;
   const res = await fetch(url);
   const json = res.json();
   return json;

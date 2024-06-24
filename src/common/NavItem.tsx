@@ -10,22 +10,16 @@ interface Data {
 
 interface NavItemProps {
   data: Data;
-  onImageLoaded: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ data, onImageLoaded }) => {
+const NavItem: React.FC<NavItemProps> = ({ data }) => {
   const filename = data.image;
-  const imageUrl = require(`../images/${filename}`);
+  const imageUrl = `/images/${filename}`;
 
   return (
     <Nav.Item>
       <a href={data.link}>
-        <img
-          src={imageUrl}
-          alt={data.alt}
-          title={data.title}
-          onLoad={onImageLoaded}
-        />
+        <img src={imageUrl} alt={data.alt} title={data.title} />
       </a>
     </Nav.Item>
   );

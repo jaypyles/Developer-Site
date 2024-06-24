@@ -18,9 +18,14 @@
     height: 2vh !important;
   }
 
+  #post-wrapper {
+    height: 90%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
   #posts {
-    width: 95% !important;
-    height: 90% !important;
+    height: 90%;
   }
 
   #post-img {
@@ -94,20 +99,16 @@ body {
   height: 100%;
 }
 
-#root {
+#__next {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: #c3c6cb;
-  /* Replace with your desired background color */
-
   font-family: incosolata, monospace;
   line-height: 1.4;
   font-size: 18px;
   margin: 0;
-  /* Optionally, remove default margin */
   padding: 0;
-  /* Optionally, remove default padding */
   overflow: auto;
   --accent: #0289f7;
   --accent-rgb: rgb(3, 78, 252);

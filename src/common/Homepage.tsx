@@ -13,11 +13,14 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
       className={`homepage p-3 emboss bg-white overflow-scroll ${hidden ? "!hidden" : ""}`}
     >
       <div className="about">
-        <h1 id="intro-heading" className="page-title text-[100%] font-prompt">
-          Hey, I'm Jayden 👨‍💻
+        <h1
+          id="intro-heading"
+          className="page-title text-[100%] font-prompt mb-[0.5em]"
+        >
+          Hey, I&apos;m Jayden 👨‍💻
         </h1>
         <div className="text-content">
-          <p className="text-[85%]">
+          <p className="text-[85%] mb-[1em]">
             I am a Software Developer at these places currently, building data
             analysis tools and webapps.
           </p>
@@ -26,7 +29,7 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
               <CurrentlyWorkingInformation key={index} data={data} />
             ))}
           </div>
-          <p className="text-[85%]">
+          <p className="text-[85%] mb-[1em]">
             As a hobby, I like to run my own homelab, which can self-host
             several apps that I use reguarly. This website is being hosted in
             Docker on my server, which you accessed through Cloudflare
@@ -44,19 +47,18 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
               small_description="Custom built note rendering webapp."
             />
           </div>
-          <p className="text-[85%]">
-            I have experience with developing RESTful API's, Relational/Graph
-            database schemas, designing frontends for webapps, orchestrating
-            Docker containers, and developing CI/CD pipelines. I consider myself
-            to be most proficient in Python, but also have experience with C,
-            Java, Java/Typescript, SQL, EdgeQL, and Rust. I am most interested
-            in Software Engineering, Data Analysis Automation, and DevOps.
+          <p className="text-[85%] mb-[1em]">
+            I have experience with developing RESTful API&apos;s,
+            Relational/Graph database schemas, designing frontends for webapps,
+            orchestrating Docker containers, and developing CI/CD pipelines. I
+            consider myself to be most proficient in Python, but also have
+            experience with C, Java, Java/Typescript, SQL, EdgeQL, and Rust. I
+            am most interested in Software Engineering, Data Analysis
+            Automation, and DevOps.
           </p>
-
-          <p className="text-[85%]">You can view my resume down below:</p>
           <LinkWithDescription
             link="https://jaydenpyles.dev/resume"
-            small_description=""
+            small_description="View my resume."
           />
           <div id="buttons" className="flex justify-center space-x-2">
             <img src="https://anlucas.neocities.org/linux_powered.gif" />

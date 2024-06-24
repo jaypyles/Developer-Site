@@ -1,5 +1,5 @@
 const Constants = {
-  DOMAIN: process.env.REACT_APP_DOMAIN,
+  DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
 };
 
 export default Constants;

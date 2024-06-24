@@ -1,5 +1,15 @@
-const jestConfig = {
+import type { Config } from "jest";
+import nextJest from "next/jest";
+
+const createJestConfig = nextJest({
+  dir: "./",
+});
+
+const customJestConfig: Config = {
   verbose: true,
+  testEnvironmentOptions: {
+    url: "http://localhost/",
+  },
   testMatch: ["**/__tests__/*.test.js"],
   moduleDirectories: ["node_modules", "<rootDir>"],
   setupFiles: ["<rootDir>/__mocks__/global-mocks.js"],
@@ -11,7 +21,8 @@ const jestConfig = {
       "<rootDir>/__mocks__/fileMock.js",
     "\\.(css|less)$": "<rootDir>/__mocks__/fileMock.js",
   },
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
+  coverageProvider: "v8",
 };
 
-module.exports = jestConfig;
+export default createJestConfig(customJestConfig);

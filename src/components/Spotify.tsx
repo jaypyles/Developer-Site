@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import spotify from "../images/spotify.png";
+import spotify from "../../public/images/spotify.png";
+import Constants from "src/constants";
 
 interface SpotifyData {
   albumCover: string;
@@ -23,8 +24,7 @@ const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
 
   const { setLoaded } = loadedState;
 
-  const domain = process.env.REACT_APP_DOMAIN;
-  const url = `${domain}/api/spotify/now-playing`;
+  const url = `${Constants.DOMAIN}/api/spotify/now-playing`;
 
   const fetchSpotify = async () => {
     try {
@@ -85,7 +85,7 @@ const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
         <>
           <div className="spotify mr-4">
             <div className="image">
-              <img src={spotify} alt="Album cover" />
+              <img src={spotify.src} alt="Album cover" />
             </div>
             <div className="text">
               <p className="name !mr-4">Not Listening</p>
