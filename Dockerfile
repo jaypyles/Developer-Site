@@ -1,12 +1,24 @@
-FROM node:latest
+# Install doppler
+FROM debian:bookworm-slim AS getdoppler
+RUN apt-get update
+RUN apt-get install git curl wget gnupg busybox-static -y
+RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
 
-# Install Doppler CLI
-RUN apt-get update && apt-get install -y apt-transport-https ca-certificates curl gnupg && \
-  curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | gpg --dearmor -o /usr/share/keyrings/doppler-archive-keyring.gpg && \
-  echo "deb [signed-by=/usr/share/keyrings/doppler-archive-keyring.gpg] https://packages.doppler.com/public/cli/deb/debian any-version main" | tee /etc/apt/sources.list.d/doppler-cli.list && \
-  apt-get update && \
-  apt-get -y install doppler
+# Build python dependencies
+FROM python:3.10-slim AS pybuilder
 
+RUN apt update && apt install -y uvicorn
+RUN python -m pip --no-cache-dir install pdm
+RUN pdm config python.use_venv false
+
+COPY pyproject.toml pdm.lock /project/app/
+COPY ./api /project/app/api
+
+WORKDIR /project/app
+
+RUN pdm install
+
+FROM node:latest as jsbuilder
 WORKDIR /app
 
 COPY package*.json ./
@@ -26,7 +38,22 @@ ARG DOPPLER_CONFIG
 ARG DOPPLER_TOKEN
 ENV DOPPLER_TOKEN=${DOPPLER_TOKEN}
 
-RUN doppler run --token=$DOPPLER_TOKEN  -- npm run build
-RUN npm install -g serve
+COPY --from=getdoppler /usr/bin/doppler /usr/bin/
 
-EXPOSE 3000
+RUN doppler run --token=$DOPPLER_TOKEN  -- npm run build
+
+# Create final image
+FROM python:3.10-slim
+
+ENV PYTHONPATH=/project/pkgs
+COPY --from=getdoppler /usr/bin/doppler /usr/bin/
+COPY --from=pybuilder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
+COPY --from=pybuilder /usr/local/bin /usr/local/bin
+COPY --from=pybuilder /project/app /project/app
+COPY --from=jsbuilder /app/dist /project/app/dist
+
+EXPOSE 8000
+
+WORKDIR /project/app
+
+CMD ["doppler", "run", "--" ,"pdm", "run", "python", "-m", "uvicorn", "api.backend.app:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]

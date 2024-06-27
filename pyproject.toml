@@ -1,0 +1,22 @@
+[project]
+name = "portfolio_site"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Jayden Pyles", email = "jpylesbusiness@gmail.com"},
+]
+dependencies = [
+    "fastapi>=0.111.0",
+    "pymongo>=4.8.0",
+    "requests>=2.32.3",
+    "urllib3>=2.2.2",
+]
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true

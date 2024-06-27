@@ -1,7 +1,9 @@
 export DOPPLER_TOKEN=$(shell doppler configs tokens create dev --plain --max-age=900s)
 export COMPOSE_YMLS=$(shell doppler secrets get COMPOSE_YMLS --plain)
 
-reup: destroy build up pull build-force
+.PHONY: build build-force pull up down deploy
+
+# -----
 
 build:
 	doppler run -- docker compose ${COMPOSE_YMLS} build
@@ -15,8 +17,9 @@ pull:
 up:
 	doppler run -- docker compose ${COMPOSE_YMLS} up -d
 
-destroy:
-	doppler run -- docker stop portfolio
-	doppler run -- docker rm portfolio
+down:
+	docker compose down
 
-.PHONY: reup build up destroy
+deploy:
+	ansible-playbook -i ./ansible/inventory.yaml ./ansible/deploy_site.yaml
+

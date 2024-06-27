@@ -1,7 +1,8 @@
 version: "3"
 services:
   frontend:
-    command: ["doppler", "run", "--", "npm", "run", "dev"]
+    ports:
+      - "8000:8000"
     volumes:
-      - ./public:/app/public
-      - ./src:/app/src
+      - ./dist:/app/dist
+      - ./api:/app/api

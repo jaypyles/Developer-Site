@@ -7,11 +7,8 @@ services:
       args:
         - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     container_name: portfolio
-    command: ["doppler", "run", "--", "npm", "run", "start"]
     environment:
       - DOPPLER_TOKEN=${DOPPLER_TOKEN}
-    ports:
-      - "3000:3000"
     networks:
       - webservice-network
 networks:
