@@ -1,6 +1,5 @@
 - name: Deploy site
   hosts: all
-  become: true
   vars_files:
     - ./config.yaml
   tasks:
