@@ -11,11 +11,7 @@ services:
       - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     networks:
       - webservice-network
-      - vsn
 networks:
   webservice-network:
     external:
       name: webservice-network
-  vsn:
-    external:
-      name: vsn
