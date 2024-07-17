@@ -82,7 +82,7 @@ const Posts: React.FC<PostsProps> = ({
             className="p-2 mb-4 no-scrollbar"
             sx={{ bgcolor: "#c3c6cb" }}
           >
-            <ImageList variant="masonry" cols={3} gap={8}>
+            <ImageList cols={3} gap={8}>
               {posts.map((item, index) => (
                 <ImageListItem key={index}>
                   <img

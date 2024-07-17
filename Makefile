@@ -1,9 +1,11 @@
 export DOPPLER_TOKEN=$(shell doppler configs tokens create dev --plain --max-age=900s)
 export COMPOSE_YMLS=$(shell doppler secrets get COMPOSE_YMLS --plain)
 
-.PHONY: build build-force pull up down deploy
+.PHONY: build build-force pull up down deploy deps
 
 # -----
+deps:
+	npm run build
 
 build:
 	doppler run -- docker compose ${COMPOSE_YMLS} build
