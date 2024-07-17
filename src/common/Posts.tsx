@@ -44,7 +44,7 @@ const Posts: React.FC<PostsProps> = ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: "50%",
     bgcolor: "#c3c6cb",
     boxShadow: 24,
     p: 4,
@@ -71,7 +71,7 @@ const Posts: React.FC<PostsProps> = ({
 
   return (
     <div id="post-wrapper">
-      {posts && posts.length > 0 ? (
+      {posts.length > 0 ? (
         <div
           id="posts"
           className={`emboss !font-prompt ${!imagesLoaded ? "hidden" : ""}`}
