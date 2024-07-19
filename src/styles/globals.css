@@ -90,6 +90,9 @@
   .future {
     width: 100% !important;
   }
+  #buttons {
+    height: 2dvh !important;
+  }
 }
 
 html,
