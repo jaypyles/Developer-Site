@@ -18,7 +18,8 @@ WORKDIR /project/app
 
 RUN pdm install
 
-FROM node:latest as jsbuilder
+# JS dependencies
+FROM node:21 as jsbuilder
 WORKDIR /app
 
 COPY package*.json ./

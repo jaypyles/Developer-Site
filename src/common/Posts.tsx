@@ -111,7 +111,7 @@ const Posts: React.FC<PostsProps> = ({
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
-            <Box sx={style}>
+            <Box sx={style} id="modal-box">
               <CardPost
                 img={`${Constants.DOMAIN}/api/post_images/${photo.image_id}`}
                 description={photo.description}

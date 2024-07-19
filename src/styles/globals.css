@@ -33,6 +33,10 @@
     padding-right: 2%;
   }
 
+  #modal-box {
+    width: 90%;
+  }
+
   #posts {
     height: 90%;
   }
@@ -131,8 +135,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 95vh;
-  max-width: 50vw;
+  height: 95dvh;
+  max-width: 50dvw;
   margin: 0;
   overflow: auto;
   scrollbar-width: none !important;
