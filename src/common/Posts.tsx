@@ -101,6 +101,12 @@ const Posts: React.FC<PostsProps> = ({
                     className="!text-zinc-700"
                     subtitle={item.time_posted}
                   />
+                  {/* Prefetch image for load times */}
+                  <img
+                    src={`${Constants.DOMAIN}/api/post_images/${item.image_id}`}
+                    alt={item.description}
+                    style={{ display: "none" }}
+                  />
                 </ImageListItem>
               ))}
             </ImageList>
