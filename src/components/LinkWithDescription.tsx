@@ -10,8 +10,8 @@ const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
   small_description,
 }) => {
   return (
-    <div className="flex flex-col bg-imageAccent mb-[1em] emboss">
-      <a href={link} className="link text-[75%] !ml-[0.5em] mt-[0.25em]">
+    <div className="flex flex-col text-base bg-imageAccent mb-[1em] emboss">
+      <a href={link} className="link text-[0.9rem] !ml-[0.5em] mt-[0.25em]">
         {link}
       </a>
       <p className="description text-[60%] ml-[0.5em] mb-[0.5em]">

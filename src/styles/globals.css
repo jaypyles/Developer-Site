@@ -23,10 +23,6 @@
     padding-bottom: 0 !important;
   }
 
-  #buttons {
-    height: 2vh !important;
-  }
-
   #post-wrapper {
     height: 90%;
     padding-left: 2%;
@@ -47,10 +43,6 @@
 
   .about {
     font-size: 1.75vw !important;
-  }
-
-  .page-title {
-    font-size: 210% !important;
   }
 
   .nav {
@@ -98,10 +90,6 @@
   .future {
     width: 100% !important;
   }
-
-  .nav-item img {
-    filter: invert(50%) !important;
-  }
 }
 
 html,
@@ -136,7 +124,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   height: 95dvh;
-  max-width: 50dvw;
+  max-width: 50vw;
   margin: 0;
   overflow: auto;
   scrollbar-width: none !important;
@@ -145,11 +133,8 @@ body {
 .nav {
   display: flex;
   justify-content: space-between;
-  /* margin-bottom: 1em !important; */
   opacity: 0;
-  /* Hidden by default */
   animation: fade-in 0.5s ease-in-out forwards;
-  /* Animation properties */
 }
 
 @keyframes fade-in {
@@ -163,7 +148,7 @@ body {
 }
 
 .nav a {
-  font-size: 90%;
+  font-size: 1rem;
   padding: 0;
 }
 

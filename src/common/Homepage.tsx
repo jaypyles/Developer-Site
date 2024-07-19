@@ -10,17 +10,19 @@ interface HomepageProps {
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
   return (
     <div
-      className={`homepage p-3 emboss bg-white overflow-scroll ${hidden ? "!hidden" : ""}`}
+      className={`homepage p-3 emboss bg-white overflow-scroll ${
+        hidden ? "!hidden" : ""
+      }`}
     >
       <div className="about">
         <h1
           id="intro-heading"
-          className="page-title text-[100%] font-prompt mb-[0.5em]"
+          className="page-title text-lg font-prompt mb-[0.5em]"
         >
           Hey, I&apos;m Jayden 👨‍💻
         </h1>
         <div className="text-content">
-          <p className="text-[85%] mb-[1em]">
+          <p className="text-base mb-[1em]">
             I am a Software Developer at these places currently, building data
             analysis tools and webapps.
           </p>
@@ -29,7 +31,7 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
               <CurrentlyWorkingInformation key={index} data={data} />
             ))}
           </div>
-          <p className="text-[85%] mb-[1em]">
+          <p className="text-base mb-[1em]">
             As a hobby, I like to run my own homelab, which can self-host
             several apps that I use reguarly. This website is being hosted in
             Docker on my server, which you accessed through Cloudflare
@@ -47,7 +49,7 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
               small_description="Custom built note rendering webapp."
             />
           </div>
-          <p className="text-[85%] mb-[1em]">
+          <p className="text-base mb-[1em]">
             I have experience with developing RESTful API&apos;s,
             Relational/Graph database schemas, designing frontends for webapps,
             orchestrating Docker containers, and developing CI/CD pipelines. I

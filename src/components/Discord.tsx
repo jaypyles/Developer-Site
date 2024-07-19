@@ -51,10 +51,10 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
                   data.discord_status === "online"
                     ? "success"
                     : data.discord_status === "dnd"
-                      ? "error"
-                      : data.discord_status === "idle"
-                        ? "warning"
-                        : "default"
+                    ? "error"
+                    : data.discord_status === "idle"
+                    ? "warning"
+                    : "default"
                 }
               >
                 <Avatar
@@ -64,7 +64,10 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
               </StyledBadge>
             </div>
             <div className="user flex items-center">
-              <Typography variant="h6" style={{ marginRight: 8 }}>
+              <Typography
+                variant="h6"
+                style={{ marginRight: 8, fontWeight: "bold" }}
+              >
                 {data.discord_user.username}
               </Typography>
               <Typography
