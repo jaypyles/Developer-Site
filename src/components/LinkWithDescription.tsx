@@ -14,7 +14,7 @@ const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
       <a href={link} className="link text-[0.9rem] !ml-[0.5em] mt-[0.25em]">
         {link}
       </a>
-      <p className="description text-[60%] ml-[0.5em] mb-[0.5em]">
+      <p className="description text-[80%] ml-[0.5em] mb-[0.5em]">
         {small_description}
       </p>
     </div>
