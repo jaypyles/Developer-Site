@@ -350,6 +350,10 @@ h1 {
   /* top right arrow: ↗ */
 }
 
+.homepage a.no-arrow:after {
+  content: none;
+}
+
 .head {
   font-weight: bold;
 }

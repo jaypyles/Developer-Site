@@ -43,10 +43,12 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             <LinkWithDescription
               link="https://spaceify.jaydenpyles.dev"
               small_description="A hackathon project I and 3 others built in 24 hours."
+              github="https://github.com/Space-ify/frontend-in-space"
             />
             <LinkWithDescription
               link="https://notes.jaydenpyles.dev"
               small_description="Custom built note rendering webapp."
+              github="https://github.com/jaypyles/very-simple-notes"
             />
           </div>
           <p className="text-base mb-[1em]">

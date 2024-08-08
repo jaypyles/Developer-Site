@@ -1,6 +1,3 @@
-export DOPPLER_TOKEN=$(shell doppler configs tokens create dev --plain --max-age=900s)
-export COMPOSE_YMLS=$(shell doppler secrets get COMPOSE_YMLS --plain)
-
 .PHONY: build build-force pull up down deploy deps
 
 # -----
@@ -8,19 +5,25 @@ deps:
 	npm run build
 
 build:
-	doppler run -- docker compose ${COMPOSE_YMLS} build
+	docker compose  build
 
 build-force:
-	doppler run -- docker compose ${COMPOSE_YMLS} build --no-cache
+	docker compose  build --no-cache
 
 pull:
-	docker compose ${COMPOSE_YMLS} pull
+	docker compose  pull
 
 up:
-	doppler run -- docker compose ${COMPOSE_YMLS} up -d
+	docker compose up -d
+
+up-dev:
+	docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 
 down:
 	docker compose down
+
+logs:
+	docker compose logs
 
 deploy:
 	ansible-playbook -i ./ansible/inventory.yaml ./ansible/deploy_site.yaml

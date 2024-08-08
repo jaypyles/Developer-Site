@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Avatar, Typography } from "@mui/material";
 import StyledBadge from "./StyledBadge";
-import Constants from "src/constants";
-
-interface Data {
-  discord_status: string;
-  discord_user: {
-    id: string;
-    avatar: string;
-    username: string;
-  };
-}
+import { getDiscordStatus } from "src/lib/UtilFunctions";
+import { DiscordData } from "src/lib/types";
 
 interface DiscordProps {
   loadedState: {
@@ -20,18 +12,22 @@ interface DiscordProps {
 }
 
 const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
-  const [data, setData] = useState<Data | null>(null);
-  const url = `${Constants.DOMAIN}/api/discord/status`;
+  const [data, setData] = useState<DiscordData | null>(null);
 
   const { loaded, setLoaded } = loadedState;
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res.data);
+    const fetchDiscord = async () => {
+      try {
+        const status = await getDiscordStatus();
+        setData(status);
         setLoaded(true);
-      });
+      } catch (error) {
+        console.error("Error fetching Discord status:", error);
+      }
+    };
+
+    fetchDiscord();
   }, []);
 
   return (

@@ -7,6 +7,7 @@ services:
       args:
         - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     container_name: portfolio
+    command: pdm run python -m uvicorn api.backend.app:app --reload --host 0.0.0.0 --port 8000,
     environment:
       - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     networks:

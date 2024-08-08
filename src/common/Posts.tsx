@@ -7,26 +7,21 @@ import {
   Modal,
 } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
-import { getPosts } from "../lib/UtilFunctions";
 import CardPost from "./CardPost";
 import Constants from "src/constants";
+import { PostDocument } from "src/lib/mongo";
 
 interface PostsProps {
+  posts: PostDocument[];
   setImagesLoaded: (arg0: boolean) => void;
   imagesLoaded: boolean;
 }
 
-type Post = {
-  image_id: string;
-  description: string;
-  time_posted: string;
-};
-
 const Posts: React.FC<PostsProps> = ({
+  posts,
   setImagesLoaded,
   imagesLoaded = false,
 }) => {
-  const [posts, setPosts] = useState<Post[]>([]);
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState({
     image_id: "",
@@ -55,19 +50,10 @@ const Posts: React.FC<PostsProps> = ({
   }, []);
 
   useEffect(() => {
-    if (loadedCount === posts.length && posts.length > 0) {
-      setImagesLoaded(true);
-    }
+    // if (loadedCount === posts.length && posts.length > 0) {
+    setImagesLoaded(true);
+    // }
   }, [loadedCount]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const fetchedPosts = await getPosts();
-      setPosts(fetchedPosts["posts"]);
-    };
-
-    fetchPosts();
-  }, []);
 
   return (
     <div id="post-wrapper">
@@ -119,7 +105,7 @@ const Posts: React.FC<PostsProps> = ({
           >
             <Box sx={style} id="modal-box">
               <CardPost
-                img={`${Constants.DOMAIN}/api/post_images/${photo.image_id}`}
+                img={`http://uploader-api:8000/api/post_images/${photo.image_id}`}
                 description={photo.description}
                 date={photo.time_posted}
               />

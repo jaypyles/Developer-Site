@@ -60,15 +60,6 @@ async def get_playing() -> JSONResponse:
     return JSONResponse(content=playing)
 
 
-@app.get(path="/api/discord/status")
-async def get_status() -> dict[str, Any]:
-    d: dict[str, Any] = requests.get(
-        url=f"https://api.lanyard.rest/v1/users/{DISCORD_USER_ID}"
-    ).json()
-
-    return d
-
-
 @app.get(path="/api/github/recent")
 async def get_recent_repo() -> JSONResponse:
     USERNAME = "jaypyles"

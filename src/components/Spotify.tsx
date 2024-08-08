@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import spotify from "../../public/images/spotify.png";
-import Constants from "src/constants";
+import { getNowPlaying } from "src/lib/UtilFunctions";
 
 interface SpotifyData {
   albumCover: string;
@@ -19,25 +19,14 @@ interface SpotifyProps {
 const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
   const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
   const [spotifyAlbumLoaded, setSpotifyAlbumLoaded] = useState<boolean | null>(
-    null,
+    null
   );
 
   const { setLoaded } = loadedState;
 
-  const url = `${Constants.DOMAIN}/api/spotify/now-playing`;
-
   const fetchSpotify = async () => {
-    try {
-      const res = await fetch(url);
-      if (res.ok) {
-        const data = await res.json();
-        setSpotifyData(data);
-      } else {
-        console.error("Failed to fetch Spotify data:", res.status);
-      }
-    } catch (error) {
-      console.error("Error fetching Spotify data:", error);
-    }
+    const data = await getNowPlaying();
+    setSpotifyData(data);
   };
 
   const fetchAlbumCover = async () => {
