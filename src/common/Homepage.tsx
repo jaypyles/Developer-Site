@@ -2,6 +2,7 @@ import React from "react";
 import { work } from "../data/CurrentlyWorkingInformation";
 import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
 import LinkWithDescription from "../components/LinkWithDescription";
+import Footer from "./Footer";
 
 interface HomepageProps {
   hidden?: boolean;
@@ -10,10 +11,11 @@ interface HomepageProps {
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
   return (
     <div
-      className={`homepage p-3 emboss bg-white overflow-scroll ${
+      className={`homepage p-3 emboss bg-white ${
         hidden ? "!hidden" : ""
       }`}
     >
+      <Footer></Footer>
       <div className="about">
         <h1
           id="intro-heading"
@@ -64,13 +66,15 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             link="https://jaydenpyles.dev/resume"
             small_description="View my resume."
           />
-          <div id="buttons" className="flex justify-center space-x-2">
-            <img src="https://anlucas.neocities.org/linux_powered.gif" />
-            <img src="https://capstasher.neocities.org/88x31Buttons/archlinux.gif" />
-            <img src="https://devurandom.xyz/banners/vim.gif" />
-            <img src="https://anlucas.neocities.org/button.gif" />
-            <img src="https://capstasher.neocities.org/88x31Buttons/firefoxget.gif" />
-            <img src="https://anlucas.neocities.org/html.gif" />
+          <div id="buttons" className="flex mb-1 justify-center">
+            <div className="flex flex-wrap justify-center w-3/4 space-x-2">
+              <img src="https://anlucas.neocities.org/linux_powered.gif" />
+              <img src="https://capstasher.neocities.org/88x31Buttons/archlinux.gif" />
+              <img src="https://devurandom.xyz/banners/vim.gif" />
+              <img src="https://anlucas.neocities.org/button.gif" />
+              <img src="https://capstasher.neocities.org/88x31Buttons/firefoxget.gif" />
+              <img src="https://anlucas.neocities.org/html.gif" />
+            </div>
           </div>
         </div>
       </div>

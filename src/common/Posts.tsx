@@ -72,7 +72,7 @@ const Posts: React.FC<PostsProps> = ({
               {posts.map((item, index) => (
                 <ImageListItem key={index}>
                   <img
-                    src={`${Constants.DOMAIN}/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    src={`/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={item.description}
                     id="post-img"
                     onLoad={handleImageLoaded}
@@ -89,7 +89,7 @@ const Posts: React.FC<PostsProps> = ({
                   />
                   {/* Prefetch image for load times */}
                   <img
-                    src={`${Constants.DOMAIN}/api/post_images/${item.image_id}`}
+                    src={`/api/post_images/${item.image_id}`}
                     alt={item.description}
                     style={{ display: "none" }}
                   />
@@ -105,7 +105,7 @@ const Posts: React.FC<PostsProps> = ({
           >
             <Box sx={style} id="modal-box">
               <CardPost
-                img={`http://uploader-api:8000/api/post_images/${photo.image_id}`}
+                img={`/api/post_images/${photo.image_id}`}
                 description={photo.description}
                 date={photo.time_posted}
               />
