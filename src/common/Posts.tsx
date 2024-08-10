@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import CardPost from "./CardPost";
-import { PostDocument } from "src/lib/mongo";
+import { PostDocument } from "../lib/mongo";
 
 interface PostsProps {
   posts: PostDocument[];
