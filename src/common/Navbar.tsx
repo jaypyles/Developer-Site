@@ -1,7 +1,10 @@
+"use client";
+
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import SocialsModal from "./SocialsModal";
 import Tooltip from "@mui/material/Tooltip";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {
   hidden?: boolean;
@@ -11,6 +14,8 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const pathname = usePathname();
+  console.log(pathname);
 
   return (
     <div className="w-full p-1 bg-[#c0c0c0] emboss-no-bottom">
@@ -22,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
         <div className="nav-left">
           <Nav className="nav-content !flex !justify-start w-auto">
             <Nav.Item>
-              <Nav.Link className="name" href="/">
+              <Nav.Link className={pathname === "/" ? "name" : ""} href="/">
                 <p className="mb-0">Home</p>
               </Nav.Link>
             </Nav.Item>
@@ -35,7 +40,10 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
             </Tooltip>
             <Tooltip title="Photo Board" placement="top" arrow>
               <Nav.Item className="ml-auto">
-                <Nav.Link href="/posts">
+                <Nav.Link
+                  className={pathname === "/posts" ? "name" : ""}
+                  href="/posts"
+                >
                   <p className="mb-0">Posts</p>
                 </Nav.Link>
               </Nav.Item>

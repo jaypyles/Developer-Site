@@ -629,7 +629,6 @@ input:checked + small {
 
 .discord .content .user {
   margin-left: 1vh;
-  text-align: center;
 }
 
 .discord .content .user h6 {

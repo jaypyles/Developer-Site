@@ -20,6 +20,7 @@ module.exports = {
         accent: "#1132f0",
         backgroundAccent: "#c3c6cb",
         imageAccent: "#e7e7e7",
+        w98Gray: "#c0c0c0",
       },
       fontFamily: {
         prompt: ['"VT323"', "monospace"],

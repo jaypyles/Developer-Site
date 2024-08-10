@@ -1,13 +1,22 @@
 const domain = process.env.REACT_APP_DOMAIN;
 const IMAGE_ENDPOINT = `${domain}/api/images`;
 
+interface Status {
+  state: string;
+  emoji: {
+    id: string;
+  };
+}
+
 interface DiscordData {
   discord_status: string;
   discord_user: {
     id: string;
     avatar: string;
     username: string;
+    display_name: string;
   };
+  activities: Status[];
 }
 
 export const fetchImage = async (identifier: string) => {

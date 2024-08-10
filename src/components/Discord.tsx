@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Avatar, Typography } from "@mui/material";
 import StyledBadge from "./StyledBadge";
 import { getDiscordStatus } from "src/lib/UtilFunctions";
+import Image from "next/image";
+
+interface Status {
+  state: string;
+  emoji: {
+    id: string;
+  };
+}
 
 interface DiscordData {
   discord_status: string;
@@ -9,7 +17,9 @@ interface DiscordData {
     id: string;
     avatar: string;
     username: string;
+    display_name: string;
   };
+  activities: Status[];
 }
 
 interface DiscordProps {
@@ -21,8 +31,6 @@ interface DiscordProps {
 
 const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
   const [data, setData] = useState<DiscordData | null>(null);
-  //t
-
   const { loaded, setLoaded } = loadedState;
 
   useEffect(() => {
@@ -56,10 +64,10 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
                   data.discord_status === "online"
                     ? "success"
                     : data.discord_status === "dnd"
-                      ? "error"
-                      : data.discord_status === "idle"
-                        ? "warning"
-                        : "default"
+                    ? "error"
+                    : data.discord_status === "idle"
+                    ? "warning"
+                    : "default"
                 }
               >
                 <Avatar
@@ -68,20 +76,30 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
                 />
               </StyledBadge>
             </div>
-            <div className="user flex items-center">
-              <Typography
-                variant="h6"
-                style={{ marginRight: 8, fontWeight: "bold" }}
-              >
-                {data.discord_user.username}
+            <div className="user flex flex-col justify-start">
+              <Typography variant="h6" style={{ fontWeight: "bold" }}>
+                {data.discord_user.display_name}
               </Typography>
-              <Typography
-                variant="subtitle1"
-                component="span"
-                sx={{ color: "gray" }}
-              >
-                #1337
-              </Typography>
+              <div className="flex flex-row align-middle">
+                {data.activities[0]!.emoji && (
+                  <Image
+                    className="mr-[0.15rem]"
+                    alt="Discord Status Emoji"
+                    height={16}
+                    width={12}
+                    src={`https://cdn.discordapp.com/emojis/${
+                      data.activities[0]!.emoji.id
+                    }`}
+                  ></Image>
+                )}
+                <Typography
+                  variant="subtitle1"
+                  component="span"
+                  sx={{ color: "gray", fontSize: "0.75em", lineHeight: 1 }}
+                >
+                  {data.activities[0]!.state}
+                </Typography>
+              </div>
             </div>
           </div>
         </div>
