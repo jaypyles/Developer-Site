@@ -1,7 +1,14 @@
-import { DiscordData } from "./types";
-
 const domain = process.env.REACT_APP_DOMAIN;
 const IMAGE_ENDPOINT = `${domain}/api/images`;
+
+interface DiscordData {
+  discord_status: string;
+  discord_user: {
+    id: string;
+    avatar: string;
+    username: string;
+  };
+}
 
 export const fetchImage = async (identifier: string) => {
   const url = `${IMAGE_ENDPOINT}/${identifier}`;
