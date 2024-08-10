@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient, GridFSBucket, ObjectId } from "mongodb";
-import clientPromise from "src/lib/mongo";
+import clientPromise from "../../../lib/mongo";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { id } = req.query;
 
