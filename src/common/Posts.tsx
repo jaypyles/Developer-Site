@@ -56,7 +56,7 @@ const Posts: React.FC<PostsProps> = ({
 
   return (
     <div id="post-wrapper">
-      {posts.length > 0 ? (
+      {posts && posts.length > 0 ? (
         <div
           id="posts"
           className={`emboss-no-top !font-prompt ${
