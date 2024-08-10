@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "src/common/Navbar";
-import Footer from "src/common/Footer";
 import Homepage from "src/common/Homepage";
+import CurrentTheme from "src/common/CurrentTheme";
 
 const Home = () => {
   return (
     <>
       <Navbar />
       <Homepage />
-      <Footer />
+      <CurrentTheme></CurrentTheme>
     </>
   );
 };

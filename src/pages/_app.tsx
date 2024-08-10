@@ -12,7 +12,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <title>Jayden Pyles</title>
       </Head>
 
-      <div className="main-wrapper flex justify-center">
+      <div className="main-wrapper flex justify-center h-full">
         <div className="main">
           <Component {...pageProps} />
         </div>

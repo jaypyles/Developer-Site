@@ -2,6 +2,7 @@ import React from "react";
 import { work } from "../data/CurrentlyWorkingInformation";
 import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
 import LinkWithDescription from "../components/LinkWithDescription";
+import Footer from "./Footer";
 
 interface HomepageProps {
   hidden?: boolean;
@@ -10,10 +11,11 @@ interface HomepageProps {
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
   return (
     <div
-      className={`homepage p-3 emboss bg-white overflow-scroll ${
+      className={`homepage p-3 emboss-no-top bg-[#c0c0c0] ${
         hidden ? "!hidden" : ""
       }`}
     >
+      <Footer></Footer>
       <div className="about">
         <h1
           id="intro-heading"
@@ -32,21 +34,22 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             ))}
           </div>
           <p className="text-base mb-[1em]">
-            As a hobby, I like to run my own homelab, which can self-host
-            several apps that I use reguarly. This website is being hosted in
-            Docker on my server, which you accessed through Cloudflare
-            proxy-dns. The API that controls the backend integrations is also
-            being hosted on the same server. Down below are some links to other
-            services that are publicly available:
+            This site will be a continuous work-in-progress, and will most
+            likely change often. It is a playground for ideas and a learning
+            tool for me to try out different and/or new technologies. This site
+            is hosted on my own hardware, with even a few apps publicly
+            available:
           </p>
           <div className="blocks">
             <LinkWithDescription
               link="https://spaceify.jaydenpyles.dev"
               small_description="A hackathon project I and 3 others built in 24 hours."
+              github="https://github.com/Space-ify/frontend-in-space"
             />
             <LinkWithDescription
               link="https://notes.jaydenpyles.dev"
               small_description="Custom built note rendering webapp."
+              github="https://github.com/jaypyles/very-simple-notes"
             />
           </div>
           <p className="text-base mb-[1em]">
@@ -62,13 +65,15 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             link="https://jaydenpyles.dev/resume"
             small_description="View my resume."
           />
-          <div id="buttons" className="flex justify-center space-x-2">
-            <img src="https://anlucas.neocities.org/linux_powered.gif" />
-            <img src="https://capstasher.neocities.org/88x31Buttons/archlinux.gif" />
-            <img src="https://devurandom.xyz/banners/vim.gif" />
-            <img src="https://anlucas.neocities.org/button.gif" />
-            <img src="https://capstasher.neocities.org/88x31Buttons/firefoxget.gif" />
-            <img src="https://anlucas.neocities.org/html.gif" />
+          <div id="buttons" className="flex mb-1 justify-center">
+            <div className="flex flex-wrap justify-center w-3/4 space-x-2">
+              <img src="https://anlucas.neocities.org/linux_powered.gif" />
+              <img src="https://capstasher.neocities.org/88x31Buttons/archlinux.gif" />
+              <img src="https://devurandom.xyz/banners/vim.gif" />
+              <img src="https://anlucas.neocities.org/button.gif" />
+              <img src="https://capstasher.neocities.org/88x31Buttons/firefoxget.gif" />
+              <img src="https://anlucas.neocities.org/html.gif" />
+            </div>
           </div>
         </div>
       </div>

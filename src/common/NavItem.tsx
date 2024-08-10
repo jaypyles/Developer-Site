@@ -18,7 +18,7 @@ const NavItem: React.FC<NavItemProps> = ({ data }) => {
 
   return (
     <Nav.Item>
-      <a href={data.link}>
+      <a href={data.link} className="no-arrow">
         <img src={imageUrl} alt={data.alt} title={data.title} />
       </a>
     </Nav.Item>

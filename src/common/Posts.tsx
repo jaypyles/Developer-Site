@@ -6,35 +6,21 @@ import {
   Box,
   Modal,
 } from "@mui/material";
-import React, { useCallback, useEffect, useState } from "react";
-import { getPosts } from "../lib/UtilFunctions";
+import React, { useState } from "react";
 import CardPost from "./CardPost";
-import Constants from "src/constants";
+import { PostDocument } from "src/lib/mongo";
 
 interface PostsProps {
-  setImagesLoaded: (arg0: boolean) => void;
-  imagesLoaded: boolean;
+  posts: PostDocument[];
 }
 
-type Post = {
-  image_id: string;
-  description: string;
-  time_posted: string;
-};
-
-const Posts: React.FC<PostsProps> = ({
-  setImagesLoaded,
-  imagesLoaded = false,
-}) => {
-  const [posts, setPosts] = useState<Post[]>([]);
+const Posts: React.FC<PostsProps> = ({ posts }) => {
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState({
     image_id: "",
     description: "",
     time_posted: "",
   });
-
-  const [loadedCount, setLoadedCount] = useState<number>(0);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -50,48 +36,25 @@ const Posts: React.FC<PostsProps> = ({
     p: 4,
   };
 
-  const handleImageLoaded = useCallback(() => {
-    setLoadedCount((prevCount) => prevCount + 1);
-  }, []);
-
-  useEffect(() => {
-    if (loadedCount === posts.length && posts.length > 0) {
-      setImagesLoaded(true);
-    }
-  }, [loadedCount]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const fetchedPosts = await getPosts();
-      setPosts(fetchedPosts["posts"]);
-    };
-
-    fetchPosts();
-  }, []);
-
   return (
     <div id="post-wrapper">
-      {posts.length > 0 ? (
-        <div
-          id="posts"
-          className={`emboss !font-prompt ${!imagesLoaded ? "hidden" : ""}`}
-        >
+      {posts && posts.length > 0 ? (
+        <div id="posts" className="emboss-no-top !font-prompt">
           <Paper
             id="post-array"
             elevation={0}
-            className="p-2 mb-4 no-scrollbar"
+            className="p-2 no-scrollbar"
             sx={{ bgcolor: "#c3c6cb" }}
           >
             <ImageList cols={3} gap={8}>
               {posts.map((item, index) => (
                 <ImageListItem key={index}>
                   <img
-                    src={`${Constants.DOMAIN}/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    src={`/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={item.description}
                     id="post-img"
-                    onLoad={handleImageLoaded}
                     loading="lazy"
-                    className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:scale-105 duration-100"
+                    className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:brightness-95 duration-100 emboss"
                     onClick={() => {
                       setPhoto(item);
                       handleOpen();
@@ -103,7 +66,7 @@ const Posts: React.FC<PostsProps> = ({
                   />
                   {/* Prefetch image for load times */}
                   <img
-                    src={`${Constants.DOMAIN}/api/post_images/${item.image_id}`}
+                    src={`/api/post_images/${item.image_id}`}
                     alt={item.description}
                     style={{ display: "none" }}
                   />
@@ -119,7 +82,7 @@ const Posts: React.FC<PostsProps> = ({
           >
             <Box sx={style} id="modal-box">
               <CardPost
-                img={`${Constants.DOMAIN}/api/post_images/${photo.image_id}`}
+                img={`/api/post_images/${photo.image_id}`}
                 description={photo.description}
                 date={photo.time_posted}
               />

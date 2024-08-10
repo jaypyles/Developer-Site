@@ -18,15 +18,13 @@
 }
 
 @media screen and (max-width: 750px) {
+  #current-theme {
+    display: none;
+  }
+
   .main {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-  }
-
-  #post-wrapper {
-    height: 90%;
-    padding-left: 2%;
-    padding-right: 2%;
   }
 
   #modal-box {
@@ -41,8 +39,12 @@
     max-width: none !important;
   }
 
-  .about {
-    font-size: 1.75vw !important;
+  .about .workblock {
+    font-size: 4vw !important;
+  }
+
+  .about .text-base {
+    font-size: 0.5em !important;
   }
 
   .nav {
@@ -59,11 +61,6 @@
 
   .main {
     max-width: 100% !important;
-  }
-
-  .homepage {
-    height: 100% !important;
-    width: 100% !important;
   }
 
   .text-content {
@@ -90,8 +87,8 @@
   .future {
     width: 100% !important;
   }
-  #buttons {
-    height: 2dvh !important;
+  #buttons img {
+    height: 3.25dvh !important;
   }
 }
 
@@ -107,7 +104,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #c3c6cb;
+  background-color: #3c8283;
   font-family: incosolata, monospace;
   line-height: 1.4;
   font-size: 18px;
@@ -121,12 +118,11 @@ body {
 .main {
   padding-top: calc(1em + 1vw);
   padding-bottom: calc(1em + 1vw);
-  background-color: #c3c6cb;
+  background-color: #3c8283;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 95dvh;
   max-width: 50vw;
   margin: 0;
   overflow: auto;
@@ -153,6 +149,7 @@ body {
 .nav a {
   font-size: 1rem;
   padding: 0;
+  color: white !important;
 }
 
 .nav-item {
@@ -184,7 +181,7 @@ body {
   /* Align to the bottom vertically */
   /* Make the div occupy the full viewport height */
   margin: 0;
-  /* Reset default margin */
+  position: relative;
 }
 
 .homepage a {
@@ -324,7 +321,7 @@ body {
 
 /* basic tag styling */
 p {
-  color: black;
+  /* color: black; */
 }
 
 h1 {
@@ -333,10 +330,36 @@ h1 {
 
 .emboss {
   border-style: groove !important;
-  border-top: white 1px solid !important;
-  border-left: white 1px solid !important;
+  border-top: white 2px solid !important;
+  border-left: white 2px solid !important;
   border-right: black 1px solid !important;
   border-bottom: black 1px solid !important;
+}
+
+.emboss-no-bottom {
+  border-style: groove !important;
+  border-top: white 2px solid !important;
+  border-left: white 2px solid !important;
+  border-right: black 1px solid !important;
+}
+
+.emboss-no-top {
+  border-style: groove !important;
+  border-left: white 2px solid !important;
+  border-right: black 1px solid !important;
+  border-bottom: black 1px solid !important;
+}
+
+.emboss-outset {
+  border-style: groove !important;
+  border-right: white 2px solid !important;
+  border-bottom: white 2px solid !important;
+  border-top: black 1px solid !important;
+  border-left: black 1px solid !important;
+}
+
+.darker-bg {
+  background: #b4b6ba !important;
 }
 
 .homepage a {
@@ -348,6 +371,10 @@ h1 {
 .homepage a:not(:empty):after {
   content: "\2197";
   /* top right arrow: ↗ */
+}
+
+.homepage a.no-arrow:after {
+  content: none;
 }
 
 .head {
@@ -390,31 +417,42 @@ input:checked + small {
 .footer {
   display: flex;
   justify-content: center;
-  position: fixed;
-  height: 5vh;
-  top: 95%;
-  width: 100%;
+  margin-right: 0.25vh;
 }
 
 .footer a {
   color: #fff;
   display: inline-block;
   text-decoration: none;
+  margin-bottom: 1vh;
+  height: 2vh;
 }
 
 .footer a:hover {
   text-decoration: underline;
+  filter: hue-rotate(20%);
 }
 
 .footer .nav-item {
-  height: 3vh;
-  margin: 1vh 1vh 1vh 1vh;
+  margin-top: 0.75vh;
+  margin-bottom: 1vh;
+  margin-right: 0 !important;
+  height: 2vh;
 }
 
 .footer img {
-  display: inline-block;
-  height: 3vh;
-  width: 3vh;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 2vh;
+  max-width: 2vh;
+  display: block;
+  filter: none; /* No filter applied by default */
+  transition: filter 0.3s ease; /* Smooth transition */
+}
+
+.footer img:hover {
+  filter: invert(0.5); /* Adjust color on hover */
 }
 
 /* Social Modal */
@@ -614,6 +652,7 @@ input:checked + small {
   color: rgb(228 228 231) !important;
 }
 
-#buttons {
-  height: 2.5vh;
+#buttons img {
+  height: 3.5dvh;
+  margin-top: 0.5em;
 }

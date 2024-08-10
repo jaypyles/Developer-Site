@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "src/common/Navbar";
-import Footer from "src/common/Footer";
 import Posts from "src/common/Posts";
-import Loading from "src/common/Loading";
+import { GetServerSideProps } from "next";
+import { PostDocument } from "src/lib/mongo";
 
-const PostsPage: React.FC = () => {
-  const [postImagesLoaded, setPostImagesLoaded] = useState<boolean>(false);
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
+  const posts: PostDocument[] = await res.json();
+  console.log(posts);
 
+  return {
+    props: {
+      posts,
+    },
+  };
+};
+
+interface PostsPageProps {
+  posts: PostDocument[];
+}
+
+const PostsPage: React.FC<PostsPageProps> = ({ posts }) => {
   return (
     <>
       <Navbar />
-      <Posts
-        setImagesLoaded={setPostImagesLoaded}
-        imagesLoaded={postImagesLoaded}
-      />
-      {!postImagesLoaded && <Loading />}
-      <Footer />
+      <Posts posts={posts} />
     </>
   );
 };

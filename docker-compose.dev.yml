@@ -1,8 +1,11 @@
 version: "3"
 services:
   frontend:
+    env_file:
+      - .env.dev
     ports:
-      - "8000:8000"
+      - "3000:3000"
     volumes:
-      - ./dist:/app/dist
-      - ./api:/app/api
+      - ./src:/app/src
+      - ./public:/app/public
+    command: npm run dev

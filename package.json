@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^15",
     "@testing-library/user-event": "^13.5.0",
+    "@types/mongodb": "^4.0.7",
     "@types/next": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
@@ -21,6 +22,7 @@
     "bootstrap": "^5.3.0",
     "eslint-plugin-next": "^0.0.0",
     "framer-motion": "^4.1.17",
+    "mongodb": "^6.8.0",
     "next": "^14.2.4",
     "postcss": "^8.4.38",
     "prefixer": "^0.0.3",
@@ -37,9 +39,9 @@
     "whatwg-fetch": "^3.6.20"
   },
   "scripts": {
-    "dev": "doppler run -- next dev",
-    "build": "doppler run -- next build",
-    "start": "doppler run -- serve ./dist",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "test": "jest"
   },
   "eslintConfig": {
