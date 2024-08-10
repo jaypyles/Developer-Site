@@ -1,4 +1,3 @@
-import Constants from "src/constants";
 import { DiscordData } from "./types";
 
 const domain = process.env.REACT_APP_DOMAIN;
@@ -77,7 +76,7 @@ export const getNowPlaying = async () => {
     }
   );
 
-  if (!response.ok) {
+  if (!response.ok || response.status === 204) {
     return null;
   }
 
@@ -91,4 +90,3 @@ export const getNowPlaying = async () => {
     albumCover: spotifyResponse.item.album.images[0].url,
   };
 };
-

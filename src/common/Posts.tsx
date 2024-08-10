@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import CardPost from "./CardPost";
-import Constants from "src/constants";
 import { PostDocument } from "src/lib/mongo";
 
 interface PostsProps {
@@ -60,12 +59,14 @@ const Posts: React.FC<PostsProps> = ({
       {posts.length > 0 ? (
         <div
           id="posts"
-          className={`emboss !font-prompt ${!imagesLoaded ? "hidden" : ""}`}
+          className={`emboss-no-top !font-prompt ${
+            !imagesLoaded ? "hidden" : ""
+          }`}
         >
           <Paper
             id="post-array"
             elevation={0}
-            className="p-2 mb-4 no-scrollbar"
+            className="p-2 no-scrollbar"
             sx={{ bgcolor: "#c3c6cb" }}
           >
             <ImageList cols={3} gap={8}>
@@ -77,7 +78,7 @@ const Posts: React.FC<PostsProps> = ({
                     id="post-img"
                     onLoad={handleImageLoaded}
                     loading="lazy"
-                    className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:scale-105 duration-100"
+                    className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:brightness-95 duration-100 emboss"
                     onClick={() => {
                       setPhoto(item);
                       handleOpen();

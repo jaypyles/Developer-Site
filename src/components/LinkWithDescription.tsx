@@ -13,7 +13,7 @@ const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
   github = "",
 }) => {
   return (
-    <div className="flex flex-col text-base bg-imageAccent mb-[1em] emboss">
+    <div className="flex flex-col text-base bg-[#c0c0c0] mb-[1em] emboss">
       <div className="flex flex-row justify-between align-middle max-h-[1.5em]">
         <a href={link} className="link text-[0.9rem] !ml-[0.5em] mt-[0.25em]">
           {link}

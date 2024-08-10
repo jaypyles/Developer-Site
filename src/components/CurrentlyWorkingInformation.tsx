@@ -16,7 +16,7 @@ const CurrentlyWorkingInformation: React.FC<
   const imageUrl = `/images/${data.image}`;
 
   return (
-    <div className="workblock flex flex-row mr-[0.5em] p-1 bg-imageAccent emboss">
+    <div className="workblock flex flex-row mr-[0.5em] p-1 bg-[#c0c0c0] emboss">
       {imageUrl && (
         <img
           className="image w-[4em] h-[4em] mr-[0.5em]"

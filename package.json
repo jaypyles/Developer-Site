@@ -41,7 +41,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "serve ./dist",
+    "start": "next start",
     "test": "jest"
   },
   "eslintConfig": {

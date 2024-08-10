@@ -13,6 +13,7 @@ interface DiscordProps {
 
 const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
   const [data, setData] = useState<DiscordData | null>(null);
+  //t
 
   const { loaded, setLoaded } = loadedState;
 

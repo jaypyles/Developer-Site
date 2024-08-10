@@ -11,7 +11,7 @@ interface HomepageProps {
 const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
   return (
     <div
-      className={`homepage p-3 emboss bg-white ${
+      className={`homepage p-3 emboss-no-top bg-[#c0c0c0] ${
         hidden ? "!hidden" : ""
       }`}
     >
@@ -34,12 +34,11 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
             ))}
           </div>
           <p className="text-base mb-[1em]">
-            As a hobby, I like to run my own homelab, which can self-host
-            several apps that I use reguarly. This website is being hosted in
-            Docker on my server, which you accessed through Cloudflare
-            proxy-dns. The API that controls the backend integrations is also
-            being hosted on the same server. Down below are some links to other
-            services that are publicly available:
+            This site will be a continuous work-in-progress, and will most
+            likely change often. It is a playground for ideas and a learning
+            tool for me to try out different and/or new technologies. This site
+            is hosted on my own hardware, with even a few apps publicly
+            available:
           </p>
           <div className="blocks">
             <LinkWithDescription

@@ -1,18 +1,3 @@
-# # Build python dependencies
-# FROM python:3.10-slim AS pybuilder
-
-# RUN apt update && apt install -y uvicorn
-# RUN python -m pip --no-cache-dir install pdm
-# RUN pdm config python.use_venv false
-
-# COPY pyproject.toml pdm.lock /project/app/
-# COPY ./api /project/app/api
-
-# WORKDIR /project/app
-
-# RUN pdm install
-
-# JS dependencies
 FROM node:21
 WORKDIR /app
 
@@ -28,19 +13,14 @@ COPY babel.config.js /app/babel.config.js
 COPY next.config.mjs /app/next.config.mjs
 COPY postcss.config.js /app/postcss.config.js
 
-# RUN npm run build
+ARG NEXT_PUBLIC_DISCORD_USER_ID
+ARG NEXT_PUBLIC_SPOTIFY_CLIENT_ID
+ARG NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
+ARG NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
 
-# # Create final image
-# FROM python:3.10-slim
+ENV NEXT_PUBLIC_DISCORD_USER_ID=${NEXT_PUBLIC_DISCORD_USER_ID}
+ENV NEXT_PUBLIC_SPOTIFY_CLIENT_ID=${NEXT_PUBLIC_SPOTIFY_CLIENT_ID}
+ENV NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET=${NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}
+ENV NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN=${NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN}
 
-# ENV PYTHONPATH=/project/pkgs
-# COPY --from=pybuilder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
-# COPY --from=pybuilder /usr/local/bin /usr/local/bin
-# COPY --from=pybuilder /project/app /project/app
-# COPY --from=jsbuilder /app/dist /project/app/dist
-
-# EXPOSE 8000
-
-# WORKDIR /project/app
-
-# CMD ["pdm", "run", "python", "-m", "uvicorn", "api.backend.app:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+RUN npm run build

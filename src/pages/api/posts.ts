@@ -21,10 +21,7 @@ function formatDateWithSuffix(isoDateString: string): string {
   return `${month} ${day}${suffix}, ${year}`;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
     const client = await clientPromise;
     const db = client.db("posts");

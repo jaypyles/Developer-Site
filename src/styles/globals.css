@@ -18,6 +18,10 @@
 }
 
 @media screen and (max-width: 750px) {
+  #current-theme {
+    display: none;
+  }
+
   .main {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -100,7 +104,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #c3c6cb;
+  background-color: #3c8283;
   font-family: incosolata, monospace;
   line-height: 1.4;
   font-size: 18px;
@@ -114,7 +118,7 @@ body {
 .main {
   padding-top: calc(1em + 1vw);
   padding-bottom: calc(1em + 1vw);
-  background-color: #c3c6cb;
+  background-color: #3c8283;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,6 +149,7 @@ body {
 .nav a {
   font-size: 1rem;
   padding: 0;
+  color: white !important;
 }
 
 .nav-item {
@@ -316,7 +321,7 @@ body {
 
 /* basic tag styling */
 p {
-  color: black;
+  /* color: black; */
 }
 
 h1 {
@@ -325,10 +330,36 @@ h1 {
 
 .emboss {
   border-style: groove !important;
-  border-top: white 1px solid !important;
-  border-left: white 1px solid !important;
+  border-top: white 2px solid !important;
+  border-left: white 2px solid !important;
   border-right: black 1px solid !important;
   border-bottom: black 1px solid !important;
+}
+
+.emboss-no-bottom {
+  border-style: groove !important;
+  border-top: white 2px solid !important;
+  border-left: white 2px solid !important;
+  border-right: black 1px solid !important;
+}
+
+.emboss-no-top {
+  border-style: groove !important;
+  border-left: white 2px solid !important;
+  border-right: black 1px solid !important;
+  border-bottom: black 1px solid !important;
+}
+
+.emboss-outset {
+  border-style: groove !important;
+  border-right: white 2px solid !important;
+  border-bottom: white 2px solid !important;
+  border-top: black 1px solid !important;
+  border-left: black 1px solid !important;
+}
+
+.darker-bg {
+  background: #b4b6ba !important;
 }
 
 .homepage a {
