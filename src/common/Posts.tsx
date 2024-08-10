@@ -6,29 +6,21 @@ import {
   Box,
   Modal,
 } from "@mui/material";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import CardPost from "./CardPost";
 import { PostDocument } from "src/lib/mongo";
 
 interface PostsProps {
   posts: PostDocument[];
-  setImagesLoaded: (arg0: boolean) => void;
-  imagesLoaded: boolean;
 }
 
-const Posts: React.FC<PostsProps> = ({
-  posts,
-  setImagesLoaded,
-  imagesLoaded = false,
-}) => {
+const Posts: React.FC<PostsProps> = ({ posts }) => {
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState({
     image_id: "",
     description: "",
     time_posted: "",
   });
-
-  const [loadedCount, setLoadedCount] = useState<number>(0);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -44,25 +36,10 @@ const Posts: React.FC<PostsProps> = ({
     p: 4,
   };
 
-  const handleImageLoaded = useCallback(() => {
-    setLoadedCount((prevCount) => prevCount + 1);
-  }, []);
-
-  useEffect(() => {
-    // if (loadedCount === posts.length && posts.length > 0) {
-    setImagesLoaded(true);
-    // }
-  }, [loadedCount]);
-
   return (
     <div id="post-wrapper">
       {posts && posts.length > 0 ? (
-        <div
-          id="posts"
-          className={`emboss-no-top !font-prompt ${
-            !imagesLoaded ? "hidden" : ""
-          }`}
-        >
+        <div id="posts" className="emboss-no-top !font-prompt">
           <Paper
             id="post-array"
             elevation={0}
@@ -76,7 +53,6 @@ const Posts: React.FC<PostsProps> = ({
                     src={`/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={item.description}
                     id="post-img"
-                    onLoad={handleImageLoaded}
                     loading="lazy"
                     className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:brightness-95 duration-100 emboss"
                     onClick={() => {
