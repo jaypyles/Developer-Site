@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Avatar, Typography } from "@mui/material";
 import StyledBadge from "./StyledBadge";
 import { getDiscordStatus } from "src/lib/UtilFunctions";
-import { DiscordData } from "src/lib/types";
+
+interface DiscordData {
+  discord_status: string;
+  discord_user: {
+    id: string;
+    avatar: string;
+    username: string;
+  };
+}
 
 interface DiscordProps {
   loadedState: {
@@ -48,10 +56,10 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
                   data.discord_status === "online"
                     ? "success"
                     : data.discord_status === "dnd"
-                    ? "error"
-                    : data.discord_status === "idle"
-                    ? "warning"
-                    : "default"
+                      ? "error"
+                      : data.discord_status === "idle"
+                        ? "warning"
+                        : "default"
                 }
               >
                 <Avatar
