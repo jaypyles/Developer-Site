@@ -4,8 +4,6 @@ on:
     branches: ["master"]
 jobs:
   build:
-    env:
-      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,6 +23,8 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:latest
           build-args: |
-            DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }}
-            DOPPLER_CONFIG=${{ secrets.DOPPLER_CONFIG}}
-            DOPPLER_PROJECT=${{ secrets.DOPPLER_PROJECT}}
+            NEXT_PUBLIC_DISCORD_USER_ID=${{ secrets.NEXT_PUBLIC_DISCORD_USER_ID }}
+            NEXT_PUBLIC_SPOTIFY_CLIENT_ID=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_ID }}
+            NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET }}
+            NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN=${{ secrets.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN }}
+            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
