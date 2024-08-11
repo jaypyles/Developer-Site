@@ -37,6 +37,7 @@ const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
               id="close"
               className="emboss bg-w98Gray w-[20px] h-[20px] flex items-center justify-center cursor-pointer ml-2 p-2"
               onClick={onClose}
+              onTouchStart={onClose}
               style={{
                 fontFamily: "Tahoma, sans-serif",
                 fontWeight: "bold",
