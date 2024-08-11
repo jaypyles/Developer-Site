@@ -6,7 +6,6 @@ import Popup from "src/components/Popup";
 import ProgrammingLanguages from "src/components/popups/ProgrammingLanguages";
 import Hobbies from "src/components/popups/Hobbies";
 import { PopupAction, PopupState } from "src/lib/types";
-import Draggable from "react-draggable";
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
