@@ -76,14 +76,14 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
                 />
               </StyledBadge>
             </div>
-            <div className="user flex flex-col justify-start">
+            <div className="user flex flex-col justify-start w-1/2">
               <Typography variant="h6" style={{ fontWeight: "bold" }}>
                 {data.discord_user.display_name}
               </Typography>
               <div className="flex flex-row align-middle">
                 {data.activities[0]!.emoji && (
                   <Image
-                    className="mr-[0.15rem]"
+                    className="mr-[0.15rem] h-fit"
                     alt="Discord Status Emoji"
                     height={16}
                     width={12}

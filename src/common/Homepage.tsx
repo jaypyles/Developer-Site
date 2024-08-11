@@ -3,19 +3,26 @@ import { work } from "../data/CurrentlyWorkingInformation";
 import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
 import LinkWithDescription from "../components/LinkWithDescription";
 import Footer from "./Footer";
+import { PopupState } from "src/lib/types";
 
 interface HomepageProps {
   hidden?: boolean;
+  handleOpen: (popup: keyof PopupState) => void;
+  popupState: PopupState;
 }
 
-const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
+const Homepage: React.FC<HomepageProps> = ({
+  handleOpen,
+  popupState,
+  hidden = false,
+}) => {
   return (
     <div
-      className={`homepage p-3 emboss-no-top bg-[#c0c0c0] ${
+      className={`homepage p-3 emboss-no-top bg-[#c0c0c0] w-full${
         hidden ? "!hidden" : ""
       }`}
     >
-      <Footer></Footer>
+      <Footer />
       <div className="about">
         <h1
           id="intro-heading"
@@ -52,15 +59,31 @@ const Homepage: React.FC<HomepageProps> = ({ hidden = false }) => {
               github="https://github.com/jaypyles/very-simple-notes"
             />
           </div>
-          <p className="text-base mb-[1em]">
-            I have experience with developing RESTful API&apos;s,
-            Relational/Graph database schemas, designing frontends for webapps,
-            orchestrating Docker containers, and developing CI/CD pipelines. I
-            consider myself to be most proficient in Python, but also have
-            experience with C, Java, Java/Typescript, SQL, EdgeQL, and Rust. I
-            am most interested in Software Engineering, Data Analysis
-            Automation, and DevOps.
-          </p>
+          <div className="mb-[1em] text-base">
+            <p>
+              As an engineer, I have used many different&nbsp;
+              <span
+                className={`underline cursor-pointer ${
+                  popupState.programmingLanguages
+                    ? "text-gray-500"
+                    : "text-black"
+                }`}
+                onClick={() => handleOpen("programmingLanguages")}
+              >
+                programming languages
+              </span>
+              &nbsp;and technologies. But I also enjoy a lot of different&nbsp;
+              <span
+                className={`underline cursor-pointer ${
+                  popupState.coolBox ? "text-gray-500" : "text-black"
+                }`}
+                onClick={() => handleOpen("coolBox")}
+              >
+                hobbies
+              </span>
+              &nbsp;outside of programming.
+            </p>
+          </div>
           <LinkWithDescription
             link="https://jaydenpyles.dev/resume"
             small_description="View my resume."

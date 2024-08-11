@@ -18,6 +18,11 @@
 }
 
 @media screen and (max-width: 750px) {
+  #popup {
+    width: 75dvw !important;
+    height: 50dvh;
+  }
+
   #current-theme {
     display: none;
   }
@@ -25,6 +30,7 @@
   .main {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    max-width: 100% !important;
   }
 
   #modal-box {
@@ -57,10 +63,6 @@
 
   .nav-content {
     justify-content: center !important;
-  }
-
-  .main {
-    max-width: 100% !important;
   }
 
   .text-content {
@@ -635,6 +637,10 @@ input:checked + small {
   font-size: 2vh;
 }
 
+.MuiTypography-root {
+  font-family: incosolata, monospace !important;
+}
+
 .MuiBadge-root {
   /* discord avatar */
   height: 100% !important;
@@ -654,4 +660,9 @@ input:checked + small {
 #buttons img {
   height: 3.5dvh;
   margin-top: 0.5em;
+}
+
+#popup {
+  width: 25dvw;
+  height: 25dvh;
 }
