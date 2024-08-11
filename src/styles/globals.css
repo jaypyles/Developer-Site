@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 750px) {
   #popup {
-    width: 75dvw !important;
+    width: 85dvw !important;
     height: 50dvh;
   }
 
@@ -91,6 +91,13 @@
   }
   #buttons img {
     height: 3.25dvh !important;
+  }
+  .MuiTypography-body1 {
+    font-size: 0.85rem !important;
+  }
+
+  .MuiTypography-body2 {
+    font-size: 0.8rem !important;
   }
 }
 
