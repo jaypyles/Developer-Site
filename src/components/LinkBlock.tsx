@@ -16,7 +16,9 @@ const LinkBlock: React.FC<LinkBlockProps> = ({ data }) => {
 
   return (
     <div
-      className={`linkblock ${hovered ? "emboss-outset darker-bg" : "emboss"}`}
+      className={`linkblock p-2 ${
+        hovered ? "emboss-outset darker-bg" : "emboss"
+      }`}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
     >

@@ -6,11 +6,11 @@ const ProgrammingLanguages = () => {
   return (
     <div
       id="popup-programming-languages"
-      className="flex flex-row justify-around"
+      className="flex flex-row justify-around max-md:justify-between"
     >
       <div>
         <Typography variant="body1">Proficient</Typography>
-        <ul>
+        <ul className="list">
           <div className="flex flex-row align-middle space-x-1">
             <Image
               alt="python"
@@ -47,7 +47,7 @@ const ProgrammingLanguages = () => {
       </div>
       <div className="">
         <Typography variant="body1">Have Used</Typography>
-        <ul className="space-y-1">
+        <ul className="list space-y-1">
           <div className="flex flex-row align-middle space-x-1">
             <Image
               alt="rust"

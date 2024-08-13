@@ -90,7 +90,7 @@
     width: 100% !important;
   }
   #buttons img {
-    height: 3.25dvh !important;
+    height: 4dvh !important;
   }
   .MuiTypography-body1 {
     font-size: 0.85rem !important;
@@ -438,7 +438,6 @@ input:checked + small {
 }
 
 .footer a:hover {
-  text-decoration: underline;
   filter: hue-rotate(20%);
 }
 
@@ -491,13 +490,11 @@ input:checked + small {
   display: flex;
   flex-direction: row;
   margin-bottom: 1vh;
-  padding: 0.25vw;
   justify-content: space-between;
   align-items: center;
 }
 
 .linkblock .image {
-  padding: 0.25vw;
   width: 4vh;
   height: 4vh;
   margin-left: 0.5vw;
@@ -672,4 +669,8 @@ input:checked + small {
 #popup {
   width: 25dvw;
   height: 25dvh;
+}
+
+#popup .list p {
+  font-size: 75%;
 }

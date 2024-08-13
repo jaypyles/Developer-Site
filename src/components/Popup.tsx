@@ -37,7 +37,7 @@ const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
               id="close"
               className="emboss bg-w98Gray w-[20px] h-[20px] flex items-center justify-center cursor-pointer ml-2 p-2"
               onClick={onClose}
-              onTouchStart={onClose}
+              onTouchStart={onClose} // mobile's `onClick`
               style={{
                 fontFamily: "Tahoma, sans-serif",
                 fontWeight: "bold",
@@ -50,7 +50,7 @@ const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
             </div>
           </div>
         </div>
-        <div id="body" className="p-2">
+        <div id="body" className="p-1">
           {children}
         </div>
       </div>

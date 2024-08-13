@@ -77,9 +77,9 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
               </StyledBadge>
             </div>
             <div className="user flex flex-col justify-start w-1/2">
-              <Typography variant="h6" style={{ fontWeight: "bold" }}>
+              <p style={{ fontWeight: "bold" }}>
                 {data.discord_user.display_name}
-              </Typography>
+              </p>
               <div className="flex flex-row align-middle">
                 {data.activities[0]!.emoji && (
                   <Image

@@ -6,7 +6,7 @@ const Hobbies = () => {
   return (
     <div id="popup-hobbies" className="flex flex-row justify-start">
       <div>
-        <ul>
+        <ul className="list">
           <div className="flex flex-row align-middle space-x-1">
             <Image
               alt="gaming"

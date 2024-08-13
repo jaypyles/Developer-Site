@@ -6,20 +6,7 @@ import Popup from "src/components/Popup";
 import ProgrammingLanguages from "src/components/popups/ProgrammingLanguages";
 import Hobbies from "src/components/popups/Hobbies";
 import { PopupAction, PopupState } from "src/lib/types";
-
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  return isMobile;
-};
+import useIsMobile from "src/hooks/useMobile";
 
 const initialState: PopupState = {
   programmingLanguages: false,
@@ -71,20 +58,17 @@ const Home: React.FC = () => {
 
   const handleOpen = (popup: keyof PopupState) => {
     const maxZIndex = Math.max(
-      positions.programmingLanguages.z,
-      positions.coolBox.z
+      ...Object.values(positions).map((position) => position.z)
     );
 
     setPositions((prev) => {
       const updatedPositions = { ...prev };
 
       // calculate new positions for cascading effect
-      const offsetX = 20;
-      const offsetY = 20;
       const currentX =
-        Math.max(prev.programmingLanguages.x, prev.coolBox.x) + offsetX;
+        Math.max(...Object.values(prev).map((pos) => pos.x)) + 20;
       const currentY =
-        Math.max(prev.programmingLanguages.y, prev.coolBox.y) + offsetY;
+        Math.max(...Object.values(prev).map((pos) => pos.y)) + 20;
 
       // update the position and z-index for the clicked popup
       updatedPositions[popup] = {
