@@ -71,9 +71,8 @@ export const getSpotifyAccessToken = async (): Promise<any> => {
   });
 
   if (!response.ok) {
-    throw new Error(
-      `Error fetching Spotify access token: ${response.statusText}`
-    );
+    console.error("Couldn't reach spotify to obtain access code.");
+    return null;
   }
 
   const data = await response.json();
@@ -82,6 +81,10 @@ export const getSpotifyAccessToken = async (): Promise<any> => {
 
 export const getNowPlaying = async () => {
   const accessTokenResponse = await getSpotifyAccessToken();
+  if (!accessTokenResponse) {
+    return null;
+  }
+
   const accessToken = await accessTokenResponse.access_token;
 
   const headers = { Authorization: `Bearer ${accessToken}` };
