@@ -32,8 +32,7 @@ const Homepage: React.FC<HomepageProps> = ({
         </h1>
         <div className="text-content">
           <p className="text-base mb-[1em]">
-            I am a Software Developer at these places currently, building data
-            analysis tools and webapps.
+            I am a Software Engineer, working in web development at:
           </p>
           <div className="workblocks flex flex-row mb-[1em]">
             {work.map((data, index) => (

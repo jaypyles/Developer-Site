@@ -1,12 +1,9 @@
 export const work = [
   {
-    image: "cfrl.png",
-    title: "Computer Forensics Research Lab (CFRL)",
-    description: "Digital Forensics Research Lab at UAB",
-  },
-  {
-    image: "dt.png",
-    title: "DarkTower",
-    description: "Criminal Intelligence Company in Birmingham, AL",
+    image: "motion.png",
+    title: "Motion Industries",
+    description: "Manufacturing and Distribution Company",
   },
 ];
+
+// todo: cleanup cfrl.png, dt.png
