@@ -27,8 +27,7 @@ const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
         >
           <div
             id="title"
-            className="font-tahoma text-white text-sm pl-2"
-            style={{ fontWeight: "bold" }}
+            className="font-tahoma font-bold text-white text-sm pl-2"
           >
             {title}
           </div>

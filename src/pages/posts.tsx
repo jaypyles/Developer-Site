@@ -1,13 +1,12 @@
 import React from "react";
-import Navbar from "src/common/Navbar";
-import Posts from "src/common/Posts";
+import Navbar from "src/components/nav/Navbar";
+import Posts from "src/components/posts/Posts";
 import { GetServerSideProps } from "next";
 import { PostDocument } from "src/lib/mongo";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
   const posts: PostDocument[] = await res.json();
-  console.log(posts);
 
   return {
     props: {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import spotify from "../../public/images/spotify.png";
+import spotify from "../../../public/images/spotify.png";
 import { getNowPlaying } from "src/lib/UtilFunctions";
 
 interface SpotifyData {

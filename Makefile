@@ -1,4 +1,4 @@
-.PHONY: build build-force pull up down deploy deps
+.PHONY: build build-force pull up down deploy deps test
 
 # -----
 deps:
@@ -28,3 +28,5 @@ logs:
 deploy:
 	ansible-playbook -i ./ansible/inventory.yaml ./ansible/deploy_site.yaml
 
+test:
+	npm run test

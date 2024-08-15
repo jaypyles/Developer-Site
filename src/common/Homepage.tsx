@@ -1,9 +1,10 @@
 import React from "react";
 import { work } from "../data/CurrentlyWorkingInformation";
 import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
-import LinkWithDescription from "../components/LinkWithDescription";
-import Footer from "./Footer";
+import LinkWithDescription from "../components/links/LinkWithDescription";
+import Footer from "../components/nav/Contacts";
 import { PopupState } from "src/lib/types";
+import { retroButtons } from "./retroButtons";
 
 interface HomepageProps {
   hidden?: boolean;
@@ -11,11 +12,11 @@ interface HomepageProps {
   popupState: PopupState;
 }
 
-const Homepage: React.FC<HomepageProps> = ({
+const Homepage = ({
   handleOpen,
   popupState,
   hidden = false,
-}) => {
+}: HomepageProps) => {
   return (
     <div
       className={`homepage p-3 emboss-no-top bg-[#c0c0c0] w-full${
@@ -36,7 +37,7 @@ const Homepage: React.FC<HomepageProps> = ({
           </p>
           <div className="workblocks flex flex-row mb-[1em]">
             {work.map((data, index) => (
-              <CurrentlyWorkingInformation key={index} data={data} />
+              <CurrentlyWorkingInformation key={index} imageData={data} />
             ))}
           </div>
           <p className="text-base mb-[1em]">
@@ -89,12 +90,9 @@ const Homepage: React.FC<HomepageProps> = ({
           />
           <div id="buttons" className="flex mb-1 justify-center">
             <div className="flex flex-wrap justify-center w-3/4 space-x-2">
-              <img src="https://anlucas.neocities.org/linux_powered.gif" />
-              <img src="https://capstasher.neocities.org/88x31Buttons/archlinux.gif" />
-              <img src="https://devurandom.xyz/banners/vim.gif" />
-              <img src="https://anlucas.neocities.org/button.gif" />
-              <img src="https://capstasher.neocities.org/88x31Buttons/firefoxget.gif" />
-              <img src="https://anlucas.neocities.org/html.gif" />
+              {retroButtons.map((link, index) => (
+                <img key={index} src={link} />
+              ))}
             </div>
           </div>
         </div>

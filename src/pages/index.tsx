@@ -1,8 +1,8 @@
 import React, { useReducer, useState, useEffect } from "react";
-import Navbar from "src/common/Navbar";
+import Navbar from "src/components/nav/Navbar";
 import Homepage from "src/common/Homepage";
 import CurrentTheme from "src/common/CurrentTheme";
-import Popup from "src/components/Popup";
+import Popup from "src/components/popups/Popup";
 import ProgrammingLanguages from "src/components/popups/ProgrammingLanguages";
 import Hobbies from "src/components/popups/Hobbies";
 import { PopupAction, PopupState } from "src/lib/types";

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import LinkBlock from "../components/LinkBlock";
-import Spotify from "../components/Spotify";
-import { socials } from "../data/Socials";
-import Discord from "../components/Discord";
+import LinkBlock from "../links/LinkBlock";
+import Spotify from "./Spotify";
+import { socials } from "../../data/Socials";
+import Discord from "src/components/socials/Discord";
 import PulseLoader from "react-spinners/PulseLoader";
 
 interface SocialsModalProps {
@@ -12,7 +12,7 @@ interface SocialsModalProps {
   handleClose: () => void;
 }
 
-const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
+const SocialsModal = ({ show, handleClose }: SocialsModalProps) => {
   const [discordLoaded, setDiscordLoaded] = useState<boolean>(false);
   const [spotifyLoaded, setSpotifyLoaded] = useState<boolean>(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
@@ -51,7 +51,7 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ show, handleClose }) => {
           {imagesLoaded ? (
             <>
               {socials.map((data, index) => (
-                <LinkBlock key={index} data={data} />
+                <LinkBlock key={index} imageData={data} />
               ))}
               <div
                 className={`status emboss ${

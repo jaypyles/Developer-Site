@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-interface Data {
+interface ImageData {
   image: string;
   link: string;
   description: string;
 }
 
 interface LinkBlockProps {
-  data: Data;
+  imageData: ImageData;
 }
 
-const LinkBlock: React.FC<LinkBlockProps> = ({ data }) => {
+const LinkBlock = ({ imageData }: LinkBlockProps) => {
   const [hovered, setHovered] = useState<boolean>(false);
   const toggleHover = () => setHovered(!hovered);
 
@@ -23,12 +23,12 @@ const LinkBlock: React.FC<LinkBlockProps> = ({ data }) => {
       onMouseLeave={toggleHover}
     >
       <div className="image">
-        <img src={`/images/${data.image}`} alt={data.description} />
+        <img src={`/images/${imageData.image}`} alt={imageData.description} />
       </div>
       <div className="text !text-black">
         <div className="description">
-          <a className="w-full h-full" href={data.link}>
-            {data.description}
+          <a className="w-full h-full" href={imageData.link}>
+            {imageData.description}
           </a>
         </div>
       </div>

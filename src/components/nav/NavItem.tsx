@@ -13,13 +13,10 @@ interface NavItemProps {
 }
 
 const NavItem: React.FC<NavItemProps> = ({ data }) => {
-  const filename = data.image;
-  const imageUrl = `/images/${filename}`;
-
   return (
     <Nav.Item>
       <a href={data.link} className="no-arrow">
-        <img src={imageUrl} alt={data.alt} title={data.title} />
+        <img src={`/images/${data.image}`} alt={data.alt} title={data.title} />
       </a>
     </Nav.Item>
   );
