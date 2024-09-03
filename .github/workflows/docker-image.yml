@@ -1,7 +1,9 @@
-name: ci
+name: Push Docker Image
 on:
-  push:
-    branches: ["master"]
+  workflow_run:
+    workflows: ["Run Tests"]
+    types:
+      - completed
 jobs:
   build:
     runs-on: ubuntu-latest
