@@ -1,7 +1,7 @@
 version: "3"
 services:
   frontend:
-    image: jpyles0524/dev_site
+    image: jpyles0524/dev_site-${GITHUB_REF_NAME}
     ports:
       - 3000:3000
     build:
