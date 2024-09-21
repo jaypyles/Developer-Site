@@ -1,6 +1,9 @@
 name: Deploy
 
 on:
+  push:
+    branches:
+      - "migrate-to-k3s"
   workflow_run:
     workflows: ["Run Tests"]
     types:
