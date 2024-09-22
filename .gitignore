@@ -193,4 +193,9 @@ cython_debug/
 .vscode
 .env.dev
 
+# ansible
 ansible/inventory.yaml
+
+# k8s
+*configmap*
+*frontend-deployment.yaml*
