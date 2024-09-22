@@ -197,5 +197,5 @@ cython_debug/
 ansible/inventory.yaml
 
 # k8s
-*configmap*
+*frontend-configmap.yaml*
 *frontend-deployment.yaml*
