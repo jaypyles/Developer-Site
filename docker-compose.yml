@@ -1,7 +1,6 @@
-version: "3"
 services:
   frontend:
-    image: jpyles0524/dev_site-${GITHUB_REF_NAME}
+    image: jpyles0524/dev_site-${BRANCH_NAME}
     ports:
       - 3000:3000
     build:
@@ -14,8 +13,7 @@ services:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
     container_name: portfolio
     command: npm run start
-    env_file:
-      - .env
+    env_file: .env
     environment:
       NEXT_PUBLIC_DISCORD_USER_ID: ${NEXT_PUBLIC_DISCORD_USER_ID}
       NEXT_PUBLIC_SPOTIFY_CLIENT_ID: ${NEXT_PUBLIC_SPOTIFY_CLIENT_ID}
