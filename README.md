@@ -10,4 +10,4 @@ Deployed using github actions, with k3s on kvm for deployments.
 
 ArgoCD for continuous deployment.
 
-Secrets management using Doppler. 
+Secrets management using Doppler.

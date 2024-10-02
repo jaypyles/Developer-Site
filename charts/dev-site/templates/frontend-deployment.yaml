@@ -17,7 +17,7 @@ spec:
             - npm
             - run
             - start
-          image: jpyles0524/dev_site:${BRANCH_NAME}-{{ .Value.env.APP_VERSION }}
+          image: jpyles0524/dev_site:master-{{ .Values.env.APP_VERSION }}
           name: portfolio
           imagePullPolicy: Always
           ports:
@@ -27,26 +27,26 @@ spec:
             - name: NEXT_PUBLIC_API_URL
               valueFrom:
                 secretKeyRef:
-                  name: doppler-secrets
+                  name: portfolio-doppler-secret
                   key: NEXT_PUBLIC_API_URL
             - name: NEXT_PUBLIC_DISCORD_USER_ID
               valueFrom:
                 secretKeyRef:
-                  name: doppler-secrets
+                  name: portfolio-doppler-secret
                   key: NEXT_PUBLIC_DISCORD_USER_ID
             - name: NEXT_PUBLIC_SPOTIFY_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: doppler-secrets
+                  name: portfolio-doppler-secret
                   key: NEXT_PUBLIC_SPOTIFY_CLIENT_ID
             - name: NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: doppler-secrets
+                  name: portfolio-doppler-secret
                   key: NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
             - name: NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: doppler-secrets
+                  name: portfolio-doppler-secret
                   key: NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
       restartPolicy: Always
