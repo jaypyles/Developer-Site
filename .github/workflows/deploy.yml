@@ -56,7 +56,7 @@ jobs:
 
       - name: Update Helm repo index
         run: |
-          helm repo index charts/ --url ${{ secrets.HELM_URL}}/main/charts
+          helm repo index artifacts/ --url ${{ secrets.HELM_URL}}/main/charts
 
       - name: Commit and push changes to github helm repo
         run: |
@@ -64,10 +64,11 @@ jobs:
           cd helm-charts
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
-          mkdir -p charts
-          cp ../artifacts/* charts/
+          mkdir -p charts/dev-site
+          cp ../artifacts/*.tgz charts/dev-site/
+          cp ../artifacts/index.yaml charts/
           git add charts/
-          git commit -m "Add new dev-site chart version"
+          git commit -m "Add new dev-site chart version and update index.yaml"
           git push origin main
 
       - name: Update version
