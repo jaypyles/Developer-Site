@@ -51,4 +51,4 @@ jobs:
           git config --global user.name "github-actions"
           git add charts/dev-site/values.yaml
           git commit -m "Update version to ${APP_VERSION}"
-          git push https://${{ secrets.GPAT_TOKEN }}@github.com/jaypyles/${{ github.repository }}.git HEAD:${{ github.ref_name }}
+          git push https://${{ secrets.GPAT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
