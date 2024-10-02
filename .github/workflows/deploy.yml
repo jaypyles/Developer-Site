@@ -60,7 +60,7 @@ jobs:
 
       - name: Commit and push changes to github helm repo
         run: |
-          git clone ${{ secrets.HELM_REPO }}
+          git clone https://${{ secrets.GPAT_TOKEN }}@github.com/jaypyles/helm-charts.git
           cd helm-charts
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
@@ -69,8 +69,6 @@ jobs:
           git add charts/
           git commit -m "Add new dev-site chart version"
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
 
       - name: Update version
         env:
