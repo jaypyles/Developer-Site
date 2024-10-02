@@ -34,19 +34,19 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ github.event.workflow_run.head_branch || github.ref_name }}-${{steps.vars.outputs.sha_short}}
-          build-args: |
-            NEXT_PUBLIC_DISCORD_USER_ID=${{ secrets.NEXT_PUBLIC_DISCORD_USER_ID }}
-            NEXT_PUBLIC_SPOTIFY_CLIENT_ID=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_ID }}
-            NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET }}
-            NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN=${{ secrets.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN }}
-            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
+      # - name: Build and push
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     context: .
+      #     file: ./Dockerfile
+      #     push: true
+      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ github.event.workflow_run.head_branch || github.ref_name }}-${{steps.vars.outputs.sha_short}}
+      #     build-args: |
+      #       NEXT_PUBLIC_DISCORD_USER_ID=${{ secrets.NEXT_PUBLIC_DISCORD_USER_ID }}
+      #       NEXT_PUBLIC_SPOTIFY_CLIENT_ID=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_ID }}
+      #       NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET }}
+      #       NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN=${{ secrets.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN }}
+      #       NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
 
       - name: Package Helm Chart
         run: |
