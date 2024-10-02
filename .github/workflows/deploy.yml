@@ -55,5 +55,5 @@ jobs:
         with:
           author_name: "github-actions"
           author_email: "github-actions@github.com"
-          message: "Update version to ${APP_VERSION}"
+          message: "Update version to ${{steps.vars.outputs.sha_short}} [skip ci]"
           add: "charts/dev-site/values.yaml"
