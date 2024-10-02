@@ -17,6 +17,10 @@ jobs:
         with:
           token: ${{ secrets.GPAT_TOKEN }}
 
+      - name: Setup helm
+        run: |
+          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
       - name: Get short SHA
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
@@ -44,16 +48,40 @@ jobs:
             NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN=${{ secrets.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN }}
             NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
 
+      - name: Package Helm Chart
+        run: |
+          helm package ./charts/dev-site
+          mkdir -p artifacts
+          mv *.tgz artifacts/
+
+      - name: Update Helm repo index
+        run: |
+          helm repo index charts/ --url ${{ secrets.HELM_URL}}/main/charts
+
+      - name: Commit and push changes to github helm repo
+        run: |
+          git clone ${{ secrets.HELM_REPO }}
+          cd helm-charts
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          mkdir -p charts
+          cp ../artifacts/* charts/
+          git add charts/
+          git commit -m "Add new dev-site chart version"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
+
       - name: Update version
         env:
           APP_VERSION: "${{ steps.vars.outputs.sha_short }}"
         run: |
           sed -i "s/APP_VERSION: .*/APP_VERSION: ${APP_VERSION}/g" charts/dev-site/values.yaml
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: "github-actions"
-          author_email: "github-actions@github.com"
-          message: "Update version to ${{steps.vars.outputs.sha_short}} [skip ci]"
-          add: "charts/dev-site/values.yaml"
+      # - name: Commit changes
+      #   uses: EndBug/add-and-commit@v9
+      #   with:
+      #     author_name: "github-actions"
+      #     author_email: "github-actions@github.com"
+      #     message: "Update version to ${{steps.vars.outputs.sha_short}} [skip ci]"
+      #     add: "charts/dev-site/values.yaml"
