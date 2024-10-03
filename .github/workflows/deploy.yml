@@ -72,7 +72,7 @@ jobs:
 
       - name: Update Helm repo index
         run: |
-          helm repo index artifacts/ --url ${{ secrets.HELM_URL}}/main/charts
+          helm repo index artifacts/ --url ${{ secrets.HELM_URL}}/main/charts/dev-site
       - name: Commit and push changes to GitHub Helm repo
         run: |
           git clone https://${{ secrets.GPAT_TOKEN }}@github.com/jaypyles/helm-charts.git
