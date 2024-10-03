@@ -81,7 +81,7 @@ jobs:
           git config user.email "github-actions@github.com"
           mkdir -p charts/dev-site
           cp ../artifacts/*.tgz charts/dev-site/
-          cp ../artifacts/index.yaml charts/
+          cp ../artifacts/index.yaml charts/dev-site/
           git add charts/
           git commit -m "Add new dev-site chart version and update index.yaml"
           git push origin main
