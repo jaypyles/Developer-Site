@@ -34,19 +34,30 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # - name: Build and push
+      - name: Install dependencies for semantic-release
+        run: npm install semantic-release @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog
+
+      - name: Run semantic-release
+        id: semantic_version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx semantic-release
+          VERSION=$(npx semantic-release --dry-run | grep 'The next release version is' | sed 's/^.*is //')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Update version in Chart.yaml and values.yaml
+        run: |
+          sed -i "s/version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
+          sed -i "s/APP_VERSION:.*/APP_VERSION: ${{ env.VERSION }}/" charts/dev-site/values.yaml
+
+      # - name: Build and push Docker image
       #   uses: docker/build-push-action@v5
       #   with:
       #     context: .
       #     file: ./Dockerfile
       #     push: true
-      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ github.event.workflow_run.head_branch || github.ref_name }}-${{steps.vars.outputs.sha_short}}
-      #     build-args: |
-      #       NEXT_PUBLIC_DISCORD_USER_ID=${{ secrets.NEXT_PUBLIC_DISCORD_USER_ID }}
-      #       NEXT_PUBLIC_SPOTIFY_CLIENT_ID=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_ID }}
-      #       NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET=${{ secrets.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET }}
-      #       NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN=${{ secrets.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN }}
-      #       NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
+      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ env.VERSION }}
 
       - name: Package Helm Chart
         run: |
@@ -58,7 +69,7 @@ jobs:
         run: |
           helm repo index artifacts/ --url ${{ secrets.HELM_URL}}/main/charts
 
-      - name: Commit and push changes to github helm repo
+      - name: Commit and push changes to GitHub Helm repo
         run: |
           git clone https://${{ secrets.GPAT_TOKEN }}@github.com/jaypyles/helm-charts.git
           cd helm-charts
@@ -71,16 +82,8 @@ jobs:
           git commit -m "Add new dev-site chart version and update index.yaml"
           git push origin main
 
-      - name: Update version
-        env:
-          APP_VERSION: "${{ steps.vars.outputs.sha_short }}"
-        run: |
-          sed -i "s/APP_VERSION: .*/APP_VERSION: ${APP_VERSION}/g" charts/dev-site/values.yaml
-
-      # - name: Commit changes
-      #   uses: EndBug/add-and-commit@v9
-      #   with:
-      #     author_name: "github-actions"
-      #     author_email: "github-actions@github.com"
-      #     message: "Update version to ${{steps.vars.outputs.sha_short}} [skip ci]"
-      #     add: "charts/dev-site/values.yaml"
+      # - name: Commit version changes to repo
+      #   run: |
+      #     git add charts/dev-site/Chart.yaml charts/dev-site/values.yaml
+      #     git commit -m "Update version to ${{ env.VERSION }} [skip ci]"
+      #     git push origin main
