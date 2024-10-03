@@ -17,7 +17,7 @@ spec:
             - npm
             - run
             - start
-          image: jpyles0524/dev_site:master-{{ .Values.env.APP_VERSION }}
+          image: jpyles0524/dev_site:{{ .Values.env.APP_VERSION }}
           name: portfolio
           imagePullPolicy: Always
           ports:
