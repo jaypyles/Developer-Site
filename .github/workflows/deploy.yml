@@ -92,4 +92,4 @@ jobs:
           git config user.email "github-actions@github.com"
           git add charts/dev-site/Chart.yaml charts/dev-site/values.yaml
           git commit -m "Update version to ${{ env.VERSION }} [skip ci]"
-          git push origin main
+          git push origin master
