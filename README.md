@@ -6,8 +6,4 @@ Developed using Next.js, TailwindCSS, and Material UI
 
 ## Architecture/Infra
 
-Deployed using github actions, with k3s on kvm for deployments.
-
-ArgoCD for continuous deployment.
-
-Secrets management using Doppler.
+Deployed using github actions, with k3s on kvm for deployments. ArgoCD for continuous deployment. Secrets management using Doppler.
