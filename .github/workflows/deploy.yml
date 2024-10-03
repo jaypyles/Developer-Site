@@ -55,13 +55,13 @@ jobs:
           sed -i "s/version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
           sed -i "s/APP_VERSION:.*/APP_VERSION: ${{ env.VERSION }}/" charts/dev-site/values.yaml
 
-      # - name: Build and push Docker image
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #     context: .
-      #     file: ./Dockerfile
-      #     push: true
-      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ env.VERSION }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ env.VERSION }}
 
       - name: Package Helm Chart
         run: |
@@ -86,8 +86,8 @@ jobs:
           git commit -m "Add new dev-site chart version and update index.yaml"
           git push origin main
 
-      # - name: Commit version changes to repo
-      #   run: |
-      #     git add charts/dev-site/Chart.yaml charts/dev-site/values.yaml
-      #     git commit -m "Update version to ${{ env.VERSION }} [skip ci]"
-      #     git push origin main
+      - name: Commit version changes to repo
+        run: |
+          git add charts/dev-site/Chart.yaml charts/dev-site/values.yaml
+          git commit -m "Update version to ${{ env.VERSION }} [skip ci]"
+          git push origin main
