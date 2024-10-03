@@ -42,10 +42,11 @@ jobs:
       - name: Install dependencies for semantic-release
         run: npm install semantic-release @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog
 
-      - name: Get semantic version (dry-run)
+      - name: Get semantic version
         id: semantic_version
         run: |
           VERSION=$(npx semantic-release | grep 'The next release version is' | sed 's/^.*is //')
+          echo "VERSION=$VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
