@@ -45,10 +45,10 @@ jobs:
       - name: Get semantic version (dry-run)
         id: semantic_version
         run: |
-          VERSION=$(npx semantic-release --dry-run | grep 'The next release version is' | sed 's/^.*is //')
+          VERSION=$(npx semantic-release | grep 'The next release version is' | sed 's/^.*is //')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
 
       - name: Update version in Chart.yaml and values.yaml
         run: |
@@ -91,5 +91,5 @@ jobs:
         with:
           author_name: "github-actions"
           author_email: "github-actions@github.com"
-          message: "Update version to ${{steps.vars.outputs.sha_short}} [skip ci]"
+          message: "Update version to ${{ env.VERSION }} [skip ci]"
           add: "charts/dev-site/values.yaml"
