@@ -53,7 +53,7 @@ jobs:
 
       - name: Update version in Chart.yaml and values.yaml
         run: |
-          sed -i "s/version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
+          sed -i "s/^version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
           sed -i "s/APP_VERSION:.*/APP_VERSION: ${{ env.VERSION }}/" charts/dev-site/values.yaml
 
       - name: Build and push Docker image
@@ -73,7 +73,6 @@ jobs:
       - name: Update Helm repo index
         run: |
           helm repo index artifacts/ --url ${{ secrets.HELM_URL}}/main/charts
-
       - name: Commit and push changes to GitHub Helm repo
         run: |
           git clone https://${{ secrets.GPAT_TOKEN }}@github.com/jaypyles/helm-charts.git
@@ -87,10 +86,8 @@ jobs:
           git commit -m "Add new dev-site chart version and update index.yaml"
           git push origin main
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: "github-actions"
-          author_email: "github-actions@github.com"
-          message: "Update version to ${{ env.VERSION }} [skip ci]"
-          add: "charts/dev-site/values.yaml"
+      - name: Commit version changes to repo
+        run: |
+          git add charts/dev-site/Chart.yaml charts/dev-site/values.yaml
+          git commit -m "Update version to ${{ env.VERSION }} [skip ci]"
+          git push origin main
