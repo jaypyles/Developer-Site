@@ -17,9 +17,25 @@ jobs:
         with:
           token: ${{ secrets.GPAT_TOKEN }}
 
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Setup helm
         run: |
           curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+      - name: Cache Helm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/helm
+          key: ${{ runner.os }}-helm-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-helm-
 
       - name: Get short SHA
         id: vars
@@ -33,6 +49,14 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
 
       - name: Set up Node.js 21
         uses: actions/setup-node@v3
