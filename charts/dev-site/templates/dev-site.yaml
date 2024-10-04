@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jaypyles/Developer-Site
+    repoURL: https://github.com/jaypyles/helm-charts.git
     path: charts/dev-site/
     targetRevision: HEAD
   destination:
