@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jaypyles/helm-charts.git
-    path: charts/dev-site/
-    targetRevision: HEAD
+    repoURL: https://raw.githubusercontent.com/jaypyles/helm-charts/main  
+    chart: dev-site
+    targetRevision: "1.0.12"  # Ensure this matches the version you're using
   destination:
     server: https://kubernetes.default.svc
     namespace: default
