@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import LinkBlock from "../links/LinkBlock";
-import Spotify from "./Spotify";
-import { socials } from "../../data/Socials";
-import Discord from "src/components/socials/Discord";
+import { LinkBlock } from "../links";
+import { socials } from "../../data/socials";
+import { Discord, Spotify } from "src/components/socials";
 import PulseLoader from "react-spinners/PulseLoader";
 
 interface SocialsModalProps {
@@ -12,7 +11,7 @@ interface SocialsModalProps {
   handleClose: () => void;
 }
 
-const SocialsModal = ({ show, handleClose }: SocialsModalProps) => {
+export const SocialsModal = ({ show, handleClose }: SocialsModalProps) => {
   const [discordLoaded, setDiscordLoaded] = useState<boolean>(false);
   const [spotifyLoaded, setSpotifyLoaded] = useState<boolean>(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
@@ -91,5 +90,3 @@ const SocialsModal = ({ show, handleClose }: SocialsModalProps) => {
     </div>
   );
 };
-
-export default SocialsModal;

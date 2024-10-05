@@ -1,10 +1,10 @@
 import React from "react";
-import { work } from "../data/CurrentlyWorkingInformation";
-import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
-import LinkWithDescription from "../components/links/LinkWithDescription";
-import { Contacts } from "../components/nav/contacts/contacts";
+import { work } from "../../data/working";
+import { CurrentlyWorkingInformation } from ".";
+import { LinkWithDescription } from "../links";
+import { Contacts } from "../nav/contacts/contacts";
 import { PopupState } from "src/lib/types";
-import { retroButtons } from "./retroButtons";
+import { retroButtons } from "../../data/retro-buttons";
 
 interface HomepageProps {
   hidden?: boolean;
@@ -12,7 +12,7 @@ interface HomepageProps {
   popupState: PopupState;
 }
 
-const Homepage = ({
+export const Homepage = ({
   handleOpen,
   popupState,
   hidden = false,
@@ -100,5 +100,3 @@ const Homepage = ({
     </div>
   );
 };
-
-export default Homepage;

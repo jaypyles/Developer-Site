@@ -11,7 +11,7 @@ interface Props {
   z: number;
 }
 
-const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
+export const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
   if (!show) return null;
 
   return (
@@ -56,5 +56,3 @@ const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
     </Draggable>
   );
 };
-
-export default Popup;

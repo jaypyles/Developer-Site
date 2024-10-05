@@ -7,7 +7,7 @@ import {
   Modal,
 } from "@mui/material";
 import React, { useState } from "react";
-import CardPost from "./CardPost";
+import { CardPost } from "src/components/posts";
 
 interface PostDocument {
   image_id: string;
@@ -19,7 +19,7 @@ interface PostsProps {
   posts: PostDocument[];
 }
 
-const Posts: React.FC<PostsProps> = ({ posts }) => {
+export const Posts: React.FC<PostsProps> = ({ posts }) => {
   const [open, setOpen] = useState(false);
   const [photo, setPhoto] = useState({
     image_id: "",
@@ -100,5 +100,3 @@ const Posts: React.FC<PostsProps> = ({ posts }) => {
     </div>
   );
 };
-
-export default Posts;

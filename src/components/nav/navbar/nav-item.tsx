@@ -13,7 +13,7 @@ interface NavItemProps {
   className?: string | undefined;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ data, className }) => {
+export const NavItem: React.FC<NavItemProps> = ({ data, className }) => {
   return (
     <Nav.Item className={className}>
       <a href={data.link} className="no-arrow">
@@ -22,5 +22,3 @@ const NavItem: React.FC<NavItemProps> = ({ data, className }) => {
     </Nav.Item>
   );
 };
-
-export default NavItem;

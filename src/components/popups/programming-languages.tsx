@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Typography } from "@mui/material";
 
-const ProgrammingLanguages = () => {
+export const ProgrammingLanguages = () => {
   return (
     <div
       id="popup-programming-languages"
@@ -88,5 +88,3 @@ const ProgrammingLanguages = () => {
     </div>
   );
 };
-
-export default ProgrammingLanguages;

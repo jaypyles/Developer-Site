@@ -10,7 +10,7 @@ interface LinkBlockProps {
   imageData: ImageData;
 }
 
-const LinkBlock = ({ imageData }: LinkBlockProps) => {
+export const LinkBlock = ({ imageData }: LinkBlockProps) => {
   const [hovered, setHovered] = useState<boolean>(false);
   const toggleHover = () => setHovered(!hovered);
 
@@ -35,5 +35,3 @@ const LinkBlock = ({ imageData }: LinkBlockProps) => {
     </div>
   );
 };
-
-export default LinkBlock;

@@ -16,7 +16,7 @@ interface SpotifyProps {
   };
 }
 
-const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
+export const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
   const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
   const [spotifyAlbumLoaded, setSpotifyAlbumLoaded] = useState<boolean | null>(
     null
@@ -108,5 +108,3 @@ const Spotify: React.FC<SpotifyProps> = ({ loadedState }) => {
     </div>
   );
 };
-
-export default Spotify;

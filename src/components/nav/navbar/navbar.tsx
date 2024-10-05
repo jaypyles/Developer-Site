@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
-import SocialsModal from "../../socials/SocialsModal";
+import { SocialsModal } from "../../socials/";
 import Tooltip from "@mui/material/Tooltip";
 import { usePathname } from "next/navigation";
 

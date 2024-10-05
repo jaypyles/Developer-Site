@@ -1,10 +1,7 @@
 import React, { useReducer, useState, useEffect } from "react";
 import { Navbar } from "src/components/nav/navbar/navbar";
-import Homepage from "src/common/Homepage";
-import CurrentTheme from "src/common/CurrentTheme";
-import Popup from "src/components/popups/Popup";
-import ProgrammingLanguages from "src/components/popups/ProgrammingLanguages";
-import Hobbies from "src/components/popups/Hobbies";
+import { Homepage, CurrentTheme } from "src/components/homepage";
+import { Popup, ProgrammingLanguages, Hobbies } from "src/components/popups";
 import { PopupAction, PopupState } from "src/lib/types";
 import useIsMobile from "src/hooks/useMobile";
 

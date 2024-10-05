@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render homepage properly. 1`] = `
+<h1
+  class="page-title text-lg font-prompt mb-[0.5em] w-fit"
+  id="intro-heading"
+>
+  Hey, I'm Jayden 👨‍💻
+</h1>
+`;

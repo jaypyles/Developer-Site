@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Avatar, Typography } from "@mui/material";
-import StyledBadge from "./StyledBadge";
+import { StyledBadge } from "./styled-badge";
 import { getDiscordStatus } from "src/lib/UtilFunctions";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ interface DiscordProps {
   };
 }
 
-const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
+export const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
   const [data, setData] = useState<DiscordData | null>(null);
   const { loaded, setLoaded } = loadedState;
 
@@ -107,5 +107,3 @@ const Discord: React.FC<DiscordProps> = ({ loadedState }) => {
     </div>
   );
 };
-
-export default Discord;

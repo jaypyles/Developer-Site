@@ -7,7 +7,11 @@ interface CardPostProps {
   date: string;
 }
 
-const CardPost: React.FC<CardPostProps> = ({ img, description, date }) => {
+export const CardPost: React.FC<CardPostProps> = ({
+  img,
+  description,
+  date,
+}) => {
   return (
     <Paper elevation={2}>
       <Card className="p-2">
@@ -22,5 +26,3 @@ const CardPost: React.FC<CardPostProps> = ({ img, description, date }) => {
     </Paper>
   );
 };
-
-export default CardPost;

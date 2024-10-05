@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
-import NavItem from "../NavItem";
-import { footer_links } from "../../../data/Footer";
+import { NavItem } from "../navbar/nav-item";
+import { footer_links } from "../../../data/contacts";
 
 import classes from "./contacts.module.css";
 

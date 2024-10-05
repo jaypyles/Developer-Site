@@ -7,7 +7,7 @@ type LinkWithDescriptionProps = {
   github?: string;
 };
 
-const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
+export const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
   link,
   small_description,
   github = "",
@@ -40,5 +40,3 @@ const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
     </div>
   );
 };
-
-export default LinkWithDescription;

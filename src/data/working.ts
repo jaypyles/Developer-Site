@@ -5,5 +5,3 @@ export const work = [
     description: "Manufacturing and Distribution Company",
   },
 ];
-
-// todo: cleanup cfrl.png, dt.png

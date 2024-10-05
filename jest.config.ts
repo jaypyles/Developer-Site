@@ -10,7 +10,7 @@ const customJestConfig: Config = {
   testEnvironmentOptions: {
     url: "http://localhost/",
   },
-  testMatch: ["**/__tests__/*.test.js"],
+  testMatch: ["**/*.test.tsx"],
   moduleDirectories: ["node_modules", "<rootDir>"],
   setupFiles: ["<rootDir>/__mocks__/global-mocks.js"],
   transform: {

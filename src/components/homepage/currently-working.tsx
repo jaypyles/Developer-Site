@@ -10,7 +10,7 @@ interface CurrentlyWorkingInformationProps {
   imageData: ImageData;
 }
 
-const CurrentlyWorkingInformation = ({
+export const CurrentlyWorkingInformation = ({
   imageData,
 }: CurrentlyWorkingInformationProps) => {
   return (
@@ -29,5 +29,3 @@ const CurrentlyWorkingInformation = ({
     </div>
   );
 };
-
-export default CurrentlyWorkingInformation;

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { routes } from "src/data/Routes";
+import { routes } from "src/data/routes";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 

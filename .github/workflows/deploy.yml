@@ -27,7 +27,6 @@ jobs:
             docker:
               - 'Dockerfile'
               - 'src/**' 
-              - 'tests/**'
               - 'public/**'
               - 'tsconfig.json'
               - 'tailwind.config.js'
@@ -40,7 +39,6 @@ jobs:
             helm:
               - 'charts/**'
             app:
-              - '__tests__/**'
               - 'src/**'
               - 'package.json'
               - 'public/**'

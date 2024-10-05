@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const CurrentTheme = () => {
+export const CurrentTheme = () => {
   return (
     <div
       id="current-theme"
@@ -17,5 +17,3 @@ const CurrentTheme = () => {
     </div>
   );
 };
-
-export default CurrentTheme;

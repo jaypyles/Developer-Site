@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Typography } from "@mui/material";
 
-const Hobbies = () => {
+export const Hobbies = () => {
   return (
     <div id="popup-hobbies" className="flex flex-row justify-start">
       <div>
@@ -54,5 +54,3 @@ const Hobbies = () => {
     </div>
   );
 };
-
-export default Hobbies;
