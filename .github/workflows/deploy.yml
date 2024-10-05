@@ -114,32 +114,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies for semantic-release
-        run: npm install semantic-release @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog
-
-      - name: Cache semantic-release dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules/semantic-release
-            node_modules/@semantic-release/*
-          key: ${{ runner.os }}-semantic-release-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-semantic-release-
-
-      - name: Get semantic version
-        id: semantic_version
-        run: |
-          VERSION=$(npx semantic-release | grep 'The next release version is' | sed 's/^.*is //')
-          echo "VERSION=$VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
-
-      - name: Setup helm
-        run: |
-          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-
       - name: Cache Helm dependencies
         uses: actions/cache@v3
         with:
@@ -147,6 +121,10 @@ jobs:
           key: ${{ runner.os }}-helm-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-helm-
+
+      - name: Setup helm
+        run: |
+          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
       - name: Get short SHA
         id: vars
@@ -169,7 +147,31 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Update version in Chart.yaml and values.yaml
+      - name: Cache semantic-release dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules/semantic-release
+            node_modules/@semantic-release/*
+          key: ${{ runner.os }}-semantic-release-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-semantic-release-
+
+      - name: Install dependencies for semantic-release
+        run: npm install semantic-release @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog
+
+      - if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
+        name: Get semantic version
+        id: semantic_version
+        run: |
+          VERSION=$(npx semantic-release | grep 'The next release version is' | sed 's/^.*is //')
+          echo "VERSION=$VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
+
+      - if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
+        name: Update version in Chart.yaml and values.yaml
         run: |
           sed -i "s/^version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
 
