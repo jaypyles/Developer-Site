@@ -101,7 +101,7 @@ jobs:
           sed -i "s/^version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
           sed -i "s/APP_VERSION:.*/APP_VERSION: ${{ env.VERSION }}/" charts/dev-site/values.yaml
 
-      - if: steps.changes.outputs.docker == 'true'
+      - if: steps.changes.outputs.docker == true
         name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
