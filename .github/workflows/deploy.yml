@@ -89,7 +89,7 @@ jobs:
         run: npm run test
 
   build:
-    if: ${{ needs.check-changes.outputs.docker == 'true' || needs.check-changes.outputs.helm == 'true' }} && ( needs.test.result != 'failure' || needs.test.result == null)
+    if: ${{ (needs.check-changes.outputs.docker == 'true' || needs.check-changes.outputs.helm == 'true') && (needs.test.result != 'failure' || needs.test.result == null) }}
     runs-on: ubuntu-latest
     needs:
       - check-changes
@@ -160,8 +160,7 @@ jobs:
       - name: Install dependencies for semantic-release
         run: npm install semantic-release @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog
 
-      - if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
-        name: Get semantic version
+      - name: Get semantic version
         id: semantic_version
         run: |
           VERSION=$(npx semantic-release | grep 'The next release version is' | sed 's/^.*is //')
@@ -170,8 +169,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
 
-      - if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
-        name: Update version in Chart.yaml and values.yaml
+      - name: Update version in Chart.yaml and values.yaml
         run: |
           sed -i "s/^version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
 
@@ -191,19 +189,16 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ env.VERSION }}
 
       - name: Package Helm Chart
-        if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
         run: |
           helm package ./charts/dev-site
           mkdir -p artifacts
           mv *.tgz artifacts/
 
       - name: Update Helm repo index
-        if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
         run: |
           helm repo index artifacts/ --url ${{ secrets.HELM_URL}}/main/charts/dev-site
 
       - name: Commit and push changes to GitHub Helm repo
-        if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
         run: |
           git clone https://${{ secrets.GPAT_TOKEN }}@github.com/jaypyles/helm-charts.git
           cd helm-charts
@@ -217,7 +212,6 @@ jobs:
           git push origin main
 
       - name: Commit version changes to repo
-        if: needs.check-changes.outputs.helm == 'true' || needs.check-changes.outputs.docker == 'true'
         run: |
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
