@@ -1,11 +1,10 @@
-name: Deploy
+name: CI/CD Pipeline
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Run Tests"]
-    types:
-      - completed
+  push:
+    branches:
+      - "master"
 
 jobs:
   check-changes:
@@ -13,6 +12,7 @@ jobs:
     outputs:
       docker: ${{ steps.changes.outputs.docker }}
       helm: ${{ steps.changes.outputs.helm }}
+      tests: ${{ steps.changes.outputs.tests }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,14 +39,57 @@ jobs:
               - 'yarn.lock'
             helm:
               - 'charts/**'
+            app:
+              - '__tests__/**'
+              - 'src/**'
+              - 'package.json'
+              - 'public/**'
+              - 'tsconfig.json'
+              - 'tailwind.config.js'
+              - 'babel.config.js'
+              - 'next.config.mjs'
+              - 'postcss.config.js'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'yarn.lock'
 
       - name: Echo changes
         run: |
           echo "Docker Changes: ${{ steps.changes.outputs.docker }}"
           echo "Helm Changes: ${{ steps.changes.outputs.helm }}"
+          echo "App Changes: ${{ steps.changes.outputs.app }}"
+
+  test:
+    if: ${{ needs.check-changes.outputs.app == 'true' }}
+    runs-on: ubuntu-latest
+    needs: check-changes
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "21"
+
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.npm
+          key: ${{ runner.os }}-node-tests-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-tests-
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Test with Jest
+        run: npm run test
 
   build:
-    if: ${{ needs.check-changes.outputs.docker == 'true' || needs.check-changes.outputs.helm == 'true' }}
+    if: ${{needs.test.result == 'success'}} && ${{ needs.check-changes.outputs.docker == 'true' || needs.check-changes.outputs.helm == 'true' }}
     runs-on: ubuntu-latest
     needs: check-changes
     steps:
@@ -55,7 +98,7 @@ jobs:
         with:
           token: ${{ secrets.GPAT_TOKEN }}
 
-      - name: Set up Node.js 21
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "21"
