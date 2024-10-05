@@ -98,14 +98,14 @@ jobs:
           sed -i "s/^version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
           sed -i "s/APP_VERSION:.*/APP_VERSION: ${{ env.VERSION }}/" charts/dev-site/values.yaml
 
-      - name: Build and push Docker image
+      - if: steps.changes.outputs.docker == 'true'
+        name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:latest
-        if: steps.changes.outputs.docker == 'true'
 
       - name: Package Helm Chart
         run: |
