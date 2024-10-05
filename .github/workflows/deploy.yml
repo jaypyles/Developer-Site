@@ -74,6 +74,11 @@ jobs:
             helm:
               - 'charts/**'
 
+      - name: Check for changes
+        run: |
+          echo "Docker Changes: ${{ steps.changes.outputs.docker }}"
+          echo "Helm Changes: ${{ steps.changes.outputs.helm }}"
+
       - name: Setup helm
         run: |
           curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
@@ -110,7 +115,7 @@ jobs:
       - name: Update version in Chart.yaml and values.yaml
         run: |
           sed -i "s/^version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
-          if [${{ steps.changes.outputs.docker == false }}]; then
+          if [${{ steps.changes.outputs.docker }} == false]; then
             sed -i "s/APP_VERSION:.*/APP_VERSION: latest/" charts/dev-site/values.yaml
           else
             sed -i "s/APP_VERSION:.*/APP_VERSION: ${{ env.VERSION }}/" charts/dev-site/values.yaml
