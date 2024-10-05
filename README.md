@@ -9,3 +9,5 @@ Developed using Next.js, TailwindCSS, and Material UI
 Deployed using github actions, with k3s on kvm for deployments. ArgoCD for continuous deployment. Secrets management using Doppler.
 
 Helpful instructions located [here](https://storm-channel-b5f.notion.site/Rebuilding-the-KVM-cluster-112e14d424af802f8756ea67774e0385?pvs=4)
+
+<img src="https://github.com/jaypyles/portfolio_site/docs/pipeline.png">
