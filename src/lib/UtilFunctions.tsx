@@ -35,10 +35,7 @@ export const getPosts = async () => {
 };
 
 export const getDiscordStatus = async (): Promise<DiscordData> => {
-  const url = `https://api.lanyard.rest/v1/users/${process.env.NEXT_PUBLIC_DISCORD_USER_ID}`;
-  const response = await fetch(url);
-  const status: { data: DiscordData } = await response.json();
-  return status.data;
+  return await fetch("/api/discord").then((res) => res.json());
 };
 
 export const getSpotifyAccessToken = async (): Promise<any> => {

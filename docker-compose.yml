@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: jpyles0524/dev_site-${BRANCH_NAME}
+    image: jpyles0524/dev_site:latest
     ports:
       - 3000:3000
     build:

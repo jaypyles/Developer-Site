@@ -18,7 +18,7 @@ up:
 	BRANCH_NAME=$(BRANCH_NAME) docker compose --env-file .env up -d
 
 up-dev:
-	BRANCH_NAME=$(BRANCH_NAME) docker compose -f docker-compose.yml -f docker-compose.dev.yml --env-file .env.dev up -d 
+	BRANCH_NAME=$(BRANCH_NAME) docker compose -f docker-compose.yml -f docker-compose.dev.yml --env-file .env up -d 
 
 down:
 	docker compose down
