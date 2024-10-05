@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 3
+  replicas: 2
   revisionHistoryLimit: 1
   selector:
     matchLabels:
@@ -18,7 +18,7 @@ spec:
             - npm
             - run
             - start
-          image: jpyles0524/dev_site:latest
+          image: jpyles0524/dev_site:{{ .Values.env.APP_VERSION }}
           name: portfolio
           imagePullPolicy: Always
           ports:
