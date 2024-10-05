@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
-import SocialsModal from "../socials/SocialsModal";
+import SocialsModal from "../../socials/SocialsModal";
 import Tooltip from "@mui/material/Tooltip";
 import { usePathname } from "next/navigation";
 
@@ -10,7 +10,7 @@ interface NavbarProps {
   hidden?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
+export const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -55,4 +55,3 @@ const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
     </div>
   );
 };
-export default Navbar;

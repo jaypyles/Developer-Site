@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import Navbar from "src/components/nav/Navbar";
+import { Navbar } from "src/components/nav/navbar/navbar";
 import Homepage from "src/common/Homepage";
 import CurrentTheme from "src/common/CurrentTheme";
 import Popup from "src/components/popups/Popup";

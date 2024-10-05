@@ -1,0 +1,37 @@
+.contacts {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.nav-item {
+  margin-right: 0 !important;
+  height: 2vh;
+  display: block;
+}
+
+.nav-item a {
+  display: block;
+  height: 2vh;
+}
+.nav-item a:hover {
+  filter: invert(0.5);
+}
+
+.contact-items img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 2vh;
+  max-width: 2vh;
+  display: block;
+  filter: none;
+  transition: filter 0.3s ease;
+}
+
+.contact-items img:hover {
+  filter: invert(0.5);
+}

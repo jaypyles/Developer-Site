@@ -10,11 +10,12 @@ interface Data {
 
 interface NavItemProps {
   data: Data;
+  className?: string | undefined;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ data }) => {
+const NavItem: React.FC<NavItemProps> = ({ data, className }) => {
   return (
-    <Nav.Item>
+    <Nav.Item className={className}>
       <a href={data.link} className="no-arrow">
         <img src={`/images/${data.image}`} alt={data.alt} title={data.title} />
       </a>

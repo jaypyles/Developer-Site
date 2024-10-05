@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "src/components/nav/Navbar";
+import { Navbar } from "src/components/nav/navbar/navbar";
 import Posts from "src/components/posts/Posts";
 import { GetServerSideProps } from "next";
 import { PostDocument } from "src/lib/mongo";

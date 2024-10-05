@@ -2,7 +2,7 @@ import React from "react";
 import { work } from "../data/CurrentlyWorkingInformation";
 import CurrentlyWorkingInformation from "../components/CurrentlyWorkingInformation";
 import LinkWithDescription from "../components/links/LinkWithDescription";
-import Footer from "../components/nav/Contacts";
+import { Contacts } from "../components/nav/contacts/contacts";
 import { PopupState } from "src/lib/types";
 import { retroButtons } from "./retroButtons";
 
@@ -23,11 +23,11 @@ const Homepage = ({
         hidden ? "!hidden" : ""
       }`}
     >
-      <Footer />
+      <Contacts />
       <div className="about">
         <h1
           id="intro-heading"
-          className="page-title text-lg font-prompt mb-[0.5em]"
+          className="page-title text-lg font-prompt mb-[0.5em] w-fit"
         >
           Hey, I&apos;m Jayden 👨‍💻
         </h1>

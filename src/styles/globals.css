@@ -422,47 +422,6 @@ input:checked + small {
   padding: 0.8em 0 1em 2.5vw;
 }
 
-/* Footer */
-.contacts {
-  display: flex;
-  justify-content: center;
-  margin-right: 0.25vh;
-}
-
-.contacts a {
-  color: #fff;
-  display: inline-block;
-  text-decoration: none;
-  margin-bottom: 1vh;
-  height: 2vh;
-}
-
-.contacts a:hover {
-  filter: hue-rotate(20%);
-}
-
-.contacts .nav-item {
-  margin-top: 0.75vh;
-  margin-bottom: 1vh;
-  margin-right: 0 !important;
-  height: 2vh;
-}
-
-.contacts img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  max-height: 2vh;
-  max-width: 2vh;
-  display: block;
-  filter: none; /* No filter applied by default */
-  transition: filter 0.3s ease; /* Smooth transition */
-}
-
-.contacts img:hover {
-  filter: invert(0.5); /* Adjust color on hover */
-}
-
 /* Social Modal */
 .modal-dialog.social {
   color: black !important;
