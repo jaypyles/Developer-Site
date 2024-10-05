@@ -3,14 +3,12 @@ kind: Application
 metadata:
   name: dev-site
   namespace: argocd
-  # finalizers:
-  # - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: https://raw.githubusercontent.com/jaypyles/helm-charts/main  
     chart: dev-site
-    targetRevision: "1.0.12"  # Ensure this matches the version you're using
+    targetRevision: ">=1.0.12"  # Ensure this matches the version you're using
   destination:
     server: https://kubernetes.default.svc
     namespace: default
