@@ -4,6 +4,7 @@ metadata:
   name: frontend
 spec:
   replicas: 3
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       name: frontend
@@ -17,7 +18,7 @@ spec:
             - npm
             - run
             - start
-          image: jpyles0524/dev_site:{{ .Values.env.APP_VERSION }}
+          image: jpyles0524/dev_site:latest
           name: portfolio
           imagePullPolicy: Always
           ports:

@@ -17,6 +17,24 @@ jobs:
         with:
           token: ${{ secrets.GPAT_TOKEN }}
 
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            docker:
+              - 'Dockerfile'
+              - 'src/**' 
+              - 'tests/**'
+              - 'public/**'
+              - 'tsconfig.json'
+              - 'tailwind.config.js'
+              - 'babel.config.js'
+              - 'next.config.mjs'
+              - 'postcss.config.js'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'yarn.lock'
+
       - name: Cache Node.js dependencies
         uses: actions/cache@v3
         with:
@@ -86,7 +104,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ env.VERSION }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:latest
+        if: steps.changes.outputs.docker == 'true'
 
       - name: Package Helm Chart
         run: |
