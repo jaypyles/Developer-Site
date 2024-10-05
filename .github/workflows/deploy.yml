@@ -17,6 +17,43 @@ jobs:
         with:
           token: ${{ secrets.GPAT_TOKEN }}
 
+      - name: Set up Node.js 21
+        uses: actions/setup-node@v3
+        with:
+          node-version: "21"
+
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies for semantic-release
+        run: npm install semantic-release @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog
+
+      - name: Cache semantic-release dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules/semantic-release
+            node_modules/@semantic-release/*
+          key: ${{ runner.os }}-semantic-release-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-semantic-release-
+
+      - name: Get semantic version
+        id: semantic_version
+        run: |
+          VERSION=$(npx semantic-release | grep 'The next release version is' | sed 's/^.*is //')
+          echo "VERSION=$VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
+
       - uses: dorny/paths-filter@v3
         id: changes
         with:
@@ -34,14 +71,8 @@ jobs:
               - 'package.json'
               - 'package-lock.json'
               - 'yarn.lock'
-
-      - name: Cache Node.js dependencies
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+            helm:
+              - 'charts/**'
 
       - name: Setup helm
         run: |
@@ -76,23 +107,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Set up Node.js 21
-        uses: actions/setup-node@v3
-        with:
-          node-version: "21"
-
-      - name: Install dependencies for semantic-release
-        run: npm install semantic-release @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog
-
-      - name: Get semantic version
-        id: semantic_version
-        run: |
-          VERSION=$(npx semantic-release | grep 'The next release version is' | sed 's/^.*is //')
-          echo "VERSION=$VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GPAT_TOKEN }}
-
       - name: Update version in Chart.yaml and values.yaml
         run: |
           sed -i "s/^version:.*/version: ${{ env.VERSION }}/" charts/dev-site/Chart.yaml
@@ -107,17 +121,20 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:latest
 
-      - name: Package Helm Chart
+      - if: steps.changes.outputs.helm == true || steps.changes.outputs.docker == true
+        name: Package Helm Chart
         run: |
           helm package ./charts/dev-site
           mkdir -p artifacts
           mv *.tgz artifacts/
 
-      - name: Update Helm repo index
+      - if: steps.changes.outputs.helm == true || steps.changes.outputs.docker == true
+        name: Update Helm repo index
         run: |
           helm repo index artifacts/ --url ${{ secrets.HELM_URL}}/main/charts/dev-site
 
-      - name: Commit and push changes to GitHub Helm repo
+      - if: steps.changes.outputs.helm == true || steps.changes.outputs.docker == true
+        name: Commit and push changes to GitHub Helm repo
         run: |
           git clone https://${{ secrets.GPAT_TOKEN }}@github.com/jaypyles/helm-charts.git
           cd helm-charts
@@ -130,7 +147,8 @@ jobs:
           git commit -m "Add new dev-site chart version and update index.yaml"
           git push origin main
 
-      - name: Commit version changes to repo
+      - if: steps.changes.outputs.helm == true || steps.changes.outputs.docker == true
+        name: Commit version changes to repo
         run: |
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
