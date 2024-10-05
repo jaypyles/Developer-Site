@@ -39,7 +39,7 @@ jobs:
             helm:
               - 'charts/**'
 
-      - name: Check for changes
+      - name: Echo changes
         run: |
           echo "Docker Changes: ${{ steps.changes.outputs.docker }}"
           echo "Helm Changes: ${{ steps.changes.outputs.helm }}"
