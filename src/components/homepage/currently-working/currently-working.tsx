@@ -19,13 +19,12 @@ export const CurrentlyWorkingInformation = ({
   return (
     <div className={clsx("emboss", classes.currentlyWorking)}>
       <Image
-        className=""
         width={72}
         height={72}
         src={`/images/${imageData.image}`}
         alt={imageData.title}
       />
-      <div className="content mt-[0.25]">
+      <div className={classes.content}>
         <p className={classes.title}>{imageData.title}</p>
         <p className={classes.description}>{imageData.description}</p>
       </div>

@@ -6,8 +6,17 @@
   background-color: var(--grey-secondary);
 }
 
+.currentlyWorking img {
+  height: 4rem;
+  width: 4rem;
+}
+
+.content {
+  padding: 0.5rem;
+}
+
 .title {
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 .description {

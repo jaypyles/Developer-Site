@@ -17,7 +17,7 @@ export const LinkWithDescription: React.FC<LinkWithDescriptionProps> = ({
   return (
     <div className={clsx("emboss", classes.linkWithDescriptionWrapper)}>
       <div className={classes.linkWithDescription}>
-        <a href={link} className={clsx("link", classes.link)}>
+        <a href={link} className={clsx("link", classes.ref)}>
           {link}
         </a>
         {github && (

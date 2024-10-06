@@ -22,6 +22,10 @@
   filter: invert(0.5);
 }
 
+.contact-items {
+  gap: 0.25rem;
+}
+
 .contact-items img {
   width: 100%;
   object-fit: cover;

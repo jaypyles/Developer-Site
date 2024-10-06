@@ -1,10 +1,14 @@
 import React from "react";
-import { work } from "../../data/working";
-import { CurrentlyWorkingInformation } from ".";
-import { LinkWithDescription } from "../links";
-import { Contacts } from "../nav/contacts/contacts";
+import { work } from "../../../data/working";
+import { CurrentlyWorkingInformation } from "..";
+import { LinkWithDescription } from "../../links";
+import { Contacts } from "../../nav/contacts/contacts";
 import { PopupState } from "src/lib/types";
-import { retroButtons } from "../../data/retro-buttons";
+import { retroButtons } from "../../../data/retro-buttons";
+
+import { clsx } from "clsx";
+import classes from "./homepage.module.css";
+import { collapseClasses } from "@mui/material";
 
 interface HomepageProps {
   hidden?: boolean;
@@ -18,11 +22,7 @@ export const Homepage = ({
   hidden = false,
 }: HomepageProps) => {
   return (
-    <div
-      className={`homepage p-3 emboss-no-top bg-[#c0c0c0] w-full${
-        hidden ? "!hidden" : ""
-      }`}
-    >
+    <div className={clsx("emboss-no-top", classes.homepage)}>
       <Contacts />
       <div className="about">
         <h1
@@ -31,23 +31,21 @@ export const Homepage = ({
         >
           Hey, I&apos;m Jayden 👨‍💻
         </h1>
-        <div className="text-content">
-          <p className="text-base mb-[1em]">
-            I am a Software Engineer, working in web development at:
-          </p>
-          <div className="workblocks flex flex-row mb-[1em]">
+        <div className={classes.aboutContent}>
+          <p>I am a Software Engineer, working in web development at:</p>
+          <div className={classes.currentlyWorking}>
             {work.map((data, index) => (
               <CurrentlyWorkingInformation key={index} imageData={data} />
             ))}
           </div>
-          <p className="text-base mb-[1em]">
+          <p>
             This site will be a continuous work-in-progress, and will most
             likely change often. It is a playground for ideas and a learning
             tool for me to try out different and/or new technologies. This site
             is hosted on my own hardware, with even a few apps publicly
             available:
           </p>
-          <div className="blocks">
+          <div className={classes.projects}>
             <LinkWithDescription
               link="https://spaceify.jaydenpyles.dev"
               smallDescription="A hackathon project I and 3 others built in 24 hours."
@@ -59,7 +57,7 @@ export const Homepage = ({
               github="https://github.com/jaypyles/very-simple-notes"
             />
           </div>
-          <div className="mb-[1em] text-base">
+          <div className={classes.popups}>
             <p>
               As an engineer, I have used many different&nbsp;
               <span
@@ -88,8 +86,8 @@ export const Homepage = ({
             link="https://jaydenpyles.dev/resume"
             smallDescription="View my resume."
           />
-          <div id="buttons" className="flex mb-1 justify-center">
-            <div className="flex flex-wrap justify-center w-3/4 space-x-2">
+          <div className={classes.buttonsWrapper}>
+            <div className={classes.buttons}>
               {retroButtons.map((link, index) => (
                 <img key={index} src={link} />
               ))}

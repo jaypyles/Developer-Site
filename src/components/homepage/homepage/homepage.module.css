@@ -1,0 +1,49 @@
+.homepage {
+  background-color: var(--grey-secondary);
+  padding: 1rem;
+  position: relative;
+
+  height: 100%;
+
+  @media screen and (min-width: 922px) {
+    height: auto;
+  }
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  font-size: 1rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.popups span:hover {
+  color: var(--accent) !important;
+}

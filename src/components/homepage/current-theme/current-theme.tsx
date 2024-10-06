@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
+import classes from "./current-theme.module.css";
+import { clsx } from "clsx";
+
 export const CurrentTheme = () => {
   return (
-    <div
-      id="current-theme"
-      className="absolute top-0 right-0 m-2 p-2 emboss bg-white flex flex-row align-middle space-x-1"
-    >
+    <div className={clsx("emboss", classes.currentTheme)}>
       <p className="text-sm">Current Theme: Windows 98</p>
       <Image
         src="/images/w98computer.gif"
