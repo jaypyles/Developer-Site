@@ -1,0 +1,15 @@
+.currentTheme {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+
+  background-color: var(--grey-secondary);
+  padding: 0.5rem;
+  margin-right: 0.25rem;
+  margin-top: 0.25rem;
+
+  @media screen and (min-width: 1300px) {
+    display: flex;
+  }
+}

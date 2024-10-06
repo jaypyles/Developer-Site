@@ -1,4 +1,7 @@
 import React from "react";
+import classes from "./currently-working.module.css";
+import { clsx } from "clsx";
+import Image from "next/image";
 
 interface ImageData {
   image: string;
@@ -14,17 +17,16 @@ export const CurrentlyWorkingInformation = ({
   imageData,
 }: CurrentlyWorkingInformationProps) => {
   return (
-    <div className="workblock flex flex-row mr-[0.5em] p-1 bg-[#c0c0c0] emboss">
-      <img
-        className="image w-[4em] h-[4em] mr-[0.5em]"
+    <div className={clsx("emboss", classes.currentlyWorking)}>
+      <Image
+        width={72}
+        height={72}
         src={`/images/${imageData.image}`}
         alt={imageData.title}
       />
-      <div className="content mt-[0.25]">
-        <p className="title text-[75%] mb-0">{imageData.title}</p>
-        <p className="description text-[65%] mb-0 text-gray-800">
-          {imageData.description}
-        </p>
+      <div className={classes.content}>
+        <p className={classes.title}>{imageData.title}</p>
+        <p className={classes.description}>{imageData.description}</p>
       </div>
     </div>
   );

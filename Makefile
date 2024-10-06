@@ -1,4 +1,4 @@
-BRANCH_NAME := $(shell git rev-parse --abbrev-ref HEAD)
+DOPPLER_TOKEN=$(shell doppler configs tokens create dev --plain --max-age=900s)
 .PHONY: build build-force pull up down deploy deps test
 
 # -----
@@ -6,19 +6,19 @@ deps:
 	npm run build
 
 build:
-	docker compose build
+	doppler run -- docker compose build
 
 build-force:
-	docker compose build --no-cache
+	doppler run -- docker compose build --no-cache
 
 pull:
-	BRANCH_NAME=$(BRANCH_NAME) docker compose pull
+	docker compose pull
 
 up:
-	BRANCH_NAME=$(BRANCH_NAME) docker compose --env-file .env up -d
+	doppler run -- docker compose --env-file .env up -d
 
 up-dev:
-	BRANCH_NAME=$(BRANCH_NAME) docker compose -f docker-compose.yml -f docker-compose.dev.yml --env-file .env up -d 
+	doppler run -- docker compose -f docker-compose.yml -f docker-compose.dev.yml --env-file .env up -d 
 
 down:
 	docker compose down

@@ -50,4 +50,14 @@ spec:
                 secretKeyRef:
                   name: portfolio-doppler-secret
                   key: NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
+            - name: NEXT_PUBLIC_BASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: portfolio-doppler-secret
+                  key: NEXT_PUBLIC_BASE_URL
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: portfolio-doppler-secret
+                  key: MONGO_URI
       restartPolicy: Always

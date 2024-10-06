@@ -1,0 +1,24 @@
+.currentlyWorking {
+  display: flex;
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+
+  background-color: var(--grey-secondary);
+}
+
+.currentlyWorking img {
+  height: 4rem;
+  width: 4rem;
+}
+
+.content {
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 0.875rem;
+}
+
+.description {
+  font-size: 0.75rem;
+}
