@@ -1,6 +1,5 @@
 # setup
 FROM jpyles0524/doppler-node:latest
-ARG DOPPLER_TOKEN
 
 WORKDIR /app
 
@@ -35,3 +34,5 @@ COPY src /app/src
 
 # build app
 RUN npm run build
+
+ARG DOPPLER_TOKEN

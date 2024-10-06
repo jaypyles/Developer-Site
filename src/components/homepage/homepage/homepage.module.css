@@ -4,6 +4,7 @@
   position: relative;
 
   height: 100%;
+  overflow: scroll;
 
   @media screen and (min-width: 922px) {
     height: auto;
