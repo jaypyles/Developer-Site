@@ -6,7 +6,7 @@ export interface PostDocument {
   time_posted: string;
 }
 
-const uri = process.env.NEXT_PUBLIC_MONGO_URI;
+const uri = process.env.MONGO_URI;
 const options = {};
 
 if (!uri) {

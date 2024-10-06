@@ -8,19 +8,13 @@ import { retroButtons } from "../../../data/retro-buttons";
 
 import { clsx } from "clsx";
 import classes from "./homepage.module.css";
-import { collapseClasses } from "@mui/material";
 
 interface HomepageProps {
-  hidden?: boolean;
   handleOpen: (popup: keyof PopupState) => void;
   popupState: PopupState;
 }
 
-export const Homepage = ({
-  handleOpen,
-  popupState,
-  hidden = false,
-}: HomepageProps) => {
+export const Homepage = ({ handleOpen, popupState }: HomepageProps) => {
   return (
     <div className={clsx("emboss-no-top", classes.homepage)}>
       <Contacts />

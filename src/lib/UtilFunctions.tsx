@@ -27,13 +27,6 @@ export const fetchImage = async (identifier: string) => {
   return imageObjectUrl;
 };
 
-export const getPosts = async () => {
-  const url = `http://uploader-api:8000/api/posts`;
-  const res = await fetch(url);
-  const json = res.json();
-  return json;
-};
-
 export const getDiscordStatus = async (): Promise<DiscordData> => {
   return await fetch("/api/discord").then((res) => res.json());
 };

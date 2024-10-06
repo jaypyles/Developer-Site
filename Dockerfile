@@ -1,5 +1,7 @@
 # setup
-FROM node:21
+FROM jpyles0524/doppler-node:latest
+ARG DOPPLER_TOKEN
+
 WORKDIR /app
 
 # copy over env vars as build args
