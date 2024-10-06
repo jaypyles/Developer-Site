@@ -1,6 +1,6 @@
 import React from "react";
 import { work } from "../../../data/working";
-import { CurrentlyWorkingInformation } from "..";
+import { CurrentlyWorkingInformation } from "../currently-working";
 import { LinkWithDescription } from "../../links";
 import { Contacts } from "../../nav/contacts/contacts";
 import { PopupState } from "src/lib/types";

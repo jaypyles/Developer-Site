@@ -1,4 +1,4 @@
-DOPPLER_TOKEN=$(shell doppler configs tokens create dev --plain --max-age=900s)
+export DOPPLER_TOKEN := $(shell doppler configs tokens create dev --plain --max-age=900s)
 .PHONY: build build-force pull up down deploy deps test
 
 # -----

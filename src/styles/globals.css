@@ -94,6 +94,19 @@
   .MuiTypography-body2 {
     font-size: 0.8rem !important;
   }
+
+  body {
+    min-height: -webkit-fill-available;
+  }
+
+  #__next {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  .main {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 html,
