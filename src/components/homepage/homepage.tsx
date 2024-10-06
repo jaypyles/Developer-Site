@@ -50,12 +50,12 @@ export const Homepage = ({
           <div className="blocks">
             <LinkWithDescription
               link="https://spaceify.jaydenpyles.dev"
-              small_description="A hackathon project I and 3 others built in 24 hours."
+              smallDescription="A hackathon project I and 3 others built in 24 hours."
               github="https://github.com/Space-ify/frontend-in-space"
             />
             <LinkWithDescription
               link="https://notes.jaydenpyles.dev"
-              small_description="Custom built note rendering webapp."
+              smallDescription="Custom built note rendering webapp."
               github="https://github.com/jaypyles/very-simple-notes"
             />
           </div>
@@ -86,7 +86,7 @@ export const Homepage = ({
           </div>
           <LinkWithDescription
             link="https://jaydenpyles.dev/resume"
-            small_description="View my resume."
+            smallDescription="View my resume."
           />
           <div id="buttons" className="flex mb-1 justify-center">
             <div className="flex flex-wrap justify-center w-3/4 space-x-2">

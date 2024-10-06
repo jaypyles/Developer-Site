@@ -1,0 +1,15 @@
+.currentlyWorking {
+  display: flex;
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+
+  background-color: var(--grey-secondary);
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.description {
+  font-size: 0.75rem;
+}

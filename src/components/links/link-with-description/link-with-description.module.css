@@ -1,0 +1,44 @@
+.linkWithDescriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--grey-secondary);
+  margin-bottom: 1rem;
+
+  font-size: 1rem;
+}
+
+.linkWithDescription {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-overflow: ellipsis;
+}
+
+.link {
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+
+  height: 1rem;
+  margin-top: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.description {
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 75%;
+  line-height: 1.25;
+  margin-top: 0.5rem;
+
+  @media (min-width: 767px) {
+    margin-top: 0.25rem;
+  }
+}
