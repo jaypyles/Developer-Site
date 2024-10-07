@@ -4,6 +4,10 @@
   padding: 0.25rem;
 
   background-color: var(--grey-secondary);
+
+  @media screen and (min-width: 1300px) {
+    max-width: 30rem;
+  }
 }
 
 .currentlyWorking img {

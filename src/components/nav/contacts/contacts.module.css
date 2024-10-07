@@ -18,6 +18,7 @@
   display: block;
   height: 2vh;
 }
+
 .nav-item a:hover {
   filter: invert(0.5);
 }

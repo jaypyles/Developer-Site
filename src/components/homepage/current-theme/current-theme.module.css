@@ -3,13 +3,15 @@
   display: none;
   top: 0;
   right: 0;
+  align-items: center;
 
   background-color: var(--grey-secondary);
   padding: 0.5rem;
   margin-right: 0.25rem;
   margin-top: 0.25rem;
 
-  @media screen and (min-width: 1300px) {
+  @media screen and (min-width: 1080px) {
     display: flex;
+    gap: 0.5rem;
   }
 }

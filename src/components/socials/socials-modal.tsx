@@ -13,7 +13,6 @@ interface SocialsModalProps {
 
 export const SocialsModal = ({ show, handleClose }: SocialsModalProps) => {
   const [discordLoaded, setDiscordLoaded] = useState<boolean>(false);
-  const [spotifyLoaded, setSpotifyLoaded] = useState<boolean>(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -36,7 +35,6 @@ export const SocialsModal = ({ show, handleClose }: SocialsModalProps) => {
 
   const close = () => {
     setDiscordLoaded(false);
-    setSpotifyLoaded(false);
     handleClose();
   };
 
@@ -47,39 +45,9 @@ export const SocialsModal = ({ show, handleClose }: SocialsModalProps) => {
           <Modal.Title>More of my links!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {imagesLoaded ? (
-            <>
-              {socials.map((data, index) => (
-                <LinkBlock key={index} imageData={data} />
-              ))}
-              <div
-                className={`status emboss ${
-                  spotifyLoaded && discordLoaded ? "" : "!hidden"
-                }`}
-              >
-                <Discord
-                  loadedState={{
-                    loaded: discordLoaded,
-                    setLoaded: setDiscordLoaded,
-                  }}
-                />
-                <Spotify
-                  loadedState={{
-                    setLoaded: setSpotifyLoaded,
-                  }}
-                />
-              </div>
-              {(!spotifyLoaded || !discordLoaded) && (
-                <div className="flex justify-center status emboss">
-                  <PulseLoader color="white" className="items-center" />
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="flex justify-center status emboss">
-              <PulseLoader color="white" className="items-center" />
-            </div>
-          )}
+          {socials.map((data, index) => (
+            <LinkBlock key={index} imageData={data} />
+          ))}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={close} className="emboss">

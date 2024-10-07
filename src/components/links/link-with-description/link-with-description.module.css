@@ -32,6 +32,10 @@
   margin-right: 0.25rem;
 }
 
+.githubLink img:hover {
+  filter: invert(0.5);
+}
+
 .description {
   font-size: 0.75rem;
   margin-left: 0.5rem;
