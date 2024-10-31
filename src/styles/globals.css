@@ -9,6 +9,11 @@
   }
 }
 
+:root {
+  --background-gray: #c0c0c0;
+  --link: #0289f7;
+}
+
 * {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

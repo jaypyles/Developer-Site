@@ -16,3 +16,12 @@ export type PopupAction =
   | { type: "TOGGLE_POPUP"; popup: keyof PopupState }
   | { type: "CLOSE_POPUP"; popup: keyof PopupState }
   | { type: "OPEN_POPUP"; popup: keyof PopupState };
+
+export type Project = {
+  name: string;
+  stargazers_count: number;
+  forks_count: number;
+  href: string;
+  description: string;
+  url: string;
+};

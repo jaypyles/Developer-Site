@@ -1,0 +1,56 @@
+.projectCard {
+  padding: 1rem;
+  position: relative;
+  width: 19rem;
+  max-height: 22rem;
+  overflow: scroll;
+}
+
+.projectCard img {
+  width: 19rem;
+  height: 13.5rem;
+  object-fit: cover;
+}
+
+.projectCardHeader {
+  position: relative;
+}
+
+.projectCardHeaderStats {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+
+  background-color: rgba(255, 251, 0, 0.521);
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.projectCardHeaderStats img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.projectCardHeaderStats div {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.projectCardHeaderStats p {
+  color: white;
+}
+
+.projectCardName {
+  margin-top: 0.5rem;
+}
+
+.projectCardName:hover {
+  color: var(--link);
+}
+
+.projectCardDescription {
+  font-size: 0.875rem;
+}
