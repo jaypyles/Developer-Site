@@ -38,6 +38,13 @@ export const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
                 </Nav.Link>
               </Nav.Item>
             </Tooltip>
+            <Tooltip title="View my projects" placement="top" arrow>
+              <Nav.Item>
+                <Nav.Link href="/projects">
+                  <p className="mb-0">Projects</p>
+                </Nav.Link>
+              </Nav.Item>
+            </Tooltip>
             <Tooltip title="Photo Board" placement="top" arrow>
               <Nav.Item className="ml-auto">
                 <Nav.Link
