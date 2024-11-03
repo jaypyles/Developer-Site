@@ -15,7 +15,7 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           </div>
         </div>
       </div>
-      <a className={classes.projectCardName} href={project.url}>
+      <a className={classes.projectCardName} href={project.svn_url}>
         {project.name}
       </a>
       <p className={classes.projectCardDescription}>{project.description}</p>

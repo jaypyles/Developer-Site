@@ -24,4 +24,5 @@ export type Project = {
   href: string;
   description: string;
   url: string;
+  svn_url: string;
 };
