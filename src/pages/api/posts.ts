@@ -27,7 +27,6 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     const db = client.db("posts");
     const postsCollection = db.collection("posts");
     const posts = await postsCollection.find({}).limit(25).toArray();
-    console.log(`Posts: ${posts}`);
     posts.forEach((post) => {
       post.time_posted = formatDateWithSuffix(post.dateUploaded);
     });

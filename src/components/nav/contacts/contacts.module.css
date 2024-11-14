@@ -30,8 +30,8 @@
 .contact-items img {
   width: 100%;
   object-fit: cover;
-  max-height: 2vh;
-  max-width: 2vh;
+  max-height: 1.25rem;
+  max-width: 1.25rem;
   display: block;
   filter: none;
   transition: filter 0.3s ease;

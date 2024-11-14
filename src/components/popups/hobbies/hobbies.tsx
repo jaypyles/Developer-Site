@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { Typography } from "@mui/material";
 import { hobbies } from "./data";
 import classes from "./hobbies.module.css";
 
@@ -14,8 +13,8 @@ export const Hobbies = () => {
               <Image
                 alt={hobby.alt}
                 src={hobby.path}
-                width={48}
-                height={48}
+                width={36}
+                height={36}
                 layout="fixed"
               />
               <li>
