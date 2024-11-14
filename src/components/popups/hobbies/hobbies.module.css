@@ -1,0 +1,13 @@
+.hobby {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.hobby img {
+  margin-right: 0.5rem;
+}
+
+.hobbyTitle {
+  font-size: 1rem;
+}

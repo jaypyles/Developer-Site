@@ -15,7 +15,8 @@
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "src/*": ["./*"]
+      "src/*": ["./*"],
+      "@/*": ["./*"]
     },
     "incremental": true,
     "strictNullChecks": true,
@@ -44,8 +45,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "./dist/types/**/*.ts",
-    "src",
-    "src/declaration.d.ts"
+    "src"
   ],
   "exclude": ["node_modules"]
 }
