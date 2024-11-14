@@ -660,6 +660,11 @@ input:checked + small {
 #popup {
   width: 25dvw;
   height: 25dvh;
+
+  @media screen and (min-width: 1920px) {
+    width: 15dvw;
+    height: 25dvh;
+  }
 }
 
 #popup .list p {
