@@ -34,3 +34,6 @@ deploy-k8s:
 
 test:
 	npm run test
+
+helm-dry-run:
+	helm template charts/dev-site --dry-run --values charts/dev-site/values.yaml

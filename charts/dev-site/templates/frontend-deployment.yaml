@@ -1,63 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: {{ .Values.app.metadata.name }}
 spec:
-  replicas: 2
-  revisionHistoryLimit: 1
+  replicas: {{ .Values.app.replicas }}
+  revisionHistoryLimit: {{ .Values.app.revisionHistoryLimit }}
   selector:
     matchLabels:
-      name: frontend
+      name: {{ .Values.app.metadata.name }}
   template:
     metadata:
       labels:
-        name: frontend
+        name: {{ .Values.app.metadata.name }}
     spec:
       containers:
         - args:
             - npm
             - run
             - start
-          image: jpyles0524/dev_site:{{ .Values.env.APP_VERSION }}
-          name: portfolio
+          image: {{ .Values.app.image }}:{{ .Values.app.APP_VERSION }}
+          name: {{ .Values.app.name }}
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
               protocol: TCP
           env:
-            - name: NEXT_PUBLIC_API_URL
+            {{- range .Values.env }}
+            - name: {{ . }}
               valueFrom:
                 secretKeyRef:
-                  name: portfolio-doppler-secret
-                  key: NEXT_PUBLIC_API_URL
-            - name: NEXT_PUBLIC_DISCORD_USER_ID
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-doppler-secret
-                  key: NEXT_PUBLIC_DISCORD_USER_ID
-            - name: NEXT_PUBLIC_SPOTIFY_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-doppler-secret
-                  key: NEXT_PUBLIC_SPOTIFY_CLIENT_ID
-            - name: NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-doppler-secret
-                  key: NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
-            - name: NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-doppler-secret
-                  key: NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
-            - name: NEXT_PUBLIC_BASE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-doppler-secret
-                  key: NEXT_PUBLIC_BASE_URL
-            - name: MONGO_URI
-              valueFrom:
-                secretKeyRef:
-                  name: portfolio-doppler-secret
-                  key: MONGO_URI
+                  name: {{ $.Values.doppler.secret }}
+                  key: {{ . }}
+            {{- end }}
       restartPolicy: Always
