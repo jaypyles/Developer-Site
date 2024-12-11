@@ -24,12 +24,7 @@ spec:
           ports:
             - containerPort: 3000
               protocol: TCP
-          env:
-            {{- range .Values.env }}
-            - name: {{ . }}
-              valueFrom:
-                secretKeyRef:
-                  name: {{ $.Values.doppler.secret }}
-                  key: {{ . }}
-            {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.doppler.secret }}
       restartPolicy: Always

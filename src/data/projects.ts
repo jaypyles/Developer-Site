@@ -19,4 +19,9 @@ export const projects = [
     name: "dashboard",
     href: "https://github.com/jaypyles/dashboard/raw/master/docs/main_page.png",
   },
+  {
+    name: "Gemini Reccomended Search",
+    link: "https://github.com/Michaelgathara/gemini-rec-search",
+    href: "https://github.com/Michaelgathara/gemini-rec-search/blob/main/readme_images/banner.png",
+  },
 ];

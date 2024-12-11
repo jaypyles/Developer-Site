@@ -8,7 +8,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   const projectData: Project[] = await Promise.all(
     projects.map(async (project) => {
-      const data = await fetch(`${GITHUB_URL}/${project.name}`);
+      const url = project.link ? project.link : `${GITHUB_URL}/${project.name}`;
+      const data = await fetch(url);
       const fetchedProjectData = await data.json();
       return { ...fetchedProjectData, ...project };
     })
