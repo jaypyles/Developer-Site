@@ -1,10 +1,9 @@
 import React from "react";
-import { Navbar } from "src/components/nav/navbar/navbar";
-import { Posts } from "src/components/posts";
-import { GetServerSideProps } from "next";
-import { PostDocument } from "src/lib/mongo";
+import { Posts } from "@/components/posts";
+import { GetStaticProps } from "next";
+import { PostDocument } from "@/lib/mongo";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts`);
   const posts: PostDocument[] = await res.json();
 
@@ -12,6 +11,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       posts,
     },
+    revalidate: 6000,
   };
 };
 
@@ -20,12 +20,7 @@ interface PostsPageProps {
 }
 
 const PostsPage: React.FC<PostsPageProps> = ({ posts }) => {
-  return (
-    <>
-      <Navbar />
-      <Posts posts={posts} />
-    </>
-  );
+  return <Posts posts={posts} />;
 };
 
 export default PostsPage;

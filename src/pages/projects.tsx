@@ -1,9 +1,9 @@
 import { Projects } from "src/components/projects";
 import { Project } from "src/lib/types";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { projects } from "src/data";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const GITHUB_URL = "https://api.github.com/repos/jaypyles";
 
   const projectData: Project[] = await Promise.all(
@@ -19,6 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       projects: projectData,
     },
+    revalidate: 6000,
   };
 };
 

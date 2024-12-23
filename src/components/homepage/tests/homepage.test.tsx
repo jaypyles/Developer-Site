@@ -5,7 +5,7 @@ import { Homepage } from "src/components/homepage";
 
 const mockedStates = {
   programmingLanguages: true,
-  coolBox: false,
+  hobbies: false,
 };
 
 test("Render homepage properly.", () => {

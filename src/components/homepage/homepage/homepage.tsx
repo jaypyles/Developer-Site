@@ -67,9 +67,9 @@ export const Homepage = ({ handleOpen, popupState }: HomepageProps) => {
               &nbsp;and technologies. But I also enjoy a lot of different&nbsp;
               <span
                 className={`underline cursor-pointer ${
-                  popupState.coolBox ? "text-gray-500" : "text-black"
+                  popupState.hobbies ? "text-gray-500" : "text-black"
                 }`}
-                onClick={() => handleOpen("coolBox")}
+                onClick={() => handleOpen("hobbies")}
               >
                 hobbies
               </span>

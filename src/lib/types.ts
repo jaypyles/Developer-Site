@@ -9,7 +9,7 @@ export interface DiscordData {
 
 export type PopupState = {
   programmingLanguages: boolean;
-  coolBox: boolean;
+  hobbies: boolean;
 };
 
 export type PopupAction =

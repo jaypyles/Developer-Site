@@ -1,5 +1,6 @@
 export DOPPLER_TOKEN := $(shell doppler configs tokens create dev --plain --max-age=900s)
 .PHONY: build build-force pull up down deploy deps test
+.DEFAULT_GOAL := dev
 
 # -----
 deps:
@@ -19,6 +20,8 @@ up:
 
 up-dev:
 	doppler run -- docker compose -f docker-compose.yml -f docker-compose.dev.yml --env-file .env up -d 
+
+dev: build up-dev
 
 down:
 	docker compose down

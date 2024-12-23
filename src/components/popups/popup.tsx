@@ -5,13 +5,13 @@ interface Props {
   show: boolean;
   onClose: () => void;
   title?: string;
-  children: ReactNode;
+  component: ReactNode;
   x: number;
   y: number;
   z: number;
 }
 
-export const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
+export const Popup = ({ title, show, onClose, component, x, y, z }: Props) => {
   if (!show) return null;
 
   return (
@@ -50,7 +50,7 @@ export const Popup = ({ title, show, onClose, children, x, y, z }: Props) => {
           </div>
         </div>
         <div id="body" className="p-1">
-          {children}
+          {component}
         </div>
       </div>
     </Draggable>
