@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import {
   Paper,
   ImageList,
@@ -8,6 +9,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { CardPost } from "src/components/posts";
+import classes from "./posts.module.css";
 
 interface PostDocument {
   image_id: string;
@@ -47,19 +49,20 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
         <div id="posts" className="emboss-no-top !font-prompt">
           <Paper
             id="post-array"
-            elevation={0}
             className="p-2 no-scrollbar"
             sx={{ bgcolor: "#c3c6cb" }}
           >
-            <ImageList cols={3} gap={8}>
+            <ImageList cols={3} gap={8} className="post-list">
               {posts.map((item, index) => (
                 <ImageListItem key={index}>
                   <img
                     src={`/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={item.description}
                     id="post-img"
-                    loading="lazy"
-                    className="max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:brightness-95 duration-100 emboss"
+                    className={clsx(
+                      "max-w-[15vw] cursor-pointer transition ease-in-out delay-50 hover:brightness-75 duration-100 emboss",
+                      classes.postImg
+                    )}
                     onClick={() => {
                       setPhoto(item);
                       handleOpen();
@@ -69,7 +72,6 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
                     className="!text-zinc-700"
                     subtitle={item.time_posted}
                   />
-                  {/* Prefetch image for load times */}
                   <img
                     src={`/api/post_images/${item.image_id}`}
                     alt={item.description}
@@ -79,6 +81,7 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
               ))}
             </ImageList>
           </Paper>
+
           <Modal
             open={open}
             onClose={handleClose}

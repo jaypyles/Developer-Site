@@ -15,7 +15,6 @@ export const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <div className="w-full p-1 bg-[#c0c0c0] emboss-no-bottom">
@@ -31,6 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
                 <p className="mb-0">Home</p>
               </Nav.Link>
             </Nav.Item>
+
             <Tooltip title="See my socials!" placement="top" arrow>
               <Nav.Item>
                 <Nav.Link onClick={handleShow}>
@@ -38,13 +38,18 @@ export const Navbar: React.FC<NavbarProps> = ({ hidden = false }) => {
                 </Nav.Link>
               </Nav.Item>
             </Tooltip>
+
             <Tooltip title="View my projects" placement="top" arrow>
               <Nav.Item>
-                <Nav.Link href="/projects">
+                <Nav.Link
+                  className={pathname === "/projects" ? "name" : ""}
+                  href="/projects"
+                >
                   <p className="mb-0">Projects</p>
                 </Nav.Link>
               </Nav.Item>
             </Tooltip>
+
             <Tooltip title="Photo Board" placement="top" arrow>
               <Nav.Item className="ml-auto">
                 <Nav.Link

@@ -15,11 +15,13 @@ export const getStaticProps: GetStaticProps = async () => {
     })
   );
 
+  console.log(projectData);
+
   return {
     props: {
       projects: projectData,
     },
-    revalidate: 6000,
+    revalidate: 60000,
   };
 };
 

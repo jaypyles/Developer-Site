@@ -24,4 +24,18 @@ export const projects = [
     name: "dashboard",
     href: "https://github.com/jaypyles/dashboard/raw/master/docs/main_page.png",
   },
+  {
+    name: "pytask",
+    href: "https://github.com/jaypyles/pytask/raw/main/docs/worker.png",
+  },
+  {
+    name: "spaceify",
+    link: "https://api.github.com/repos/Space-ify/frontend-in-space",
+    href: "https://github.com/Space-ify/frontend-in-space/raw/main/docs/static-demo.png",
+  },
+  {
+    name: "recruit-tracker",
+    link: "https://api.github.com/repos/recruit-tracker/frontend",
+    href: "https://github.com/recruit-tracker/frontend/raw/main/docs/recruit-tracker.png",
+  },
 ];

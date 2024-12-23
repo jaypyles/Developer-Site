@@ -2,12 +2,13 @@ import React from "react";
 import { Homepage, CurrentTheme } from "@/components/homepage";
 import { Popup, ProgrammingLanguages, Hobbies } from "@/components/popups";
 import { usePopup } from "@/hooks/usePopup";
-
+import { Navbar } from "@/components/nav/navbar/navbar";
 const Home: React.FC = () => {
   const { state, positions, handleOpen, handleClose } = usePopup();
 
   return (
     <>
+      <Navbar />
       <Homepage handleOpen={handleOpen} popupState={state} />
       <CurrentTheme />
 

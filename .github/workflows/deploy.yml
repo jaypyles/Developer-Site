@@ -187,6 +187,8 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:${{ env.VERSION }}
             ${{ secrets.DOCKERHUB_USERNAME }}/dev_site:latest
+          build-args: |
+            MONGO_URI=${{ secrets.MONGO_URI }}
 
       - name: Package Helm Chart
         run: |

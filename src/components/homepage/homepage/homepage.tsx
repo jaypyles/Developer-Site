@@ -1,10 +1,10 @@
 import React from "react";
-import { work } from "../../../data/working";
-import { CurrentlyWorkingInformation } from "../currently-working";
-import { LinkWithDescription } from "../../links";
-import { Contacts } from "../../nav/contacts/contacts";
-import { PopupState } from "src/lib/types";
-import { retroButtons } from "../../../data/retro-buttons";
+import { work } from "@/data/working";
+import { CurrentlyWorkingInformation } from "@/components/homepage/currently-working";
+import { LinkWithDescription } from "@/components/links";
+import { Contacts } from "@/components/nav/contacts";
+import { PopupState } from "@/lib/types";
+import { retroButtons } from "@/data/retro-buttons";
 
 import { clsx } from "clsx";
 import classes from "./homepage.module.css";
@@ -18,6 +18,7 @@ export const Homepage = ({ handleOpen, popupState }: HomepageProps) => {
   return (
     <div className={clsx("emboss-no-top", classes.homepage)}>
       <Contacts />
+
       <div className="about">
         <h1
           id="intro-heading"
@@ -51,6 +52,7 @@ export const Homepage = ({ handleOpen, popupState }: HomepageProps) => {
               github="https://github.com/jaypyles/very-simple-notes"
             />
           </div>
+
           <div className={classes.popups}>
             <p>
               As an engineer, I have used many different&nbsp;
@@ -76,10 +78,12 @@ export const Homepage = ({ handleOpen, popupState }: HomepageProps) => {
               &nbsp;outside of programming.
             </p>
           </div>
+
           <LinkWithDescription
             link="https://jaydenpyles.dev/resume"
             smallDescription="View my resume."
           />
+
           <div className={classes.buttonsWrapper}>
             <div className={classes.buttons}>
               {retroButtons.map((link, index) => (
