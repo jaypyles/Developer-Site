@@ -56,7 +56,7 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
               {posts.map((item, index) => (
                 <ImageListItem key={index}>
                   <img
-                    src={`/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    src={`/api/post_images/${item.image_id}?w=248&fit=crop&auto=format&dpr=2&compress=true`}
                     alt={item.description}
                     id="post-img"
                     className={clsx(
@@ -71,11 +71,6 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
                   <ImageListItemBar
                     className="!text-zinc-700"
                     subtitle={item.time_posted}
-                  />
-                  <img
-                    src={`/api/post_images/${item.image_id}`}
-                    alt={item.description}
-                    style={{ display: "none" }}
                   />
                 </ImageListItem>
               ))}
