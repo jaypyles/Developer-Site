@@ -4,6 +4,10 @@ export const projects = [
     href: "https://github.com/jaypyles/Scraperr/blob/master/docs/main_page.png?raw=true",
   },
   {
+    name: "anirra",
+    href: "https://github.com/jaypyles/anirra/raw/main/docs/images/main-page-logged-in.png",
+  },
+  {
     name: "open-spots",
     href: "https://github.com/jaypyles/open-spots/raw/master/docs/spots.png",
   },
