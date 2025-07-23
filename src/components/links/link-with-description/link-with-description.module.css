@@ -13,6 +13,10 @@
   text-overflow: ellipsis;
 }
 
+.linkWithDescription a {
+  color: black;
+}
+
 .ref {
   font-size: 0.875rem;
   margin-left: 0.5rem;
@@ -39,7 +43,7 @@
 .description {
   font-size: 0.75rem;
   margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem !important;
   width: 75%;
   line-height: 1.25;
   margin-top: 0.5rem;

@@ -133,6 +133,14 @@ body {
   --accent-rgb: rgb(3, 78, 252);
 }
 
+p {
+  margin-bottom: 0 !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
 .main {
   background-color: #3c8283;
   display: flex;

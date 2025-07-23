@@ -1,6 +1,5 @@
-import React from "react";
-import { Project } from "src/lib/types";
 import clsx from "clsx";
+import { Project } from "src/lib/types";
 import classes from "./project-card.module.css";
 
 export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {

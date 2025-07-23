@@ -1,5 +1,4 @@
-import React from "react";
-import { Paper, Typography, Card, CardContent, CardMedia } from "@mui/material";
+import { Card, CardContent, CardMedia, Paper, Typography } from "@mui/material";
 
 interface CardPostProps {
   img: string;

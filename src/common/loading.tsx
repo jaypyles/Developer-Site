@@ -1,6 +1,4 @@
 import loading from "../../public/images/loading.gif";
-import React from "react";
-
 const Loading: React.FC = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-imageAccent text-white z-50">

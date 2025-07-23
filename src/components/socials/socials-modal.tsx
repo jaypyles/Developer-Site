@@ -1,8 +1,7 @@
-import React from "react";
-import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { LinkBlock } from "../links";
+import Modal from "react-bootstrap/Modal";
 import { socials } from "../../data/socials";
+import { LinkBlock } from "../links";
 
 interface SocialsModalProps {
   show: boolean;

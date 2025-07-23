@@ -39,5 +39,11 @@
 .link .description a {
   margin-bottom: 0;
   text-decoration: none;
-  color: black;
+  color: black !important;
+}
+
+.link .description p {
+  margin-bottom: 0;
+  text-decoration: none !important;
+  color: black !important;
 }

@@ -1,8 +1,7 @@
-import React from "react";
-import { Homepage, CurrentTheme } from "@/components/homepage";
-import { Popup, ProgrammingLanguages, Hobbies } from "@/components/popups";
-import { usePopup } from "@/hooks/usePopup";
+import { CurrentTheme, Homepage } from "@/components/homepage";
 import { Navbar } from "@/components/nav/navbar/navbar";
+import { Hobbies, Popup, ProgrammingLanguages } from "@/components/popups";
+import { usePopup } from "@/hooks/usePopup";
 const Home: React.FC = () => {
   const { state, positions, handleOpen, handleClose } = usePopup();
 

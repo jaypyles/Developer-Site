@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-import classes from "./link-block.module.css";
 import { clsx } from "clsx";
+import classes from "./link-block.module.css";
 
 interface ImageData {
   image: string;

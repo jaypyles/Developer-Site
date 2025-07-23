@@ -1,7 +1,6 @@
-import React from "react";
-import classes from "./currently-working.module.css";
 import { clsx } from "clsx";
 import Image from "next/image";
+import classes from "./currently-working.module.css";
 
 interface ImageData {
   image: string;

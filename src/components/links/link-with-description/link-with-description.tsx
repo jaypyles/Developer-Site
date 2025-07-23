@@ -1,7 +1,6 @@
-import React from "react";
+import { clsx } from "clsx";
 import Image from "next/image";
 import classes from "./link-with-description.module.css";
-import { clsx } from "clsx";
 
 type LinkWithDescriptionProps = {
   link: string;

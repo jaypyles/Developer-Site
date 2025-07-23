@@ -1,8 +1,7 @@
-import React from "react";
 import Image from "next/image";
 
-import classes from "./current-theme.module.css";
 import { clsx } from "clsx";
+import classes from "./current-theme.module.css";
 
 export const CurrentTheme = () => {
   return (

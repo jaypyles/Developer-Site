@@ -1,7 +1,7 @@
-import { Projects } from "src/components/projects";
-import { Project } from "src/lib/types";
 import { GetStaticProps } from "next";
+import { Projects } from "src/components/projects";
 import { projects } from "src/data";
+import { Project } from "src/lib/types";
 
 export const getStaticProps: GetStaticProps = async () => {
   const GITHUB_URL = "https://api.github.com/repos/jaypyles";
@@ -14,8 +14,6 @@ export const getStaticProps: GetStaticProps = async () => {
       return { ...fetchedProjectData, ...project };
     })
   );
-
-  console.log(projectData);
 
   return {
     props: {

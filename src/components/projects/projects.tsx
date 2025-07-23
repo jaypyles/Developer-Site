@@ -1,4 +1,3 @@
-import React from "react";
 import { AppWrapper } from "src/common";
 import { Project } from "src/lib/types";
 import { ProjectCard } from "./project-card/project-card";

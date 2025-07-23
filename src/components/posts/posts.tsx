@@ -1,13 +1,13 @@
-import clsx from "clsx";
 import {
-  Paper,
+  Box,
   ImageList,
   ImageListItem,
   ImageListItemBar,
-  Box,
   Modal,
+  Paper,
 } from "@mui/material";
-import React, { useState } from "react";
+import clsx from "clsx";
+import { useState } from "react";
 import { CardPost } from "src/components/posts";
 import classes from "./posts.module.css";
 

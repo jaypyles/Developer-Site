@@ -1,7 +1,6 @@
-import React from "react";
-import classes from "./app-wrapper.module.css";
 import clsx from "clsx";
 import { Navbar } from "src/components/nav/navbar/navbar";
+import classes from "./app-wrapper.module.css";
 
 export const AppWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
