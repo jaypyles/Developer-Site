@@ -1,6 +1,5 @@
-import React from "react";
-import Image from "next/image";
 import { Typography } from "@mui/material";
+import Image from "next/image";
 import { proficientLanguages, usedLanguages } from "./data";
 import classes from "./programming-languages.module.css";
 
@@ -11,7 +10,10 @@ export const ProgrammingLanguages = () => {
         <span className={classes.title}>Proficient</span>
         <ul className="list">
           {proficientLanguages.map((language) => (
-            <div className="flex flex-row items-center space-x-2">
+            <div
+              className="flex flex-row items-center space-x-2"
+              key={language.title}
+            >
               <Image
                 alt={language.alt}
                 src={language.path}
@@ -28,7 +30,10 @@ export const ProgrammingLanguages = () => {
         <span className={classes.title}>Have Used</span>
         <ul className="list space-y-1">
           {usedLanguages.map((language) => (
-            <div className="flex flex-row items-center space-x-2">
+            <div
+              className="flex flex-row items-center space-x-2"
+              key={language.title}
+            >
               <Image
                 alt={language.alt}
                 src={language.path}

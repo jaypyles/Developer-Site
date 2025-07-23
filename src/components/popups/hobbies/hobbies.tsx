@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { hobbies } from "./data";
 import classes from "./hobbies.module.css";
@@ -9,7 +8,7 @@ export const Hobbies = () => {
       <div>
         <ul className="list">
           {hobbies.map((hobby) => (
-            <div className={classes.hobby}>
+            <div className={classes.hobby} key={hobby.title}>
               <Image
                 alt={hobby.alt}
                 src={hobby.path}
