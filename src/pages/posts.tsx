@@ -1,9 +1,9 @@
-import React from "react";
 import { Posts } from "@/components/posts";
-import { GetStaticProps } from "next";
 import { PostDocument } from "@/lib/mongo";
-import clientPromise from "src/lib/mongo";
+import { GetStaticProps } from "next";
+import React from "react";
 import { Navbar } from "src/components/nav/navbar/navbar";
+import clientPromise from "src/lib/mongo";
 
 function formatDateWithSuffix(isoDateString: string): string {
   const date = new Date(isoDateString);
