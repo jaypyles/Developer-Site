@@ -5,4 +5,4 @@ services:
     volumes:
       - ./src:/app/src
       - ./public:/app/public
-    command: doppler run -t $DOPPLER_TOKEN -- npm run dev
+    command: npm run dev
