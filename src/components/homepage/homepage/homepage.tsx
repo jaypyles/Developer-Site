@@ -1,10 +1,9 @@
-import React from "react";
-import { work } from "@/data/working";
 import { CurrentlyWorkingInformation } from "@/components/homepage/currently-working";
 import { LinkWithDescription } from "@/components/links";
 import { Contacts } from "@/components/nav/contacts";
-import { PopupState } from "@/lib/types";
 import { retroButtons } from "@/data/retro-buttons";
+import { work } from "@/data/working";
+import { PopupState } from "@/lib/types";
 
 import { clsx } from "clsx";
 import classes from "./homepage.module.css";
@@ -36,22 +35,8 @@ export const Homepage = ({ handleOpen, popupState }: HomepageProps) => {
           <p>
             This site will be a continuous work-in-progress, and will most
             likely change often. It is a playground for ideas and a learning
-            tool for me to try out different and/or new technologies. This site
-            is hosted on my own hardware, with even a few apps publicly
-            available:
+            tool for me to try out different and/or new technologies.
           </p>
-          <div className={classes.projects}>
-            <LinkWithDescription
-              link="https://spaceify.jaydenpyles.dev"
-              smallDescription="A hackathon project I and 3 others built in 24 hours."
-              github="https://github.com/Space-ify/frontend-in-space"
-            />
-            <LinkWithDescription
-              link="https://notes.jaydenpyles.dev"
-              smallDescription="Custom built note rendering webapp."
-              github="https://github.com/jaypyles/very-simple-notes"
-            />
-          </div>
 
           <div className={classes.popups}>
             <p>
