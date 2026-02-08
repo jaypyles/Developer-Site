@@ -23,7 +23,7 @@
     "eslint-plugin-next": "^0.0.0",
     "framer-motion": "^4.1.17",
     "mongodb": "^6.8.0",
-    "next": "^15.4.3",
+    "next": "^15.5.0",
     "postcss": "^8.4.38",
     "prefixer": "^0.0.3",
     "react": "^18.2.0",
