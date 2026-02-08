@@ -1,7 +1,7 @@
 export const work = [
   {
-    image: "motion.png",
-    title: "Motion Industries",
-    description: "Manufacturing and Distribution Company",
+    image: "twilio.png",
+    title: "Twilio",
+    description: "Telecommunication APIs and Customer Data",
   },
 ];

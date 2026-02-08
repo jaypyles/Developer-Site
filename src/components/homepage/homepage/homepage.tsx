@@ -26,7 +26,7 @@ export const Homepage = ({ handleOpen, popupState }: HomepageProps) => {
           Hey, I&apos;m Jayden 👨‍💻
         </h1>
         <div className={classes.aboutContent}>
-          <p>I am a Software Engineer, working in web development at:</p>
+          <p>I am a Software Engineer, currently working at:</p>
           <div className={classes.currentlyWorking}>
             {work.map((data, index) => (
               <CurrentlyWorkingInformation key={index} imageData={data} />
